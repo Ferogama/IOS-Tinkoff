@@ -8,7 +8,7 @@ class FirstViewController: UIViewController {
         let customBackgroundColor = UIColor(red: 32/255, green: 29/255, blue: 68/255, alpha: 1.0)
         self.view.backgroundColor = customBackgroundColor
         addAndRefreshButton()
-        
+        setupView()
     }
     
     func addAndRefreshButton() {
@@ -16,10 +16,10 @@ class FirstViewController: UIViewController {
         button.backgroundColor = .black
         button.layer.cornerRadius = 15
         button.setTitle("Play", for: .normal)
-        button.addTarget(self, action: #selector(buttonDidTap(_:)), for: .touchUpInside)
-        
+        button.addTarget(self, action: #selector(buttonDidTap), for: .touchUpInside)
+        print(button)
         view.addSubview(button)
-
+        
         button.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -27,24 +27,22 @@ class FirstViewController: UIViewController {
             button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 250 ),
             button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60)
         ])
+    }
         
-        //logo
+    func setupView() {
+            //logo
         let logo = UIImageView()
-        logo.image = UIImage(named: "Logo")
-
+        //logo.image = UIImage(named: "Logo")
         view.addSubview(logo)
-        
         logo.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logo.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            
         ])
-    
     }
     
     @objc func buttonDidTap(_ sender: UIButton) {
         coordinator?.moveToSecondScreen()
+        print("fff")
     }
 }

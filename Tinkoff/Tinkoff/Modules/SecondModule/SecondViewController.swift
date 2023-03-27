@@ -7,6 +7,8 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        setupField()
+        setupRegisterButton()
     }
     private func setupViews() {
         let customBackgroundColor = UIColor(red: 72/255, green: 61/255, blue: 139/255, alpha: 1.0)
@@ -19,7 +21,9 @@ class SecondViewController: UIViewController {
             action: #selector(didTapBackButton)
         )
         navigationItem.leftBarButtonItem?.tintColor = .white
-        
+    }
+    
+    func setupField() {
         //Поле
         let userField = UITextField()
         userField.placeholder = "Enter your name"
@@ -33,7 +37,9 @@ class SecondViewController: UIViewController {
             userField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50 ),
             userField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50)
         ])
-        
+    }
+    
+    func setupRegisterButton() {
         //register button
         let registerButton = UIButton()
         registerButton.backgroundColor = UIColor(named: "customBackgroundColor")
