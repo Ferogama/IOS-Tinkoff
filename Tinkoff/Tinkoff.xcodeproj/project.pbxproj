@@ -9,14 +9,17 @@
 /* Begin PBXBuildFile section */
 		D2A62B2429D1D39D0068F3C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B2329D1D39D0068F3C2 /* AppDelegate.swift */; };
 		D2A62B2629D1D39D0068F3C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B2529D1D39D0068F3C2 /* SceneDelegate.swift */; };
-		D2A62B2829D1D39D0068F3C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B2729D1D39D0068F3C2 /* ViewController.swift */; };
-		D2A62B2B29D1D39D0068F3C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A62B2929D1D39D0068F3C2 /* Main.storyboard */; };
 		D2A62B2E29D1D39D0068F3C2 /* Tinkoff.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B2C29D1D39D0068F3C2 /* Tinkoff.xcdatamodeld */; };
 		D2A62B3029D1D39E0068F3C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2A62B2F29D1D39E0068F3C2 /* Assets.xcassets */; };
 		D2A62B3329D1D39E0068F3C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A62B3129D1D39E0068F3C2 /* LaunchScreen.storyboard */; };
 		D2A62B3E29D1D39E0068F3C2 /* TinkoffTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B3D29D1D39E0068F3C2 /* TinkoffTests.swift */; };
 		D2A62B4829D1D39E0068F3C2 /* TinkoffUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B4729D1D39E0068F3C2 /* TinkoffUITests.swift */; };
 		D2A62B4A29D1D39E0068F3C2 /* TinkoffUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B4929D1D39E0068F3C2 /* TinkoffUITestsLaunchTests.swift */; };
+		D2A62B5B29D1D6D00068F3C2 /* FirstViewControllerOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B5A29D1D6D00068F3C2 /* FirstViewControllerOutput.swift */; };
+		D2A62B5D29D1D6DF0068F3C2 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B5C29D1D6DF0068F3C2 /* FirstViewController.swift */; };
+		D2A62B5F29D1D6FE0068F3C2 /* SecondViewControllerOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B5E29D1D6FE0068F3C2 /* SecondViewControllerOutput.swift */; };
+		D2A62B6129D1D7100068F3C2 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B6029D1D7100068F3C2 /* SecondViewController.swift */; };
+		D2A62B6329D1D71C0068F3C2 /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B6229D1D71C0068F3C2 /* FlowCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +43,6 @@
 		D2A62B2029D1D39D0068F3C2 /* Tinkoff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tinkoff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A62B2329D1D39D0068F3C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2A62B2529D1D39D0068F3C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D2A62B2729D1D39D0068F3C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D2A62B2A29D1D39D0068F3C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D2A62B2D29D1D39D0068F3C2 /* Tinkoff.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tinkoff.xcdatamodel; sourceTree = "<group>"; };
 		D2A62B2F29D1D39E0068F3C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2A62B3229D1D39E0068F3C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +52,11 @@
 		D2A62B4329D1D39E0068F3C2 /* TinkoffUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinkoffUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A62B4729D1D39E0068F3C2 /* TinkoffUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinkoffUITests.swift; sourceTree = "<group>"; };
 		D2A62B4929D1D39E0068F3C2 /* TinkoffUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinkoffUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D2A62B5A29D1D6D00068F3C2 /* FirstViewControllerOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewControllerOutput.swift; sourceTree = "<group>"; };
+		D2A62B5C29D1D6DF0068F3C2 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		D2A62B5E29D1D6FE0068F3C2 /* SecondViewControllerOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewControllerOutput.swift; sourceTree = "<group>"; };
+		D2A62B6029D1D7100068F3C2 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		D2A62B6229D1D71C0068F3C2 /* FlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +107,9 @@
 		D2A62B2229D1D39D0068F3C2 /* Tinkoff */ = {
 			isa = PBXGroup;
 			children = (
+				D2A62B5629D1D6860068F3C2 /* Modules */,
 				D2A62B2329D1D39D0068F3C2 /* AppDelegate.swift */,
 				D2A62B2529D1D39D0068F3C2 /* SceneDelegate.swift */,
-				D2A62B2729D1D39D0068F3C2 /* ViewController.swift */,
-				D2A62B2929D1D39D0068F3C2 /* Main.storyboard */,
 				D2A62B2F29D1D39E0068F3C2 /* Assets.xcassets */,
 				D2A62B3129D1D39E0068F3C2 /* LaunchScreen.storyboard */,
 				D2A62B3429D1D39E0068F3C2 /* Info.plist */,
@@ -128,6 +133,42 @@
 				D2A62B4929D1D39E0068F3C2 /* TinkoffUITestsLaunchTests.swift */,
 			);
 			path = TinkoffUITests;
+			sourceTree = "<group>";
+		};
+		D2A62B5629D1D6860068F3C2 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				D2A62B5929D1D6B00068F3C2 /* FirstModule */,
+				D2A62B5829D1D6A40068F3C2 /* SecondModule */,
+				D2A62B5729D1D69B0068F3C2 /* Coordinator */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		D2A62B5729D1D69B0068F3C2 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				D2A62B6229D1D71C0068F3C2 /* FlowCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		D2A62B5829D1D6A40068F3C2 /* SecondModule */ = {
+			isa = PBXGroup;
+			children = (
+				D2A62B5E29D1D6FE0068F3C2 /* SecondViewControllerOutput.swift */,
+				D2A62B6029D1D7100068F3C2 /* SecondViewController.swift */,
+			);
+			path = SecondModule;
+			sourceTree = "<group>";
+		};
+		D2A62B5929D1D6B00068F3C2 /* FirstModule */ = {
+			isa = PBXGroup;
+			children = (
+				D2A62B5A29D1D6D00068F3C2 /* FirstViewControllerOutput.swift */,
+				D2A62B5C29D1D6DF0068F3C2 /* FirstViewController.swift */,
+			);
+			path = FirstModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,7 +277,6 @@
 			files = (
 				D2A62B3329D1D39E0068F3C2 /* LaunchScreen.storyboard in Resources */,
 				D2A62B3029D1D39E0068F3C2 /* Assets.xcassets in Resources */,
-				D2A62B2B29D1D39D0068F3C2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,9 +301,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2A62B2829D1D39D0068F3C2 /* ViewController.swift in Sources */,
+				D2A62B5F29D1D6FE0068F3C2 /* SecondViewControllerOutput.swift in Sources */,
+				D2A62B5D29D1D6DF0068F3C2 /* FirstViewController.swift in Sources */,
 				D2A62B2E29D1D39D0068F3C2 /* Tinkoff.xcdatamodeld in Sources */,
 				D2A62B2429D1D39D0068F3C2 /* AppDelegate.swift in Sources */,
+				D2A62B6329D1D71C0068F3C2 /* FlowCoordinator.swift in Sources */,
+				D2A62B6129D1D7100068F3C2 /* SecondViewController.swift in Sources */,
+				D2A62B5B29D1D6D00068F3C2 /* FirstViewControllerOutput.swift in Sources */,
 				D2A62B2629D1D39D0068F3C2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,14 +345,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D2A62B2929D1D39D0068F3C2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D2A62B2A29D1D39D0068F3C2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D2A62B3129D1D39E0068F3C2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -445,7 +481,6 @@
 				INFOPLIST_FILE = Tinkoff/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -472,7 +507,6 @@
 				INFOPLIST_FILE = Tinkoff/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
