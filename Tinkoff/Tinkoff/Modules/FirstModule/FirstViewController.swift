@@ -5,7 +5,7 @@ class FirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let customBackgroundColor = UIColor(red: 32/255, green: 29/255, blue: 68/255, alpha: 1.0)
+        let customBackgroundColor = UIColor(red: 71/255, green: 61/255, blue: 139/255, alpha: 1.0)
         self.view.backgroundColor = customBackgroundColor
         addAndRefreshButton()
         setupView()
@@ -39,6 +39,9 @@ class FirstViewController: UIViewController {
             logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             logo.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
+    }
+    func addLabel() {
+        
     }
     
     @objc func buttonDidTap(_ sender: UIButton) {
