@@ -7,11 +7,13 @@ class FirstViewController: UIViewController {
         super.viewDidLoad()
         let customBackgroundColor = UIColor(red: 71/255, green: 61/255, blue: 139/255, alpha: 1.0)
         self.view.backgroundColor = customBackgroundColor
-        addAndRefreshButton()
-        setupView()
+        addAddRefreshButton()
+        addNameLabel()
+        addBalanceLabel()
+        showImage()
     }
     
-    func addAndRefreshButton() {
+    func addAddRefreshButton() {
         let button = UIButton()
         button.backgroundColor = .black
         button.layer.cornerRadius = 15
@@ -28,24 +30,50 @@ class FirstViewController: UIViewController {
             button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60)
         ])
     }
+    
+    func addNameLabel() {
+        let nameLabel = UILabel()
+        nameLabel.text = "Name"
+        view.addSubview(nameLabel)
         
-    func setupView() {
-            //logo
-        let logo = UIImageView()
-        //logo.image = UIImage(named: "Logo")
-        view.addSubview(logo)
-        logo.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            logo.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            nameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 90 ),
+            nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 270 ),
+            nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60)
         ])
     }
-    func addLabel() {
+    
+    func addBalanceLabel() {
+        let balanceLabel = UILabel()
+        balanceLabel.text = "Balance"
+        view.addSubview(balanceLabel)
         
+        balanceLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            balanceLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 120 ),
+            balanceLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 270 ),
+            balanceLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60)
+        ])
     }
     
+    func showImage() {
+        let logoImage = UIImage(named: "Logo")
+        let imageView = UIImageView()
+        imageView.image = logoImage
+        //imageView.contentMode = .scaleAspectFit
+        view.addSubview(imageView)
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: view.topAnchor,constant: 150),
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 50),
+            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 50)
+        ])
+    }
+
     @objc func buttonDidTap(_ sender: UIButton) {
         coordinator?.moveToSecondScreen()
-        print("fff")
+        print("he want to play,ahhah")
     }
 }

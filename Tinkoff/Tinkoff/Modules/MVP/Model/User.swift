@@ -1,7 +1,7 @@
 
 import Foundation
+import CoreData
 
-struct UserInfo:Codable {
-    let name:String
-    let balance:Int
+class UserInfo: NSManagedObject {
+
 }
