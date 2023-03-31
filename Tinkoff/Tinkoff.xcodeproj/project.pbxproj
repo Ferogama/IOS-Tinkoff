@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4AEB88AA29D735570087BA49 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB88A929D735570087BA49 /* StorageService.swift */; };
+		4AEB88AD29D7359B0087BA49 /* RAWUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB88AC29D7359B0087BA49 /* RAWUser.swift */; };
+		4AEB88B129D736F30087BA49 /* FirstModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB88B029D736F30087BA49 /* FirstModulePresenter.swift */; };
+		4AEB88B329D737ED0087BA49 /* FirstModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB88B229D737ED0087BA49 /* FirstModuleIO.swift */; };
 		D26F175029D729420018F74E /* RoleUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F174F29D729420018F74E /* RoleUser.swift */; };
 		D26F175229D729E10018F74E /* UserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F175129D729E10018F74E /* UserPresenter.swift */; };
 		D26F175429D72B710018F74E /* UserViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F175329D72B710018F74E /* UserViewProtocol.swift */; };
-		D2964C0729D730F100F9DAC3 /* FirstViewControllerOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2964C0629D730F100F9DAC3 /* FirstViewControllerOutput.swift */; };
+		D2964C0729D730F100F9DAC3 /* FirstViewControllerIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2964C0629D730F100F9DAC3 /* FirstViewControllerIO.swift */; };
 		D2964C1029D7326B00F9DAC3 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2964C0E29D7326B00F9DAC3 /* User+CoreDataProperties.swift */; };
 		D2964C1129D7326B00F9DAC3 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2964C0F29D7326B00F9DAC3 /* User+CoreDataClass.swift */; };
 		D2A62B2429D1D39D0068F3C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B2329D1D39D0068F3C2 /* AppDelegate.swift */; };
@@ -45,10 +49,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4AEB88A929D735570087BA49 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		4AEB88AC29D7359B0087BA49 /* RAWUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAWUser.swift; sourceTree = "<group>"; };
+		4AEB88B029D736F30087BA49 /* FirstModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstModulePresenter.swift; sourceTree = "<group>"; };
+		4AEB88B229D737ED0087BA49 /* FirstModuleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstModuleIO.swift; sourceTree = "<group>"; };
 		D26F174F29D729420018F74E /* RoleUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleUser.swift; sourceTree = "<group>"; };
 		D26F175129D729E10018F74E /* UserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPresenter.swift; sourceTree = "<group>"; };
 		D26F175329D72B710018F74E /* UserViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewProtocol.swift; sourceTree = "<group>"; };
-		D2964C0629D730F100F9DAC3 /* FirstViewControllerOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewControllerOutput.swift; sourceTree = "<group>"; };
+		D2964C0629D730F100F9DAC3 /* FirstViewControllerIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewControllerIO.swift; sourceTree = "<group>"; };
 		D2964C0E29D7326B00F9DAC3 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D2964C0F29D7326B00F9DAC3 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D2A62B2029D1D39D0068F3C2 /* Tinkoff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tinkoff.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,10 +102,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4AEB88A729D7352B0087BA49 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4AEB88A929D735570087BA49 /* StorageService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		4AEB88AB29D735910087BA49 /* RawModel */ = {
+			isa = PBXGroup;
+			children = (
+				4AEB88AC29D7359B0087BA49 /* RAWUser.swift */,
+			);
+			path = RawModel;
+			sourceTree = "<group>";
+		};
+		4AEB88AE29D736D30087BA49 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				4AEB88B029D736F30087BA49 /* FirstModulePresenter.swift */,
+				4AEB88B229D737ED0087BA49 /* FirstModuleIO.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		4AEB88AF29D736D90087BA49 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D2964C0629D730F100F9DAC3 /* FirstViewControllerIO.swift */,
+				D2A62B5C29D1D6DF0068F3C2 /* FirstViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D232F2B229D60C1E004B23BC /* MVP */ = {
 			isa = PBXGroup;
 			children = (
-				D26F174E29D729260018F74E /* View */,
 				D232F2B529D60EC6004B23BC /* Presenter */,
 				D232F2B329D60EB4004B23BC /* Model */,
 			);
@@ -121,16 +162,10 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		D26F174E29D729260018F74E /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		D2964C0C29D7326B00F9DAC3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4AEB88AB29D735910087BA49 /* RawModel */,
 				D2964C0D29D7326B00F9DAC3 /* CoreDataModels */,
 			);
 			path = Models;
@@ -168,6 +203,7 @@
 		D2A62B2229D1D39D0068F3C2 /* Tinkoff */ = {
 			isa = PBXGroup;
 			children = (
+				4AEB88A729D7352B0087BA49 /* Services */,
 				D2964C0C29D7326B00F9DAC3 /* Models */,
 				D2A62B5629D1D6860068F3C2 /* Modules */,
 				D2A62B2329D1D39D0068F3C2 /* AppDelegate.swift */,
@@ -228,8 +264,8 @@
 		D2A62B5929D1D6B00068F3C2 /* FirstModule */ = {
 			isa = PBXGroup;
 			children = (
-				D2964C0629D730F100F9DAC3 /* FirstViewControllerOutput.swift */,
-				D2A62B5C29D1D6DF0068F3C2 /* FirstViewController.swift */,
+				4AEB88AF29D736D90087BA49 /* View */,
+				4AEB88AE29D736D30087BA49 /* Presenter */,
 			);
 			path = FirstModule;
 			sourceTree = "<group>";
@@ -366,6 +402,7 @@
 			files = (
 				D2A62B5F29D1D6FE0068F3C2 /* SecondViewControllerOutput.swift in Sources */,
 				D2A62B5D29D1D6DF0068F3C2 /* FirstViewController.swift in Sources */,
+				4AEB88AD29D7359B0087BA49 /* RAWUser.swift in Sources */,
 				D2964C1029D7326B00F9DAC3 /* User+CoreDataProperties.swift in Sources */,
 				D2964C1129D7326B00F9DAC3 /* User+CoreDataClass.swift in Sources */,
 				D2A62B2E29D1D39D0068F3C2 /* Tinkoff.xcdatamodeld in Sources */,
@@ -374,9 +411,12 @@
 				D2A62B6329D1D71C0068F3C2 /* FlowCoordinator.swift in Sources */,
 				D2A62B6129D1D7100068F3C2 /* SecondViewController.swift in Sources */,
 				D2A62B2629D1D39D0068F3C2 /* SceneDelegate.swift in Sources */,
-				D2964C0729D730F100F9DAC3 /* FirstViewControllerOutput.swift in Sources */,
+				4AEB88B129D736F30087BA49 /* FirstModulePresenter.swift in Sources */,
+				D2964C0729D730F100F9DAC3 /* FirstViewControllerIO.swift in Sources */,
 				D26F175229D729E10018F74E /* UserPresenter.swift in Sources */,
 				D26F175029D729420018F74E /* RoleUser.swift in Sources */,
+				4AEB88AA29D735570087BA49 /* StorageService.swift in Sources */,
+				4AEB88B329D737ED0087BA49 /* FirstModuleIO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

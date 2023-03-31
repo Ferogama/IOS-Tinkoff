@@ -14,16 +14,16 @@ class FlowCoordinator: FlowCoordinatorProtocol {
     
     func start() {
         let vc = FirstViewController()
-        vc.coordinator = self
+        let presenter = FirstModulePresenter(view: vc, moduleOutput: self)
+        vc.presenter = presenter
         navigationController.pushViewController(vc, animated: false)
     }
     func finish() {
         navigationController.popViewController(animated: true)
     }
-    
 }
 
-extension FlowCoordinator: FirstViewControllerOutput {
+extension FlowCoordinator: FirstModuleOutput {
     func moveToSecondScreen() {
         let vc = SecondViewController()
         vc.coordinator = self

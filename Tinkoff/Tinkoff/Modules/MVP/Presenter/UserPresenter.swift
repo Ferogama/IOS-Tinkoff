@@ -9,6 +9,12 @@ protocol UserPresenterProtocol {
 
 class UserPresenter: UserPresenterProtocol {
     weak var view: UserViewProtocol?
+    private let userService: StorageServiceProtocol
+
+    init(view: UserViewProtocol? = nil, userService: StorageServiceProtocol) {
+        self.view = view
+        self.userService = userService
+    }
     
     func viewDidLoad() {}
     

@@ -7,8 +7,6 @@ class SecondViewController: UIViewController, UserViewProtocol {
     var presenter: UserPresenterProtocol?
 
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()

@@ -1,9 +1,8 @@
 import UIKit
 
 class FirstViewController: UIViewController {
-    weak var coordinator:FirstViewControllerOutput?
-    
-    
+
+    var presenter: FirstViewControllerOutput?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -12,9 +11,7 @@ class FirstViewController: UIViewController {
         addAddRefreshButton()
         addNameLabel()
         addBalanceLabel()
-        showImage()
-    
-        
+        presenter?.viewDidLoad()
     }
     
     func addAddRefreshButton() {
@@ -61,24 +58,25 @@ class FirstViewController: UIViewController {
         ])
     }
     
-    func showImage() {
-        let logoImage = UIImage(named: "Logo")
-        let imageView = UIImageView()
-        imageView.image = logoImage
-        //imageView.contentMode = .scaleAspectFit
-        view.addSubview(imageView)
-        
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: view.topAnchor,constant: 150),
-            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 50),
-            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 50)
-        ])
-    }
-    
     @objc func buttonDidTap(_ sender: UIButton) {
-        coordinator?.moveToSecondScreen()
+        presenter?.didTapPlay()
         print("he want to play,ahhah")
     }
 }
 
+extension FirstViewController: FirstViewControllerInput {
+    func showImage(image: UIImage?) {
+        let imageView = UIImageView()
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFit
+        view.addSubview(imageView)
+
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 16),
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 16),
+            imageView.widthAnchor.constraint(equalToConstant: 128),
+            imageView.heightAnchor.constraint(equalToConstant: 128)
+        ])
+    }
+}
