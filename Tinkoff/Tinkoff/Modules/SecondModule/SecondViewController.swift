@@ -6,6 +6,10 @@ class SecondViewController: UIViewController, UserViewProtocol {
     
     var presenter: UserPresenterProtocol?
 
+    // MARK: view properties
+
+    private let userField = UITextField()
+    private let registerButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +32,6 @@ class SecondViewController: UIViewController, UserViewProtocol {
     
     func setupField() {
         //Поле
-        let userField = UITextField()
         userField.placeholder = "Enter your name"
         userField.borderStyle = .roundedRect
         view.addSubview(userField)
@@ -36,7 +39,7 @@ class SecondViewController: UIViewController, UserViewProtocol {
         userField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             userField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            userField.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            userField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 64),
             userField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50 ),
             userField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50)
         ])
@@ -49,7 +52,6 @@ class SecondViewController: UIViewController, UserViewProtocol {
     
     func setupRegisterButton() {
         //register button
-        let registerButton = UIButton()
         registerButton.backgroundColor = UIColor(named: "customBackgroundColor")
         registerButton.layer.cornerRadius = 15
         registerButton.layer.borderWidth = 2.0
@@ -60,9 +62,9 @@ class SecondViewController: UIViewController, UserViewProtocol {
         
         registerButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            registerButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 450 ),
-            registerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 250 ),
-            registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60)
+            registerButton.topAnchor.constraint(equalTo: userField.bottomAnchor, constant: 16 ),
+            registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            registerButton.widthAnchor.constraint(equalToConstant: 80)
         ])
         
     }
