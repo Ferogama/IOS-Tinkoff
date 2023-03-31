@@ -1,52 +1,44 @@
-
-import CoreData
-import Foundation
 import UIKit
+import CoreData
 
-class UserPresenter {
-    private weak var view: UserView?
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-      let context = appDelegate.persistentContainer.viewContext
+protocol UserPresenterProtocol {
+    var view: UserViewProtocol? { get set }
+    func viewDidLoad()
+    func registerButtonTapped(name: String, balanceString: String)
+}
+
+class UserPresenter: UserPresenterProtocol {
+    weak var view: UserViewProtocol?
     
-    init(view: UserView) {
-        self.view = view
-    }
+    func viewDidLoad() {}
     
-    // MARK: - Core Data methods
-    
-    func saveUser(name: String) {
-        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "name == %@", name)
+    func registerButtonTapped(name: String, balanceString: String) {
+        guard let balance = Int(balanceString) else {
+            view?.showAlert(title: "Error", message: "Invalid balance")
+            return
+        }
+        let user: User?
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         do {
-            let users = try managedObjectContext.fetch(fetchRequest)
-            if users.count > 0 {
-                view?.showError()
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+            request.predicate = NSPredicate(format: "name == %@", name)
+            let result = try context.fetch(request) as! [User]
+            if !result.isEmpty {
+                view?.showAlert(title: "Error", message: "User with such a name is already registered")
                 return
             }
-            
-            let entityDescription = NSEntityDescription.entity(forEntityName: "User", in: managedObjectContext)!
-            let user = UserInfo(entity: entityDescription, insertInto: managedObjectContext)
-            user.name = name
-            user.balance = 0.0
-            do {
-                try managedObjectContext.save()
-                view?.showUser(name: name, balance: user.balance)
-            } catch {
-                print("Unable to save user.")
-            }
+            user = User(context: context)
+            user?.name = name
+            user?.balance = Int64(balance)
+            try context.save()
         } catch {
-            print("Unable to fetch users.")
+            view?.showAlert(title: "Error", message: "Failed to save data")
+            return
         }
-    }
-    
-    func getUser() -> User? {
-        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
-        do {
-            let users = try managedObjectContext.fetch(fetchRequest)
-            return users.first
-        } catch {
-            print("Unable to fetch users.")
+        guard let userName = user?.name, let userBalance = user?.balance else {
+            view?.showAlert(title: "Error", message: "Failed to retrieve user data")
+            return
         }
-        return nil
+        view?.showUserData(name: userName, balance: Int(userBalance))
     }
 }

@@ -3,6 +3,8 @@ import UIKit
 class FirstViewController: UIViewController {
     weak var coordinator:FirstViewControllerOutput?
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let customBackgroundColor = UIColor(red: 71/255, green: 61/255, blue: 139/255, alpha: 1.0)
@@ -11,6 +13,8 @@ class FirstViewController: UIViewController {
         addNameLabel()
         addBalanceLabel()
         showImage()
+    
+        
     }
     
     func addAddRefreshButton() {
@@ -33,7 +37,7 @@ class FirstViewController: UIViewController {
     
     func addNameLabel() {
         let nameLabel = UILabel()
-        nameLabel.text = "Name"
+        nameLabel.text = ""
         view.addSubview(nameLabel)
         
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -46,7 +50,7 @@ class FirstViewController: UIViewController {
     
     func addBalanceLabel() {
         let balanceLabel = UILabel()
-        balanceLabel.text = "Balance"
+        balanceLabel.text = ""
         view.addSubview(balanceLabel)
         
         balanceLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -71,9 +75,10 @@ class FirstViewController: UIViewController {
             imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 50)
         ])
     }
-
+    
     @objc func buttonDidTap(_ sender: UIButton) {
         coordinator?.moveToSecondScreen()
         print("he want to play,ahhah")
     }
 }
+

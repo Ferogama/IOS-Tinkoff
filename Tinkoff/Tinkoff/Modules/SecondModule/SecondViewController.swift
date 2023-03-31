@@ -1,8 +1,13 @@
 import Foundation
 import UIKit
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, UserViewProtocol {
     weak var coordinator: SecondViewControllerOutput?
+    
+    var presenter: UserPresenterProtocol?
+
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +43,11 @@ class SecondViewController: UIViewController {
             userField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50)
         ])
     }
+    @objc func registerUser() {
+        
+        coordinator?.moveBack()
+    }
+    
     
     func setupRegisterButton() {
         //register button
@@ -62,4 +72,15 @@ class SecondViewController: UIViewController {
     @objc func didTapBackButton() {
         coordinator?.moveBack()
     }
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    func showUserData(name: String, balance: Int) {
+        let message = "Name: \(name)\nBalance: \(balance)"
+        showAlert(title: "User data", message: message)
+    }
 }
+

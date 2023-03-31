@@ -14,8 +14,8 @@
             filePath = "Tinkoff/Modules/FirstModule/FirstViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "buttonDidTap(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -71,15 +71,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0C7ABEB9-660D-4F7F-88E6-102BCB7E8AEC"
+            uuid = "845E04BB-10A8-4DC3-8E23-04A749128D1A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tinkoff/Modules/MVP/Presenter/UserPresenterImpl.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3"
-            endingLineNumber = "3"
+            startingLineNumber = "2"
+            endingLineNumber = "2"
             landmarkName = "unknown"
             landmarkType = "0">
          </BreakpointContent>
