@@ -13,8 +13,8 @@ class FlowCoordinator: FlowCoordinatorProtocol {
     }
     
     func start() {
-        let vc = FirstViewController()
-        let presenter = FirstModulePresenter(view: vc, moduleOutput: self)
+        let vc = StartViewController()
+        let presenter = StartModulePresenter(view: vc, moduleOutput: self)
         vc.presenter = presenter
         navigationController.pushViewController(vc, animated: false)
     }
@@ -23,14 +23,14 @@ class FlowCoordinator: FlowCoordinatorProtocol {
     }
 }
 
-extension FlowCoordinator: FirstModuleOutput {
+extension FlowCoordinator: StartModuleOutput {
     func moveToSecondScreen() {
-        let vc = SecondViewController()
+        let vc = RegistrationViewController()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
 }
-extension FlowCoordinator:SecondViewControllerOutput {
+extension FlowCoordinator: RegistrationViewControllerOutput {
     func moveBack() {
         navigationController.popViewController(animated: true)
     }

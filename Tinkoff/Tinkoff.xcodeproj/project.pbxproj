@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		4AEB88AA29D735570087BA49 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB88A929D735570087BA49 /* StorageService.swift */; };
 		4AEB88AD29D7359B0087BA49 /* RAWUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB88AC29D7359B0087BA49 /* RAWUser.swift */; };
-		4AEB88B129D736F30087BA49 /* FirstModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB88B029D736F30087BA49 /* FirstModulePresenter.swift */; };
-		4AEB88B329D737ED0087BA49 /* FirstModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB88B229D737ED0087BA49 /* FirstModuleIO.swift */; };
-		D26F175029D729420018F74E /* RoleUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F174F29D729420018F74E /* RoleUser.swift */; };
+		4AEB88B129D736F30087BA49 /* StartModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB88B029D736F30087BA49 /* StartModulePresenter.swift */; };
+		4AEB88B329D737ED0087BA49 /* StartModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB88B229D737ED0087BA49 /* StartModuleIO.swift */; };
+		D2684C6729DF124400B73ABF /* RegistrationModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2684C6629DF124400B73ABF /* RegistrationModulePresenter.swift */; };
+		D2684C6929DF125D00B73ABF /* RegistrationModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2684C6829DF125D00B73ABF /* RegistrationModuleIO.swift */; };
 		D26F175229D729E10018F74E /* UserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F175129D729E10018F74E /* UserPresenter.swift */; };
 		D26F175429D72B710018F74E /* UserViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F175329D72B710018F74E /* UserViewProtocol.swift */; };
-		D2964C0729D730F100F9DAC3 /* FirstViewControllerIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2964C0629D730F100F9DAC3 /* FirstViewControllerIO.swift */; };
+		D2964C0729D730F100F9DAC3 /* StartViewControllerIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2964C0629D730F100F9DAC3 /* StartViewControllerIO.swift */; };
 		D2964C1029D7326B00F9DAC3 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2964C0E29D7326B00F9DAC3 /* User+CoreDataProperties.swift */; };
 		D2964C1129D7326B00F9DAC3 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2964C0F29D7326B00F9DAC3 /* User+CoreDataClass.swift */; };
 		D2A62B2429D1D39D0068F3C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B2329D1D39D0068F3C2 /* AppDelegate.swift */; };
@@ -25,9 +26,9 @@
 		D2A62B3E29D1D39E0068F3C2 /* TinkoffTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B3D29D1D39E0068F3C2 /* TinkoffTests.swift */; };
 		D2A62B4829D1D39E0068F3C2 /* TinkoffUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B4729D1D39E0068F3C2 /* TinkoffUITests.swift */; };
 		D2A62B4A29D1D39E0068F3C2 /* TinkoffUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B4929D1D39E0068F3C2 /* TinkoffUITestsLaunchTests.swift */; };
-		D2A62B5D29D1D6DF0068F3C2 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B5C29D1D6DF0068F3C2 /* FirstViewController.swift */; };
-		D2A62B5F29D1D6FE0068F3C2 /* SecondViewControllerOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B5E29D1D6FE0068F3C2 /* SecondViewControllerOutput.swift */; };
-		D2A62B6129D1D7100068F3C2 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B6029D1D7100068F3C2 /* SecondViewController.swift */; };
+		D2A62B5D29D1D6DF0068F3C2 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B5C29D1D6DF0068F3C2 /* StartViewController.swift */; };
+		D2A62B5F29D1D6FE0068F3C2 /* RegistrationViewControllerOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B5E29D1D6FE0068F3C2 /* RegistrationViewControllerOutput.swift */; };
+		D2A62B6129D1D7100068F3C2 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B6029D1D7100068F3C2 /* RegistrationViewController.swift */; };
 		D2A62B6329D1D71C0068F3C2 /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B6229D1D71C0068F3C2 /* FlowCoordinator.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,12 +52,13 @@
 /* Begin PBXFileReference section */
 		4AEB88A929D735570087BA49 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		4AEB88AC29D7359B0087BA49 /* RAWUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAWUser.swift; sourceTree = "<group>"; };
-		4AEB88B029D736F30087BA49 /* FirstModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstModulePresenter.swift; sourceTree = "<group>"; };
-		4AEB88B229D737ED0087BA49 /* FirstModuleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstModuleIO.swift; sourceTree = "<group>"; };
-		D26F174F29D729420018F74E /* RoleUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleUser.swift; sourceTree = "<group>"; };
+		4AEB88B029D736F30087BA49 /* StartModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartModulePresenter.swift; sourceTree = "<group>"; };
+		4AEB88B229D737ED0087BA49 /* StartModuleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartModuleIO.swift; sourceTree = "<group>"; };
+		D2684C6629DF124400B73ABF /* RegistrationModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModulePresenter.swift; sourceTree = "<group>"; };
+		D2684C6829DF125D00B73ABF /* RegistrationModuleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModuleIO.swift; sourceTree = "<group>"; };
 		D26F175129D729E10018F74E /* UserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPresenter.swift; sourceTree = "<group>"; };
 		D26F175329D72B710018F74E /* UserViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewProtocol.swift; sourceTree = "<group>"; };
-		D2964C0629D730F100F9DAC3 /* FirstViewControllerIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewControllerIO.swift; sourceTree = "<group>"; };
+		D2964C0629D730F100F9DAC3 /* StartViewControllerIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewControllerIO.swift; sourceTree = "<group>"; };
 		D2964C0E29D7326B00F9DAC3 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D2964C0F29D7326B00F9DAC3 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D2A62B2029D1D39D0068F3C2 /* Tinkoff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tinkoff.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,9 +73,9 @@
 		D2A62B4329D1D39E0068F3C2 /* TinkoffUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinkoffUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A62B4729D1D39E0068F3C2 /* TinkoffUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinkoffUITests.swift; sourceTree = "<group>"; };
 		D2A62B4929D1D39E0068F3C2 /* TinkoffUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinkoffUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		D2A62B5C29D1D6DF0068F3C2 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		D2A62B5E29D1D6FE0068F3C2 /* SecondViewControllerOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewControllerOutput.swift; sourceTree = "<group>"; };
-		D2A62B6029D1D7100068F3C2 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		D2A62B5C29D1D6DF0068F3C2 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		D2A62B5E29D1D6FE0068F3C2 /* RegistrationViewControllerOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewControllerOutput.swift; sourceTree = "<group>"; };
+		D2A62B6029D1D7100068F3C2 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		D2A62B6229D1D71C0068F3C2 /* FlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,8 +123,8 @@
 		4AEB88AE29D736D30087BA49 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				4AEB88B029D736F30087BA49 /* FirstModulePresenter.swift */,
-				4AEB88B229D737ED0087BA49 /* FirstModuleIO.swift */,
+				4AEB88B029D736F30087BA49 /* StartModulePresenter.swift */,
+				4AEB88B229D737ED0087BA49 /* StartModuleIO.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -130,8 +132,8 @@
 		4AEB88AF29D736D90087BA49 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D2964C0629D730F100F9DAC3 /* FirstViewControllerIO.swift */,
-				D2A62B5C29D1D6DF0068F3C2 /* FirstViewController.swift */,
+				D2964C0629D730F100F9DAC3 /* StartViewControllerIO.swift */,
+				D2A62B5C29D1D6DF0068F3C2 /* StartViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -148,7 +150,6 @@
 		D232F2B329D60EB4004B23BC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D26F174F29D729420018F74E /* RoleUser.swift */,
 				D26F175329D72B710018F74E /* UserViewProtocol.swift */,
 			);
 			path = Model;
@@ -158,6 +159,24 @@
 			isa = PBXGroup;
 			children = (
 				D26F175129D729E10018F74E /* UserPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D2684C5F29DEF5BB00B73ABF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D2A62B5E29D1D6FE0068F3C2 /* RegistrationViewControllerOutput.swift */,
+				D2A62B6029D1D7100068F3C2 /* RegistrationViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D2684C6529DF121900B73ABF /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D2684C6629DF124400B73ABF /* RegistrationModulePresenter.swift */,
+				D2684C6829DF125D00B73ABF /* RegistrationModuleIO.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -255,8 +274,8 @@
 		D2A62B5829D1D6A40068F3C2 /* SecondModule */ = {
 			isa = PBXGroup;
 			children = (
-				D2A62B5E29D1D6FE0068F3C2 /* SecondViewControllerOutput.swift */,
-				D2A62B6029D1D7100068F3C2 /* SecondViewController.swift */,
+				D2684C6529DF121900B73ABF /* Presenter */,
+				D2684C5F29DEF5BB00B73ABF /* View */,
 			);
 			path = SecondModule;
 			sourceTree = "<group>";
@@ -400,23 +419,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2A62B5F29D1D6FE0068F3C2 /* SecondViewControllerOutput.swift in Sources */,
-				D2A62B5D29D1D6DF0068F3C2 /* FirstViewController.swift in Sources */,
+				D2A62B5F29D1D6FE0068F3C2 /* RegistrationViewControllerOutput.swift in Sources */,
+				D2684C6929DF125D00B73ABF /* RegistrationModuleIO.swift in Sources */,
+				D2A62B5D29D1D6DF0068F3C2 /* StartViewController.swift in Sources */,
 				4AEB88AD29D7359B0087BA49 /* RAWUser.swift in Sources */,
 				D2964C1029D7326B00F9DAC3 /* User+CoreDataProperties.swift in Sources */,
 				D2964C1129D7326B00F9DAC3 /* User+CoreDataClass.swift in Sources */,
+				D2684C6729DF124400B73ABF /* RegistrationModulePresenter.swift in Sources */,
 				D2A62B2E29D1D39D0068F3C2 /* Tinkoff.xcdatamodeld in Sources */,
 				D26F175429D72B710018F74E /* UserViewProtocol.swift in Sources */,
 				D2A62B2429D1D39D0068F3C2 /* AppDelegate.swift in Sources */,
 				D2A62B6329D1D71C0068F3C2 /* FlowCoordinator.swift in Sources */,
-				D2A62B6129D1D7100068F3C2 /* SecondViewController.swift in Sources */,
+				D2A62B6129D1D7100068F3C2 /* RegistrationViewController.swift in Sources */,
 				D2A62B2629D1D39D0068F3C2 /* SceneDelegate.swift in Sources */,
-				4AEB88B129D736F30087BA49 /* FirstModulePresenter.swift in Sources */,
-				D2964C0729D730F100F9DAC3 /* FirstViewControllerIO.swift in Sources */,
+				4AEB88B129D736F30087BA49 /* StartModulePresenter.swift in Sources */,
+				D2964C0729D730F100F9DAC3 /* StartViewControllerIO.swift in Sources */,
 				D26F175229D729E10018F74E /* UserPresenter.swift in Sources */,
-				D26F175029D729420018F74E /* RoleUser.swift in Sources */,
 				4AEB88AA29D735570087BA49 /* StorageService.swift in Sources */,
-				4AEB88B329D737ED0087BA49 /* FirstModuleIO.swift in Sources */,
+				4AEB88B329D737ED0087BA49 /* StartModuleIO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

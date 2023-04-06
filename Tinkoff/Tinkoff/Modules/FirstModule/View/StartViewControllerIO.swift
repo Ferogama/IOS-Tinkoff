@@ -1,10 +1,10 @@
 import UIKit
 
-protocol FirstViewControllerOutput: AnyObject {
+protocol StartViewControllerOutput: AnyObject {
     func viewDidLoad()
     func didTapPlay()
 }
 
-protocol FirstViewControllerInput: AnyObject {
+protocol StartViewControllerInput: AnyObject {
     func showImage(image: UIImage?)
 }

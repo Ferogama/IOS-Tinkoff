@@ -1,8 +1,8 @@
 import Foundation
 import UIKit
 
-class SecondViewController: UIViewController, UserViewProtocol {
-    weak var coordinator: SecondViewControllerOutput?
+class RegistrationViewController: UIViewController, UserViewProtocol {
+    weak var coordinator: RegistrationViewControllerOutput?
     
     var presenter: UserPresenterProtocol?
 
@@ -58,6 +58,7 @@ class SecondViewController: UIViewController, UserViewProtocol {
         registerButton.layer.borderColor = UIColor.white.cgColor
         registerButton.setTitleColor(UIColor .white, for: .normal)
         registerButton.setTitle("Register", for: .normal)
+        registerButton.addTarget(self, action: #selector(registerUser), for: .touchUpInside)
         view.addSubview(registerButton)
         
         registerButton.translatesAutoresizingMaskIntoConstraints = false

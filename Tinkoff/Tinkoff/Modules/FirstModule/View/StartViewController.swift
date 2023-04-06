@@ -1,8 +1,8 @@
 import UIKit
 
-class FirstViewController: UIViewController {
+class StartViewController: UIViewController {
 
-    var presenter: FirstViewControllerOutput?
+    var presenter: StartViewControllerOutput?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,20 +15,20 @@ class FirstViewController: UIViewController {
     }
     
     func addAddRefreshButton() {
-        let button = UIButton()
-        button.backgroundColor = .black
-        button.layer.cornerRadius = 15
-        button.setTitle("Play", for: .normal)
-        button.addTarget(self, action: #selector(buttonDidTap), for: .touchUpInside)
-        print(button)
-        view.addSubview(button)
+        let playButton = UIButton()
+        playButton.backgroundColor = .black
+        playButton.layer.cornerRadius = 15
+        playButton.setTitle("Play", for: .normal)
+        playButton.addTarget(self, action: #selector(buttonDidTap), for: .touchUpInside)
+        print(playButton)
+        view.addSubview(playButton)
         
-        button.translatesAutoresizingMaskIntoConstraints = false
+        playButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -300 ),
-            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 250 ),
-            button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60)
+            playButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -300 ),
+            playButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 250 ),
+            playButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60)
         ])
     }
     
@@ -64,7 +64,7 @@ class FirstViewController: UIViewController {
     }
 }
 
-extension FirstViewController: FirstViewControllerInput {
+extension StartViewController: StartViewControllerInput {
     func showImage(image: UIImage?) {
         let imageView = UIImageView()
         imageView.image = image
