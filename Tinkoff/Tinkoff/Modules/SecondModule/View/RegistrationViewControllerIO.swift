@@ -1,5 +1,8 @@
 import Foundation
 
 protocol RegistrationViewControllerOutput: AnyObject {
-    func moveBack()
+    func didTapBackButton()
+    func didTapSave(userName: String)
 }
+
+

@@ -5,8 +5,9 @@ protocol FlowCoordinatorProtocol {
     func finish()
 }
 class FlowCoordinator: FlowCoordinatorProtocol {
-    
+
     var navigationController: UINavigationController!
+    
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -25,12 +26,14 @@ class FlowCoordinator: FlowCoordinatorProtocol {
 
 extension FlowCoordinator: StartModuleOutput {
     func moveToSecondScreen() {
-        let vc = RegistrationViewController()
-        vc.coordinator = self
+    
+        
+        let presenter = RegistrationModulePresenter(registrationModuleOutput: self, service: UserService())
+        let vc = RegistrationViewController(presenter: presenter)
         navigationController.pushViewController(vc, animated: true)
     }
 }
-extension FlowCoordinator: RegistrationViewControllerOutput {
+extension FlowCoordinator: RegistrationModuleOutput {
     func moveBack() {
         navigationController.popViewController(animated: true)
     }

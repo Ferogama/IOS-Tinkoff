@@ -1,4 +1,4 @@
-//MARK: presenter для начального экрана.Описывает методы
+//MARK: presenter для начального экрана.
 import UIKit
 
 final class StartModulePresenter {

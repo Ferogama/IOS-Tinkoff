@@ -4,6 +4,9 @@ class StartViewController: UIViewController {
 
     var presenter: StartViewControllerOutput?
     
+    var nameLabel = UILabel()
+    var balanceLabel = UILabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let customBackgroundColor = UIColor(red: 71/255, green: 61/255, blue: 139/255, alpha: 1.0)
@@ -33,8 +36,8 @@ class StartViewController: UIViewController {
     }
     
     func addNameLabel() {
-        let nameLabel = UILabel()
-        nameLabel.text = ""
+        
+        
         view.addSubview(nameLabel)
         
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -46,7 +49,7 @@ class StartViewController: UIViewController {
     }
     
     func addBalanceLabel() {
-        let balanceLabel = UILabel()
+        
         balanceLabel.text = ""
         view.addSubview(balanceLabel)
         
