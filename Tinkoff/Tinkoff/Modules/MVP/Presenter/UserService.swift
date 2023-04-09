@@ -7,6 +7,7 @@ protocol UserServiceProtocol  {
 }
 enum UserError: Error {
     case invalidBalance
+    case invalidUsername
 }
 class UserService: UserServiceProtocol {
    
@@ -31,5 +32,7 @@ class UserService: UserServiceProtocol {
             throw UserError.invalidBalance
         }
         return RAWUser(name: userName, balance: Int(userBalance))
+        
     }
+
 }

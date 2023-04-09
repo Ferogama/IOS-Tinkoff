@@ -1,15 +1,15 @@
 import UIKit
 
 class StartViewController: UIViewController {
-
+    
     var presenter: StartViewControllerOutput?
     
     var nameLabel = UILabel()
     var balanceLabel = UILabel()
+    let customBackgroundColor = UIColor(red: 71/255, green: 61/255, blue: 139/255, alpha: 1.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let customBackgroundColor = UIColor(red: 71/255, green: 61/255, blue: 139/255, alpha: 1.0)
         self.view.backgroundColor = customBackgroundColor
         addAddRefreshButton()
         addNameLabel()
@@ -23,27 +23,23 @@ class StartViewController: UIViewController {
         playButton.layer.cornerRadius = 15
         playButton.setTitle("Play", for: .normal)
         playButton.addTarget(self, action: #selector(buttonDidTap), for: .touchUpInside)
-        print(playButton)
         view.addSubview(playButton)
         
         playButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            playButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -300 ),
-            playButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 250 ),
+            playButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -300),
+            playButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 250),
             playButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60)
         ])
     }
     
     func addNameLabel() {
-        
-        
         view.addSubview(nameLabel)
-        
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 90 ),
-            nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 270 ),
+            nameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 90),
+            nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 270),
             nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60)
         ])
     }
@@ -55,8 +51,8 @@ class StartViewController: UIViewController {
         
         balanceLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            balanceLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 120 ),
-            balanceLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 270 ),
+            balanceLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 120),
+            balanceLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 270),
             balanceLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60)
         ])
     }
@@ -73,7 +69,7 @@ extension StartViewController: StartViewControllerInput {
         imageView.image = image
         imageView.contentMode = .scaleAspectFit
         view.addSubview(imageView)
-
+        
         imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 16),

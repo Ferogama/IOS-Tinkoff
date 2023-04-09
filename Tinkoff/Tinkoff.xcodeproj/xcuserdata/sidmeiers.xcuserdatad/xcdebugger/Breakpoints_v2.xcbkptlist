@@ -94,8 +94,8 @@
             filePath = "Tinkoff/Modules/MVP/Presenter/UserService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "11"
-            endingLineNumber = "11"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
             landmarkName = "UserService"
             landmarkType = "3">
             <Locations>
@@ -172,8 +172,8 @@
             filePath = "Tinkoff/Modules/MVP/Presenter/UserService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
             landmarkName = "saveUser(name:balanceString:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -181,63 +181,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8DBDA1AB-4C9E-4FB8-9B46-F1B64B8BDAD9"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Tinkoff/Modules/SecondModule/View/RegistrationViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "registerUser()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "8DBDA1AB-4C9E-4FB8-9B46-F1B64B8BDAD9 - 160ea8e441257366"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tinkoff.RegistrationViewController.registerUser() -&gt; ()"
-                  moduleName = "Tinkoff"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sidmeiers/Desktop/Swift/IOS-Tinkoff/Tinkoff/Tinkoff/Modules/SecondModule/View/RegistrationViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "40">
-               </Location>
-               <Location
-                  uuid = "8DBDA1AB-4C9E-4FB8-9B46-F1B64B8BDAD9 - 160ea8e441257366"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tinkoff.RegistrationViewController.registerUser() -&gt; ()"
-                  moduleName = "Tinkoff"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sidmeiers/Desktop/Swift/IOS-Tinkoff/Tinkoff/Tinkoff/Modules/SecondModule/View/RegistrationViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "100">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "F936EF23-867D-4337-AF6D-1221A94C5955"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tinkoff/Modules/MVP/Presenter/UserService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "saveUser(name:balanceString:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -246,14 +198,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F2FBC01D-918C-42ED-A778-C6522F6576CD"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tinkoff/Modules/MVP/Presenter/UserService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "saveUser(name:balanceString:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -262,14 +214,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "7F2805E4-EA6B-41A6-850D-D319C992103B"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tinkoff/Modules/MVP/Presenter/UserService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
             landmarkName = "saveUser(name:balanceString:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -284,8 +236,8 @@
             filePath = "Tinkoff/Modules/MVP/Presenter/UserService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
             landmarkName = "saveUser(name:balanceString:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -300,8 +252,8 @@
             filePath = "Tinkoff/Modules/MVP/Presenter/UserService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "saveUser(name:balanceString:)"
             landmarkType = "7">
          </BreakpointContent>
