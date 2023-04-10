@@ -3,7 +3,8 @@ import UIKit
 import CoreData
 
 class RegistrationViewController: UIViewController, UserViewProtocol, UITableViewDelegate, UITableViewDataSource {
-    private var users:[User] = []
+    
+    var users:[User] = []
     
     var presenter: RegistrationViewControllerOutput
     
@@ -46,7 +47,7 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         addBalanceLabel()
         tableViewReloading()
         reloadNotes()
-       
+        //presenter.coreDataLoad()
         
     }
     
@@ -84,7 +85,7 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         nameLabel.text = name
         presenter.didTapSave(userName: name)
     }
-
+    
     private func setupRegisterButton() {
         
         registerButton.backgroundColor = UIColor(named: "customBackgroundColor")
@@ -111,7 +112,7 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         presenter.didTapBackButton()
     }
     
-
+    
     // MARK: ALERTS
     
     func showAlert(title: String, message: String) {
@@ -151,25 +152,6 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         ])
     }
     
-    //MARK: Core data
-    
-    func managedObjectContext() -> NSManagedObjectContext {
-        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate)
-        else {
-            fatalError("Couldnt reload data")
-        }
-        return appDelegate.persistentContainer.viewContext
-    }
-    
-    func reloadNotes() {
-        do {
-            users = try managedObjectContext().fetch(User.fetchRequest())
-            tableView.reloadData()
-        } catch {
-            print("takoe")
-        }
-    }
-    
     //MARK: Table
     
     private func tableViewReloading() {
@@ -178,7 +160,7 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         tableView.allowsSelection = false
         tableView.backgroundColor = customBackgroundColor
         view.addSubview(tableView)
-
+        
         // Обновить таблицу
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -207,4 +189,26 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         cell.textLabel?.text = "\(users[indexPath.row])"
         return cell
     }
+    
+    //MARK: Core data
+    
 }
+extension RegistrationViewController: RegistrationViewControllerInput {
+    func managedObjectContext() -> NSManagedObjectContext {
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate)
+        else {
+            fatalError("Couldnt reload data")
+        }
+        return appDelegate.persistentContainer.viewContext
+    }
+    
+    func reloadNotes() {
+        
+        do {
+            users = try managedObjectContext().fetch(User.fetchRequest())
+        } catch {
+            print("takoe")
+        }
+    }
+}
+

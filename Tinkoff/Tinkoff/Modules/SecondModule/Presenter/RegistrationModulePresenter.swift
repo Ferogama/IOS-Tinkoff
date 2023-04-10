@@ -4,6 +4,8 @@ import UIKit
 
 final class RegistrationModulePresenter {
 
+    weak var data: RegistrationViewControllerInput?
+    
     private let service: UserServiceProtocol
    
     weak var registrationModuleOutput: RegistrationModuleOutput?
@@ -11,16 +13,19 @@ final class RegistrationModulePresenter {
 
     init(
         
+        data: RegistrationViewControllerInput? = nil,
         registrationModuleOutput: RegistrationModuleOutput,
         service: UserServiceProtocol
     ) {
-        
+        self.data = data
         self.registrationModuleOutput = registrationModuleOutput
         self.service = service
     }
 }
 
 extension RegistrationModulePresenter: RegistrationViewControllerOutput {
+    
+    
     func didTapBackButton() {
         registrationModuleOutput?.moveBack()
     }
@@ -31,5 +36,9 @@ extension RegistrationModulePresenter: RegistrationViewControllerOutput {
         } catch {
             print("alba")
         }
+    }
+    func coreDataLoad() {
+        data?.reloadNotes()
+        data?.managedObjectContext()
     }
 }
