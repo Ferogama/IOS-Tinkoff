@@ -1,11 +1,12 @@
 import Foundation
 import UIKit
+import CoreData
 
 class RegistrationViewController: UIViewController, UserViewProtocol, UITableViewDelegate, UITableViewDataSource {
-
-    var numbers: [String] = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen"]
+    private var users:[User] = []
     
     var presenter: RegistrationViewControllerOutput
+    
     init(presenter: RegistrationViewControllerOutput) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
@@ -17,7 +18,7 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
     
     private let tableView:UITableView = {
         let table = UITableView()
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         return table
     }()
     
@@ -44,12 +45,13 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         addNameLabel()
         addBalanceLabel()
         tableViewReloading()
+        reloadNotes()
+       
         
     }
+    
     private func setupViews() {
-        
         view.backgroundColor = customBackgroundColor
-        
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             title: "←",
             style: .plain,
@@ -60,7 +62,7 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
     }
     
     // MARK: Placeholder
-    func setupField() {
+    private func setupField() {
         userField.placeholder = "Enter your name"
         userField.borderStyle = .roundedRect
         view.addSubview(userField)
@@ -75,17 +77,15 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
     }
     
     // MARK: RegisterButton
-    @objc func registerUser() {
+    @objc private func registerUser() {
         guard let name = userField.text else {
             return
         }
         nameLabel.text = name
         presenter.didTapSave(userName: name)
-        //presenter.didTapBackButton()
-
     }
 
-    func setupRegisterButton() {
+    private func setupRegisterButton() {
         
         registerButton.backgroundColor = UIColor(named: "customBackgroundColor")
         registerButton.layer.cornerRadius = 15
@@ -105,13 +105,15 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         
     }
     
-    // MARK: <- Button
-    @objc func didTapBackButton() {
+    // MARK: ← Button
+    
+    @objc private func didTapBackButton() {
         presenter.didTapBackButton()
     }
     
 
     // MARK: ALERTS
+    
     func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
@@ -123,8 +125,10 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         let message = "Name: \(name)\nBalance: \(balance)"
         showAlert(title: "User data", message: message)
     }
-    func addNameLabel() {
-        
+    
+    //MARK: Labels
+    
+    private func addNameLabel() {
         view.addSubview(nameLabel)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -134,7 +138,7 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         ])
     }
     
-    func addBalanceLabel() {
+    private func addBalanceLabel() {
         
         balanceLabel.text = ""
         view.addSubview(balanceLabel)
@@ -146,38 +150,61 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
             balanceLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60)
         ])
     }
-    func tableViewReloading() {
-        
-        // Установить делегат и источник данных для таблицы
+    
+    //MARK: Core data
+    
+    func managedObjectContext() -> NSManagedObjectContext {
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate)
+        else {
+            fatalError("Couldnt reload data")
+        }
+        return appDelegate.persistentContainer.viewContext
+    }
+    
+    func reloadNotes() {
+        do {
+            users = try managedObjectContext().fetch(User.fetchRequest())
+            tableView.reloadData()
+        } catch {
+            print("takoe")
+        }
+    }
+    
+    //MARK: Table
+    
+    private func tableViewReloading() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsSelection = false
         tableView.backgroundColor = customBackgroundColor
-        
-        
-        // Добавить таблицу в главное окно
         view.addSubview(tableView)
-        
+
         // Обновить таблицу
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -90),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 30),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -30),
-//            tableView.widthAnchor.constraint(equalToConstant: 120),
             tableView.heightAnchor.constraint(equalToConstant: 450)
         ])
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numbers.count
+        return users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "\(numbers[indexPath.row])"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let user = users[indexPath.row]
+        var configuration = UIListContentConfiguration.subtitleCell()
+        configuration.text = user.name ?? "Empty"
+        configuration.secondaryText = "\(user.balance)"
+        cell.contentConfiguration = configuration
+        cell.textLabel?.text = "\(users[indexPath.row])"
         return cell
     }
 }

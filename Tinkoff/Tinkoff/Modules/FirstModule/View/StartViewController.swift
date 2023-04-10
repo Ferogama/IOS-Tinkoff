@@ -6,18 +6,21 @@ class StartViewController: UIViewController {
     
     var nameLabel = UILabel()
     var balanceLabel = UILabel()
+    
     let customBackgroundColor = UIColor(red: 71/255, green: 61/255, blue: 139/255, alpha: 1.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = customBackgroundColor
-        addAddRefreshButton()
+        addPlayButton()
         addNameLabel()
         addBalanceLabel()
         presenter?.viewDidLoad()
     }
     
-    func addAddRefreshButton() {
+    //MARK: Play Button
+    
+    func addPlayButton() {
         let playButton = UIButton()
         playButton.backgroundColor = .black
         playButton.layer.cornerRadius = 15
@@ -34,6 +37,8 @@ class StartViewController: UIViewController {
         ])
     }
     
+    //MARK: Labels
+    
     func addNameLabel() {
         view.addSubview(nameLabel)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -45,10 +50,8 @@ class StartViewController: UIViewController {
     }
     
     func addBalanceLabel() {
-        
         balanceLabel.text = ""
         view.addSubview(balanceLabel)
-        
         balanceLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             balanceLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 120),
@@ -57,9 +60,8 @@ class StartViewController: UIViewController {
         ])
     }
     
-    @objc func buttonDidTap(_ sender: UIButton) {
+    @objc private func buttonDidTap(_ sender: UIButton) {
         presenter?.didTapPlay()
-        print("he want to play,ahhah")
     }
 }
 
