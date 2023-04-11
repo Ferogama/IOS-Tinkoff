@@ -4,7 +4,9 @@ import UIKit
 
 final class RegistrationModulePresenter {
 
-    weak var data: RegistrationViewControllerInput?
+    weak var view: RegistrationViewControllerInput?
+    
+    var users:[RAWUser] = []
     
     private let service: UserServiceProtocol
    
@@ -13,17 +15,25 @@ final class RegistrationModulePresenter {
 
     init(
         
-        data: RegistrationViewControllerInput? = nil,
+        view: RegistrationViewControllerInput? = nil,
         registrationModuleOutput: RegistrationModuleOutput,
         service: UserServiceProtocol
     ) {
-        self.data = data
+        self.view = view
         self.registrationModuleOutput = registrationModuleOutput
         self.service = service
     }
 }
 
 extension RegistrationModulePresenter: RegistrationViewControllerOutput {
+    func cellsCount() -> Int {
+        users.count
+    }
+    
+    func data(for index: Int) -> (String, String) {
+        return (users[index].name, "\(users[index].balance)")
+    }
+    
     
     
     func didTapBackButton() {
@@ -33,12 +43,19 @@ extension RegistrationModulePresenter: RegistrationViewControllerOutput {
     func didTapSave(userName: String) {
         do {
             try service.saveUser(name: userName, balanceString: "0")
+            users = try service.fetchUsers()
+            view?.reloadNotes()
+            
         } catch {
             print("alba")
         }
     }
-    func coreDataLoad() {
-        data?.reloadNotes()
-        data?.managedObjectContext()
+    func viewDidLoad() {
+        do {
+            users = try service.fetchUsers()
+            view?.reloadNotes()
+        } catch {
+            print("some error")
+        }
     }
 }

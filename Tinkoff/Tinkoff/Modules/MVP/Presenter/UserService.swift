@@ -4,13 +4,14 @@ import CoreData
 protocol UserServiceProtocol  {
     
     func saveUser(name: String, balanceString: String) throws -> RAWUser
+    func fetchUsers() throws -> [RAWUser]
 }
 enum UserError: Error {
     case invalidBalance
     case invalidUsername
 }
 class UserService: UserServiceProtocol {
-   
+  
     func saveUser(name: String, balanceString: String) throws -> RAWUser {
         guard let balance = Int(balanceString) else {
             throw UserError.invalidBalance
@@ -34,5 +35,18 @@ class UserService: UserServiceProtocol {
         return RAWUser(name: userName, balance: Int(userBalance))
         
     }
-
+    private func managedObjectContext() -> NSManagedObjectContext {
+        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate)
+        else {
+            fatalError("Couldnt reload data")
+        }
+        return appDelegate.persistentContainer.viewContext
+    }
+    func fetchUsers() throws -> [RAWUser] {
+        let users = try managedObjectContext().fetch(User.fetchRequest())
+        let rawUsers = users.map { user in
+            RAWUser.init(name: user.name ?? "Default name", balance: Int(user.balance))
+        }
+        return rawUsers
+    }
 }

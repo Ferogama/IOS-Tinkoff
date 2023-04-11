@@ -4,8 +4,6 @@ import CoreData
 
 class RegistrationViewController: UIViewController, UserViewProtocol, UITableViewDelegate, UITableViewDataSource {
     
-    var users:[User] = []
-    
     var presenter: RegistrationViewControllerOutput
     
     init(presenter: RegistrationViewControllerOutput) {
@@ -47,7 +45,7 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         addBalanceLabel()
         tableViewReloading()
         reloadNotes()
-        //presenter.coreDataLoad()
+        presenter.viewDidLoad()
         
     }
     
@@ -161,11 +159,6 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         tableView.backgroundColor = customBackgroundColor
         view.addSubview(tableView)
         
-        // Обновить таблицу
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-        
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -90),
@@ -176,17 +169,17 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count
+        return presenter.cellsCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let user = users[indexPath.row]
+        let data = presenter.data(for: indexPath.row)
         var configuration = UIListContentConfiguration.subtitleCell()
-        configuration.text = user.name ?? "Empty"
-        configuration.secondaryText = "\(user.balance)"
+        configuration.text = data.0
+        configuration.secondaryText = "\(data.1)"
         cell.contentConfiguration = configuration
-        cell.textLabel?.text = "\(users[indexPath.row])"
+        
         return cell
     }
     
@@ -194,21 +187,8 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
     
 }
 extension RegistrationViewController: RegistrationViewControllerInput {
-    func managedObjectContext() -> NSManagedObjectContext {
-        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate)
-        else {
-            fatalError("Couldnt reload data")
-        }
-        return appDelegate.persistentContainer.viewContext
-    }
-    
     func reloadNotes() {
-        
-        do {
-            users = try managedObjectContext().fetch(User.fetchRequest())
-        } catch {
-            print("takoe")
-        }
+        tableView.reloadData()
     }
 }
 

@@ -28,6 +28,7 @@ extension FlowCoordinator: StartModuleOutput {
     func moveToSecondScreen() {
         let presenter = RegistrationModulePresenter(registrationModuleOutput: self, service: UserService())
         let vc = RegistrationViewController(presenter: presenter)
+        presenter.view = vc
         navigationController.pushViewController(vc, animated: true)
     }
 }

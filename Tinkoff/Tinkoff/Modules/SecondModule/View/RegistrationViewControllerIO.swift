@@ -4,10 +4,13 @@ import CoreData
 protocol RegistrationViewControllerOutput: AnyObject {
     func didTapBackButton()
     func didTapSave(userName: String)
-    func coreDataLoad()
+    func viewDidLoad()
+    
+    func cellsCount() -> Int
+    //тупл
+    func data(for index: Int) -> (String, String)
 }
 
 protocol RegistrationViewControllerInput: AnyObject {
-    func managedObjectContext() -> NSManagedObjectContext
     func reloadNotes()
 }
