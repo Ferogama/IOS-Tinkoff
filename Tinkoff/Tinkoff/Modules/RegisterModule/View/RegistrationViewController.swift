@@ -60,7 +60,7 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         navigationItem.leftBarButtonItem?.tintColor = .white
     }
     
-    // MARK: Placeholder
+    // MARK: Field
     private func setupField() {
         userField.placeholder = "Enter your name"
         userField.borderStyle = .roundedRect

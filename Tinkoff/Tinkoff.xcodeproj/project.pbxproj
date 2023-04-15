@@ -15,6 +15,10 @@
 		D2684C6929DF125D00B73ABF /* RegistrationModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2684C6829DF125D00B73ABF /* RegistrationModuleIO.swift */; };
 		D26F175229D729E10018F74E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F175129D729E10018F74E /* UserService.swift */; };
 		D26F175429D72B710018F74E /* UserViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F175329D72B710018F74E /* UserViewProtocol.swift */; };
+		D27C7D4B29EAFA410043A364 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C7D4A29EAFA410043A364 /* GameViewController.swift */; };
+		D27C7D5029EAFC010043A364 /* GameViewControllerIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C7D4F29EAFC010043A364 /* GameViewControllerIO.swift */; };
+		D27C7D5229EAFCE40043A364 /* GameModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C7D5129EAFCE40043A364 /* GameModulePresenter.swift */; };
+		D27C7D5429EAFCF50043A364 /* GameModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C7D5329EAFCF50043A364 /* GameModuleIO.swift */; };
 		D2964C0729D730F100F9DAC3 /* StartViewControllerIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2964C0629D730F100F9DAC3 /* StartViewControllerIO.swift */; };
 		D2964C1029D7326B00F9DAC3 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2964C0E29D7326B00F9DAC3 /* User+CoreDataProperties.swift */; };
 		D2964C1129D7326B00F9DAC3 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2964C0F29D7326B00F9DAC3 /* User+CoreDataClass.swift */; };
@@ -58,6 +62,10 @@
 		D2684C6829DF125D00B73ABF /* RegistrationModuleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModuleIO.swift; sourceTree = "<group>"; };
 		D26F175129D729E10018F74E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		D26F175329D72B710018F74E /* UserViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewProtocol.swift; sourceTree = "<group>"; };
+		D27C7D4A29EAFA410043A364 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		D27C7D4F29EAFC010043A364 /* GameViewControllerIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewControllerIO.swift; sourceTree = "<group>"; };
+		D27C7D5129EAFCE40043A364 /* GameModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModulePresenter.swift; sourceTree = "<group>"; };
+		D27C7D5329EAFCF50043A364 /* GameModuleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModuleIO.swift; sourceTree = "<group>"; };
 		D2964C0629D730F100F9DAC3 /* StartViewControllerIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewControllerIO.swift; sourceTree = "<group>"; };
 		D2964C0E29D7326B00F9DAC3 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D2964C0F29D7326B00F9DAC3 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -181,6 +189,33 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		D27C7D4729EAF97F0043A364 /* GameModule */ = {
+			isa = PBXGroup;
+			children = (
+				D27C7D4E29EAFBCF0043A364 /* Presenter */,
+				D27C7D4D29EAFBCB0043A364 /* View */,
+			);
+			path = GameModule;
+			sourceTree = "<group>";
+		};
+		D27C7D4D29EAFBCB0043A364 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D27C7D4A29EAFA410043A364 /* GameViewController.swift */,
+				D27C7D4F29EAFC010043A364 /* GameViewControllerIO.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D27C7D4E29EAFBCF0043A364 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D27C7D5129EAFCE40043A364 /* GameModulePresenter.swift */,
+				D27C7D5329EAFCF50043A364 /* GameModuleIO.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		D2964C0C29D7326B00F9DAC3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,8 +291,9 @@
 			isa = PBXGroup;
 			children = (
 				D232F2B229D60C1E004B23BC /* MVP */,
-				D2A62B5929D1D6B00068F3C2 /* FirstModule */,
-				D2A62B5829D1D6A40068F3C2 /* SecondModule */,
+				D2A62B5929D1D6B00068F3C2 /* StartPageModule */,
+				D2A62B5829D1D6A40068F3C2 /* RegisterModule */,
+				D27C7D4729EAF97F0043A364 /* GameModule */,
 				D2A62B5729D1D69B0068F3C2 /* Coordinator */,
 			);
 			path = Modules;
@@ -271,22 +307,22 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		D2A62B5829D1D6A40068F3C2 /* SecondModule */ = {
+		D2A62B5829D1D6A40068F3C2 /* RegisterModule */ = {
 			isa = PBXGroup;
 			children = (
 				D2684C6529DF121900B73ABF /* Presenter */,
 				D2684C5F29DEF5BB00B73ABF /* View */,
 			);
-			path = SecondModule;
+			path = RegisterModule;
 			sourceTree = "<group>";
 		};
-		D2A62B5929D1D6B00068F3C2 /* FirstModule */ = {
+		D2A62B5929D1D6B00068F3C2 /* StartPageModule */ = {
 			isa = PBXGroup;
 			children = (
 				4AEB88AF29D736D90087BA49 /* View */,
 				4AEB88AE29D736D30087BA49 /* Presenter */,
 			);
-			path = FirstModule;
+			path = StartPageModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,14 +456,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2A62B5F29D1D6FE0068F3C2 /* RegistrationViewControllerIO.swift in Sources */,
+				D27C7D5429EAFCF50043A364 /* GameModuleIO.swift in Sources */,
 				D2684C6929DF125D00B73ABF /* RegistrationModuleIO.swift in Sources */,
+				D27C7D5029EAFC010043A364 /* GameViewControllerIO.swift in Sources */,
 				D2A62B5D29D1D6DF0068F3C2 /* StartViewController.swift in Sources */,
 				4AEB88AD29D7359B0087BA49 /* RAWUser.swift in Sources */,
 				D2964C1029D7326B00F9DAC3 /* User+CoreDataProperties.swift in Sources */,
 				D2964C1129D7326B00F9DAC3 /* User+CoreDataClass.swift in Sources */,
 				D2684C6729DF124400B73ABF /* RegistrationModulePresenter.swift in Sources */,
 				D2A62B2E29D1D39D0068F3C2 /* Tinkoff.xcdatamodeld in Sources */,
+				D27C7D4B29EAFA410043A364 /* GameViewController.swift in Sources */,
 				D26F175429D72B710018F74E /* UserViewProtocol.swift in Sources */,
+				D27C7D5229EAFCE40043A364 /* GameModulePresenter.swift in Sources */,
 				D2A62B2429D1D39D0068F3C2 /* AppDelegate.swift in Sources */,
 				D2A62B6329D1D71C0068F3C2 /* FlowCoordinator.swift in Sources */,
 				D2A62B6129D1D7100068F3C2 /* RegistrationViewController.swift in Sources */,

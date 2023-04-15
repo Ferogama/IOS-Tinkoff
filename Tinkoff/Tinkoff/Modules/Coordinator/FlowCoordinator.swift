@@ -37,3 +37,8 @@ extension FlowCoordinator: RegistrationModuleOutput {
         navigationController.popViewController(animated: true)
     }
 }
+//extension FlowCoordinator: GameModuleOutput {
+//    func moveToGame() {
+//        let presenter = GameViewController()
+//    }
+//}
