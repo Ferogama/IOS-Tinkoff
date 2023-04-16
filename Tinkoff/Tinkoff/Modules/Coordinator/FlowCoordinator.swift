@@ -15,7 +15,7 @@ class FlowCoordinator: FlowCoordinatorProtocol {
     
     func start() {
         let vc = StartViewController()
-        let presenter = StartModulePresenter(view: vc, moduleOutput: self)
+        let presenter = StartModulePresenter(view: vc, moduleOutput: self, output: self)
         vc.presenter = presenter
         navigationController.pushViewController(vc, animated: false)
     }
@@ -37,8 +37,3 @@ extension FlowCoordinator: RegistrationModuleOutput {
         navigationController.popViewController(animated: true)
     }
 }
-//extension FlowCoordinator: GameModuleOutput {
-//    func moveToGame() {
-//        let presenter = GameViewController()
-//    }
-//}

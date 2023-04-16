@@ -8,14 +8,17 @@ final class StartModulePresenter {
 
     init(
         view: StartViewControllerInput? = nil,
-        moduleOutput: StartModuleOutput
+        moduleOutput: StartModuleOutput,
+        output:StartModuleOutput
     ) {
         self.view = view
         self.moduleOutput = moduleOutput
+    
     }
 }
 
 extension StartModulePresenter: StartViewControllerOutput {
+        
     func didTapPlay() {
         moduleOutput?.moveToSecondScreen()
     }

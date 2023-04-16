@@ -140,8 +140,8 @@
 		4AEB88AF29D736D90087BA49 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D2964C0629D730F100F9DAC3 /* StartViewControllerIO.swift */,
 				D2A62B5C29D1D6DF0068F3C2 /* StartViewController.swift */,
+				D2964C0629D730F100F9DAC3 /* StartViewControllerIO.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,8 +174,8 @@
 		D2684C5F29DEF5BB00B73ABF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D2A62B5E29D1D6FE0068F3C2 /* RegistrationViewControllerIO.swift */,
 				D2A62B6029D1D7100068F3C2 /* RegistrationViewController.swift */,
+				D2A62B5E29D1D6FE0068F3C2 /* RegistrationViewControllerIO.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -192,8 +192,8 @@
 		D27C7D4729EAF97F0043A364 /* GameModule */ = {
 			isa = PBXGroup;
 			children = (
-				D27C7D4E29EAFBCF0043A364 /* Presenter */,
 				D27C7D4D29EAFBCB0043A364 /* View */,
+				D27C7D4E29EAFBCF0043A364 /* Presenter */,
 			);
 			path = GameModule;
 			sourceTree = "<group>";
@@ -310,8 +310,8 @@
 		D2A62B5829D1D6A40068F3C2 /* RegisterModule */ = {
 			isa = PBXGroup;
 			children = (
-				D2684C6529DF121900B73ABF /* Presenter */,
 				D2684C5F29DEF5BB00B73ABF /* View */,
+				D2684C6529DF121900B73ABF /* Presenter */,
 			);
 			path = RegisterModule;
 			sourceTree = "<group>";

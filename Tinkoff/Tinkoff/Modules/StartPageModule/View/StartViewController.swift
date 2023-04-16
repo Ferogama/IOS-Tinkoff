@@ -20,7 +20,7 @@ class StartViewController: UIViewController {
     
     //MARK: Play Button
     
-    func addPlayButton() {
+    private func addPlayButton() {
         let playButton = UIButton()
         playButton.backgroundColor = .black
         playButton.layer.cornerRadius = 15
@@ -76,8 +76,8 @@ extension StartViewController: StartViewControllerInput {
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 16),
             imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 16),
-            imageView.widthAnchor.constraint(equalToConstant: 128),
-            imageView.heightAnchor.constraint(equalToConstant: 128)
+            imageView.widthAnchor.constraint(equalToConstant: 168),
+            imageView.heightAnchor.constraint(equalToConstant: 168)
         ])
     }
 }

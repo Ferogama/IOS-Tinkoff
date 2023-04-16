@@ -25,6 +25,7 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
     
     let nameText:String = "Username:"
     let balanceText:String = "Balance:"
+    var isAuthorized:Bool = false
     
     let customBackgroundColor = UIColor(red: 72/255, green: 61/255, blue: 139/255, alpha: 1.0)
     
@@ -46,7 +47,6 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         tableViewReloading()
         reloadNotes()
         presenter.viewDidLoad()
-        
     }
     
     private func setupViews() {
@@ -77,11 +77,15 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
     
     // MARK: RegisterButton
     @objc private func registerUser() {
-        guard let name = userField.text else {
+        guard let name = userField.text, !name.isEmpty else {
+            showAlert(title: "Ошибка", message: "Имя не должно быть пустым")
             return
+
         }
         nameLabel.text = name
         presenter.didTapSave(userName: name)
+        
+        isAuthorized = true
     }
     
     private func setupRegisterButton() {
@@ -122,7 +126,7 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
     
     func showUserData(name: String, balance: Int) {
         let message = "Name: \(name)\nBalance: \(balance)"
-        showAlert(title: "User data", message: message)
+        showAlert(title: "Userdata", message: message)
     }
     
     //MARK: Labels
