@@ -102,7 +102,6 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
     }
     
     private func setupRegisterButton() {
-        
         registerButton.backgroundColor = UIColor(named: "customBackgroundColor")
         registerButton.layer.cornerRadius = 15
         registerButton.layer.borderWidth = 2.0
@@ -135,7 +134,8 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
             playButton.layer.borderWidth = 2.0
             playButton.layer.borderColor = UIColor.white.cgColor
             playButton.setTitleColor(UIColor .white, for: .normal)
-            playButton.setTitle("play", for: .normal)
+            playButton.setTitle("Play now", for: .normal)
+            playButton.addTarget(self, action: #selector(tappedPlay), for: .touchUpInside)
             view.addSubview(playButton)
             
             playButton.translatesAutoresizingMaskIntoConstraints = false
@@ -145,6 +145,10 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
                 playButton.widthAnchor.constraint(equalToConstant: 80)
             ])
         }
+    }
+    
+    @objc private func tappedPlay() {
+        print("tapped play")
     }
     //MARK: (PlayButton) ↑
     
