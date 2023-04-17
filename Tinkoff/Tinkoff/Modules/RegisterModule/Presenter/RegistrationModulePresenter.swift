@@ -26,6 +26,10 @@ final class RegistrationModulePresenter {
 }
 
 extension RegistrationModulePresenter: RegistrationViewControllerOutput {
+    func didTapPlay() {
+        registrationModuleOutput?.play()
+    }
+    
     func cellsCount() -> Int {
         users.count
     }

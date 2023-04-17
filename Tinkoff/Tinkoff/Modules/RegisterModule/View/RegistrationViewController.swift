@@ -91,7 +91,7 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
     // MARK: (RegisterButton) ↓
     @objc private func registerUser() {
         guard let name = userField.text, !name.isEmpty else {
-            showAlert(title: "Ошибка", message: "Имя не должно быть пустым")
+            showAlert(title: "Ошибка", message: "Имя не должно быть пустым, пожалуйста зарегестрируйтесь")
             return
 
         }
@@ -148,7 +148,7 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
     }
     
     @objc private func tappedPlay() {
-        print("tapped play")
+        presenter.didTapPlay()
     }
     //MARK: (PlayButton) ↑
     
