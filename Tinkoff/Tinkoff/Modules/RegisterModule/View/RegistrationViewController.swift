@@ -25,12 +25,15 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
     
     let nameText:String = "Username:"
     let balanceText:String = "Balance:"
-    var isAuthorized:Bool = false
+    
+    var isRegistered:Bool = false
     
     let customBackgroundColor = UIColor(red: 72/255, green: 61/255, blue: 139/255, alpha: 1.0)
     
     private var userField = UITextField()
     private let registerButton = UIButton()
+    
+    private let playButton = UIButton()
     
     // MARK: Поля
     
@@ -47,20 +50,10 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         tableViewReloading()
         reloadNotes()
         presenter.viewDidLoad()
+        
     }
     
-    private func setupViews() {
-        view.backgroundColor = customBackgroundColor
-        navigationItem.leftBarButtonItem = UIBarButtonItem(
-            title: "←",
-            style: .plain,
-            target: self,
-            action: #selector(didTapBackButton)
-        )
-        navigationItem.leftBarButtonItem?.tintColor = .white
-    }
-    
-    // MARK: Field
+    // MARK: (Field) ↓
     private func setupField() {
         userField.placeholder = "Enter your name"
         userField.borderStyle = .roundedRect
@@ -74,8 +67,28 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
             userField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50)
         ])
     }
+    // MARK: (Field) ↑
     
-    // MARK: RegisterButton
+    
+    // MARK: (← Button) ↓
+    private func setupViews() {
+        view.backgroundColor = customBackgroundColor
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            title: "←",
+            style: .plain,
+            target: self,
+            action: #selector(didTapBackButton)
+        )
+        navigationItem.leftBarButtonItem?.tintColor = .white
+    }
+    
+    @objc private func didTapBackButton() {
+        presenter.didTapBackButton()
+    }
+    // MARK: (← Button) ↑
+
+    
+    // MARK: (RegisterButton) ↓
     @objc private func registerUser() {
         guard let name = userField.text, !name.isEmpty else {
             showAlert(title: "Ошибка", message: "Имя не должно быть пустым")
@@ -84,8 +97,8 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         }
         nameLabel.text = name
         presenter.didTapSave(userName: name)
-        
-        isAuthorized = true
+        isRegistered = false
+        createPlayButton()
     }
     
     private func setupRegisterButton() {
@@ -107,16 +120,36 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         ])
         
     }
+    //MARK: (RegisterButton) ↑
     
-    // MARK: ← Button
     
-    @objc private func didTapBackButton() {
-        presenter.didTapBackButton()
+    //MARK: (PlayButton) ↓
+    func createPlayButton() {
+        if isRegistered {
+            playButton.isHidden = false
+        } else {
+            playButton.isHidden = true
+            let playButton = UIButton()
+            playButton.backgroundColor = UIColor(named: "customBackgroundColor")
+            playButton.layer.cornerRadius = 15
+            playButton.layer.borderWidth = 2.0
+            playButton.layer.borderColor = UIColor.white.cgColor
+            playButton.setTitleColor(UIColor .white, for: .normal)
+            playButton.setTitle("play", for: .normal)
+            view.addSubview(playButton)
+            
+            playButton.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                playButton.topAnchor.constraint(equalTo: userField.bottomAnchor, constant: 16 ),
+                playButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+                playButton.widthAnchor.constraint(equalToConstant: 80)
+            ])
+        }
     }
+    //MARK: (PlayButton) ↑
     
     
-    // MARK: ALERTS
-    
+    // MARK: (ALERTS) ↓
     func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
@@ -128,11 +161,13 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         let message = "Name: \(name)\nBalance: \(balance)"
         showAlert(title: "Userdata", message: message)
     }
+    //MARK: (ALERTS) ↑
     
-    //MARK: Labels
     
+    //MARK: (LABELS) ↓
     private func addNameLabel() {
         view.addSubview(nameLabel)
+        
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 90),
@@ -142,7 +177,6 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
     }
     
     private func addBalanceLabel() {
-        
         balanceLabel.text = ""
         view.addSubview(balanceLabel)
         
@@ -153,9 +187,10 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
             balanceLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60)
         ])
     }
+    //MARK: (LABELS) ↑
     
-    //MARK: Table
     
+    //MARK: (TableView) ↓
     private func tableViewReloading() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -186,10 +221,8 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         
         return cell
     }
-    
-    //MARK: Core data
-    
 }
+
 extension RegistrationViewController: RegistrationViewControllerInput {
     func reloadNotes() {
         tableView.reloadData()

@@ -7,7 +7,7 @@ class StartViewController: UIViewController {
     var nameLabel = UILabel()
     var balanceLabel = UILabel()
     
-    let customBackgroundColor = UIColor(red: 71/255, green: 61/255, blue: 139/255, alpha: 1.0)
+    let customBackgroundColor = UIColor(red: 72/255, green: 61/255, blue: 139/255, alpha: 1.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +18,7 @@ class StartViewController: UIViewController {
         presenter?.viewDidLoad()
     }
     
-    //MARK: Play Button
-    
+    //MARK: (Play Button) ↓
     private func addPlayButton() {
         let playButton = UIButton()
         playButton.backgroundColor = .black
@@ -37,8 +36,13 @@ class StartViewController: UIViewController {
         ])
     }
     
-    //MARK: Labels
+    @objc private func buttonDidTap(_ sender: UIButton) {
+        presenter?.didTapPlay()
+    }
+    //MARK: (Play Button) ↑
     
+    
+    //MARK: (LABELS) ↓
     func addNameLabel() {
         view.addSubview(nameLabel)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -59,10 +63,7 @@ class StartViewController: UIViewController {
             balanceLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60)
         ])
     }
-    
-    @objc private func buttonDidTap(_ sender: UIButton) {
-        presenter?.didTapPlay()
-    }
+    //MARK: (LABELS) ↑
 }
 
 extension StartViewController: StartViewControllerInput {
