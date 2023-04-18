@@ -8,13 +8,23 @@ class GameViewController: UIViewController {
     
     var answers: [String] = ["Дома", "На работе", "На учебе", "На отдыхе"]
    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = customBackgroundColor
         customizeAllButtons()
         customizeQuistions()
     }
+    private func setupViews() {
+        view.backgroundColor = customBackgroundColor
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            title: "←",
+            style: .plain,
+            target: self,
+            action: #selector(didTapBackButton)
+        )
+        navigationItem.leftBarButtonItem?.tintColor = .white
+    }
+    
     func customizeAllButtons() {
         let firstAnswerButton = UIButton()
         let secondAnswerButton = UIButton()
@@ -82,6 +92,10 @@ class GameViewController: UIViewController {
         
         ])
             
+    }
+    
+    @objc private func didTapBackButton() {
+        
     }
     
     @objc private func answerA() {

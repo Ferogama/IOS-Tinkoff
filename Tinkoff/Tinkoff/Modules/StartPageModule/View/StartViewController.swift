@@ -16,6 +16,8 @@ class StartViewController: UIViewController {
         addNameLabel()
         addBalanceLabel()
         presenter?.viewDidLoad()
+        
+        
     }
     
     //MARK: (Play Button) ↓
@@ -44,29 +46,37 @@ class StartViewController: UIViewController {
     
     //MARK: (LABELS) ↓
     func addNameLabel() {
+        nameLabel.textColor = .white
+        nameLabel.textAlignment = .left
         view.addSubview(nameLabel)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 90),
-            nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 270),
-            nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60)
+            nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 200),
+            nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
         ])
     }
     
     func addBalanceLabel() {
-        balanceLabel.text = ""
+        balanceLabel.textColor = .white
+        balanceLabel.textAlignment = .left
         view.addSubview(balanceLabel)
         balanceLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             balanceLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 120),
-            balanceLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 270),
-            balanceLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60)
+            balanceLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 200),
+            balanceLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
         ])
     }
     //MARK: (LABELS) ↑
 }
 
 extension StartViewController: StartViewControllerInput {
+    func showName(name: String, balance: Int) {
+        nameLabel.text = "Ussername:" + "" +  name
+        balanceLabel.text = "Balance:" + "" + "\(balance)"
+    }
+    
     func showImage(image: UIImage?) {
         let imageView = UIImageView()
         imageView.image = image

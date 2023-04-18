@@ -96,8 +96,10 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
 
         }
         nameLabel.text = name
-        presenter.didTapSave(userName: name)
-        isRegistered = false
+        let balance:Int = 0
+        balanceLabel.text = "\(balance)"
+        presenter.didTapSave(userName: name, balanceString: balance)
+        isRegistered = true
         createPlayButton()
     }
     

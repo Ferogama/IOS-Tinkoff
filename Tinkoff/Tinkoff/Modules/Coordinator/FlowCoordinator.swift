@@ -7,7 +7,7 @@ protocol FlowCoordinatorProtocol {
 class FlowCoordinator: FlowCoordinatorProtocol {
 
     var navigationController: UINavigationController!
-    
+    private weak var startModuleInput: StartModuleInput?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -16,6 +16,7 @@ class FlowCoordinator: FlowCoordinatorProtocol {
     func start() {
         let vc = StartViewController()
         let presenter = StartModulePresenter(view: vc, moduleOutput: self, output: self)
+        startModuleInput = presenter
         vc.presenter = presenter
         navigationController.pushViewController(vc, animated: false)
     }
@@ -33,6 +34,11 @@ extension FlowCoordinator: StartModuleOutput {
     }
 }
 extension FlowCoordinator: RegistrationModuleOutput {
+    func registered(name: String, balance: Int) {
+        moveBack()
+        startModuleInput?.registeredUser(name: name, balance: balance)
+    }
+    
     func play() {
         let vc = GameViewController()
         navigationController?.pushViewController(vc, animated: false)
@@ -41,4 +47,5 @@ extension FlowCoordinator: RegistrationModuleOutput {
     func moveBack() {
         navigationController.popViewController(animated: true)
     }
+    
 }

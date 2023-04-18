@@ -24,6 +24,11 @@ extension StartModulePresenter: StartViewControllerOutput {
     }
 
     func viewDidLoad() {
-        view?.showImage(image: UIImage(named: "logo"))
+        //view?.showImage(image: UIImage(named: "logo"))
+    }
+}
+extension StartModulePresenter: StartModuleInput {
+    func registeredUser(name: String, balance:Int) {
+        view?.showName(name: name, balance: balance)
     }
 }

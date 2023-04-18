@@ -284,8 +284,8 @@
             filePath = "Tinkoff/Modules/GameModule/View/GameViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "customizeAllButtons()"
             landmarkType = "7">
          </BreakpointContent>

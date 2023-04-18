@@ -8,4 +8,5 @@ protocol StartViewControllerOutput: AnyObject {
 
 protocol StartViewControllerInput: AnyObject {
     func showImage(image: UIImage?)
+    func showName(name: String, balance: Int)
 }
