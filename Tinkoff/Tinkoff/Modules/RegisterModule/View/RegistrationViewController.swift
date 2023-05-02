@@ -50,6 +50,7 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         tableViewReloading()
         reloadNotes()
         presenter.viewDidLoad()
+    
         
     }
     
@@ -100,7 +101,6 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         balanceLabel.text = "\(balance)"
         presenter.didTapSave(userName: name, balanceString: balance)
         isRegistered = true
-        createPlayButton()
     }
     
     private func setupRegisterButton() {
@@ -122,37 +122,6 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         
     }
     //MARK: (RegisterButton) ↑
-    
-    
-    //MARK: (PlayButton) ↓
-    func createPlayButton() {
-        if isRegistered {
-            playButton.isHidden = false
-        } else {
-            playButton.isHidden = true
-            let playButton = UIButton()
-            playButton.backgroundColor = UIColor(named: "customBackgroundColor")
-            playButton.layer.cornerRadius = 15
-            playButton.layer.borderWidth = 2.0
-            playButton.layer.borderColor = UIColor.white.cgColor
-            playButton.setTitleColor(UIColor .white, for: .normal)
-            playButton.setTitle("Play now", for: .normal)
-            playButton.addTarget(self, action: #selector(tappedPlay), for: .touchUpInside)
-            view.addSubview(playButton)
-            
-            playButton.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                playButton.topAnchor.constraint(equalTo: userField.bottomAnchor, constant: 16 ),
-                playButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-                playButton.widthAnchor.constraint(equalToConstant: 80)
-            ])
-        }
-    }
-    
-    @objc private func tappedPlay() {
-        presenter.didTapPlay()
-    }
-    //MARK: (PlayButton) ↑
     
     
     // MARK: (ALERTS) ↓

@@ -18,13 +18,17 @@ final class StartModulePresenter {
 }
 
 extension StartModulePresenter: StartViewControllerOutput {
+    func dappedPlayButton() {
+        moduleOutput?.play()
+    }
+    
         
     func didTapPlay() {
         moduleOutput?.moveToSecondScreen()
     }
 
     func viewDidLoad() {
-        //view?.showImage(image: UIImage(named: "logo"))
+        view?.showImage(image: UIImage(named: "logo"))
     }
 }
 extension StartModulePresenter: StartModuleInput {

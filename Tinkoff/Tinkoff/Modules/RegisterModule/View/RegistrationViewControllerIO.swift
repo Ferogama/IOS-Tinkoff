@@ -5,7 +5,7 @@ protocol RegistrationViewControllerOutput: AnyObject {
     func didTapBackButton()
     func didTapSave(userName: String, balanceString: Int)
     func viewDidLoad()
-    func didTapPlay()
+    //func didTapPlay()
     
     func cellsCount() -> Int
     //тупл

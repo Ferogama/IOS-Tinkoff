@@ -126,4 +126,18 @@ class GameViewController: UIViewController {
             questionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60)
         ])
     }
+    
+    func createQuestions() {
+        var questions = [Question]()
+        questions.append(Question(questionText: "What is the capital of France?", answers: ["Paris", "London", "Berlin", "Madrid"], correctAnswerIndex: 0))
+        questions.append(Question(questionText: "What is 2 + 2?", answers: ["3", "4", "5", "6"], correctAnswerIndex: 1))
+        questions.append(Question(questionText: "Who directed the movie 'Jaws'?", answers: ["Steven Spielberg", "Francis Ford Coppola", "Alfred Hitchcock", "Quentin Tarantino"], correctAnswerIndex: 0))
+    }
 }
+
+struct Question {
+    var questionText: String
+    var answers: [String]
+    var correctAnswerIndex: Int
+}
+
