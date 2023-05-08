@@ -2,142 +2,139 @@
 import UIKit
 
 class GameViewController: UIViewController {
-    
+    var currentQuestionIndex = 0
+    var score = 0
+    var usedQuestionIndexes = [Int]()
     let customBackgroundColor = UIColor(red: 72/255, green: 61/255, blue: 139/255, alpha: 1.0)
-    var questionLabel = UILabel()
+    let buttonBackgroundColor = UIColor(red: 136/255, green: 204/255, blue: 213/255, alpha: 1.0)
+    let correctAnswerColor = UIColor(red: 103/255, green: 236/255, blue: 139/255, alpha: 1.0)
+    let wrongAnswerColor = UIColor(red: 236/255, green: 103/255, blue: 103/255, alpha: 1.0)
     
-    var answers: [String] = ["Дома", "На работе", "На учебе", "На отдыхе"]
-   
+    var questionLabel = UILabel()
+    var answersButtons = [UIButton]()
+    var questions = [Question]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = customBackgroundColor
         customizeAllButtons()
-        customizeQuistions()
-    }
-    private func setupViews() {
-        view.backgroundColor = customBackgroundColor
-        navigationItem.leftBarButtonItem = UIBarButtonItem(
-            title: "←",
-            style: .plain,
-            target: self,
-            action: #selector(didTapBackButton)
-        )
-        navigationItem.leftBarButtonItem?.tintColor = .white
-    }
-    
-    func customizeAllButtons() {
-        let firstAnswerButton = UIButton()
-        let secondAnswerButton = UIButton()
-        let thirdAnswerButton = UIButton()
-        let fourthAnswerButton = UIButton()
-        
-        firstAnswerButton.backgroundColor = .black
-        firstAnswerButton.layer.cornerRadius = 12
-        firstAnswerButton.setTitle("A:" + "\(answers[0])", for: .normal)
-        firstAnswerButton.titleLabel?.textAlignment = .left
-        firstAnswerButton.contentHorizontalAlignment = .left
-
-        firstAnswerButton.addTarget(self, action: #selector(answerA), for: .touchUpInside)
-        view.addSubview(firstAnswerButton)
-        firstAnswerButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            firstAnswerButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -200),
-            firstAnswerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 60),
-            firstAnswerButton.widthAnchor.constraint(equalToConstant: 100)
-        ])
-    
-        
-        secondAnswerButton.backgroundColor = .black
-        secondAnswerButton.layer.cornerRadius = 12
-        secondAnswerButton.setTitle("B:" + "\(answers[1])" , for: .normal)
-        secondAnswerButton.titleLabel?.textAlignment = .left
-        secondAnswerButton.contentHorizontalAlignment = .left
-        secondAnswerButton.addTarget(self, action: #selector(answerB), for: .touchUpInside)
-        view.addSubview(secondAnswerButton)
-        secondAnswerButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            secondAnswerButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -200),
-            secondAnswerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60),
-            secondAnswerButton.widthAnchor.constraint(equalToConstant: 100)
-        ])
-        
-        
-        thirdAnswerButton.backgroundColor = .black
-        thirdAnswerButton.layer.cornerRadius = 12
-        thirdAnswerButton.setTitle("C:" + "\(answers[2])"  , for: .normal)
-        thirdAnswerButton.addTarget(self, action: #selector(answerC), for: .touchUpInside)
-        thirdAnswerButton.titleLabel?.textAlignment = .left
-        thirdAnswerButton.contentHorizontalAlignment = .left
-        view.addSubview(thirdAnswerButton)
-        thirdAnswerButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            thirdAnswerButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -125),
-            thirdAnswerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 60),
-            thirdAnswerButton.widthAnchor.constraint(equalToConstant: 100)
-        ])
-        
-        fourthAnswerButton.backgroundColor = .black
-        fourthAnswerButton.layer.cornerRadius = 12
-        fourthAnswerButton.setTitle("D:" + "\(answers[3])" , for: .normal)
-        fourthAnswerButton.titleLabel?.textAlignment = .left
-        fourthAnswerButton.contentHorizontalAlignment = .left
-        
-        fourthAnswerButton.addTarget(self, action: #selector(answerD), for: .touchUpInside)
-        view.addSubview(fourthAnswerButton)
-        fourthAnswerButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            fourthAnswerButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -125),
-            fourthAnswerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60),
-            fourthAnswerButton.widthAnchor.constraint(equalToConstant: 100)
-        
-        ])
-            
-    }
-    
-    @objc private func didTapBackButton() {
-        
-    }
-    
-    @objc private func answerA() {
-        print("ответ не верный")
-    }
-    
-    @objc private func answerB() {
-        print("ответ не верный")
-    }
-    
-    @objc private func answerC() {
-        print("ответ не верный")
-    }
-    
-    @objc private func answerD() {
-        print("Правильно")
-    }
-    
-    func customizeQuistions() {
-        questionLabel.text = "Угадай где я"
-        questionLabel.textAlignment = .center
-        questionLabel.font = UIFont.systemFont(ofSize: 27)
-        view.addSubview(questionLabel)
-        questionLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            questionLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -400),
-            questionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 60),
-            questionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60)
-        ])
+        customizeQuestions()
+        createQuestions()
+        displayQuestion()
     }
     
     func createQuestions() {
-        var questions = [Question]()
-        questions.append(Question(questionText: "What is the capital of France?", answers: ["Paris", "London", "Berlin", "Madrid"], correctAnswerIndex: 0))
-        questions.append(Question(questionText: "What is 2 + 2?", answers: ["3", "4", "5", "6"], correctAnswerIndex: 1))
-        questions.append(Question(questionText: "Who directed the movie 'Jaws'?", answers: ["Steven Spielberg", "Francis Ford Coppola", "Alfred Hitchcock", "Quentin Tarantino"], correctAnswerIndex: 0))
+        questions.append(Question(questionText: "Какую фамилию носил главный герой поэмы А. Твардовского?", answers: ["Тёркин", "Мишустин", "Путин", "Балайкин"], correctAnswerIndex: 0))
+        questions.append(Question(questionText: "Как часто называют человека, который не реагируют на чужие переживания?", answers: ["Лепеша", "Галета", "Пряник", "Сухарь"], correctAnswerIndex: 3))
+        questions.append(Question(questionText: "Кого согласно поговрке, берут за рога, смело приступая к делу?", answers: ["Барана", "Быка", "Мужа", "Лося"], correctAnswerIndex: 1))
+        questions.append(Question(questionText: "Что англичане традиционно делают в 5 часов вечера?", answers: ["Ложатся спать", "Обедают", "Пьют чай", "Поют гимн"], correctAnswerIndex: 2))
+        questions.append(Question(questionText: "Как называется столица Франции?", answers: ["Париж", "Квебек", "Астана", "Альмуалим"], correctAnswerIndex: 0))
+        questions.append(Question(questionText: "Сколько восьминогих у осьминога?", answers: ["5", "9", "8", "3"], correctAnswerIndex: 2))
+        questions.append(Question(questionText: "Как называется собака из мультфильма 'Том и Джерри'", answers: ["Спрайт", "Найт", "Вайт", "Спайк"], correctAnswerIndex: 3))
+        questions.append(Question(questionText: "Сколько планет в солнечной системе?", answers: ["6", "5", "8", "3"], correctAnswerIndex: 2))
+        questions.append(Question(questionText: "Какое имя у главного героя романа 'Преступление и наказание' ", answers: ["Родион", "Дмитрий", "Георгий", "Александр"], correctAnswerIndex: 0))
+        questions.append(Question(questionText: "В каком году началась Первая Мировая война?", answers: ["1915", "1941", "1919", "1914"], correctAnswerIndex: 3))
+        questions.append(Question(questionText: "Какой элемент в периодической таблице имеет атомный номер 1?", answers: ["Водород", "Кислород", "Гелий", "Уран"], correctAnswerIndex: 0))
+        questions.append(Question(questionText: "Какой цветок символизирует Рождество?", answers: ["Елка", "Звезда", "Мишура", "Подарки"], correctAnswerIndex: 1))
+        questions.append(Question(questionText: "Сколько клавиш на пианино?", answers: ["80", "32", "120", "88"], correctAnswerIndex: 3))
+        questions.append(Question(questionText: "Какая планета является самой близкой к Солнцу?", answers: ["Уран", "Нептун", "Меркурий", "Марс"], correctAnswerIndex: 2))
+        questions.append(Question(questionText: "Как называется женский герой в пьесе Вильяма Шекспира 'Гамлет'?", answers: ["Офелия", "Амелия", "Алина", "Глина"], correctAnswerIndex: 3))
+        questions.append(Question(questionText: "Какой год считается годом основания Рима?", answers: ["750", "879", "750", "211"], correctAnswerIndex: 2))
+       
+        questions.shuffle()
+    }
+    
+    func customizeQuestions() {
+        questionLabel.textAlignment = .center
+        questionLabel.font = UIFont.systemFont(ofSize: 25)
+        questionLabel.numberOfLines = 0
+        questionLabel.backgroundColor = customBackgroundColor
+        questionLabel.layer.borderColor = UIColor.white.cgColor
+        questionLabel.layer.borderWidth = 2
+        questionLabel.layer.cornerRadius = 30
+        questionLabel.textColor = .white
+        view.addSubview(questionLabel)
+        questionLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            questionLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -300),
+            questionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            questionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)
+        ])
+        
+        for i in 0..<2 {
+           let buttonRow = UIStackView()
+           buttonRow.axis = .horizontal
+           buttonRow.distribution = .fillEqually
+           buttonRow.spacing = 20
+           
+           for _ in 0..<2 {
+              let button = UIButton()
+              button.titleLabel?.font = UIFont.systemFont(ofSize: 22)
+              button.setTitleColor(.black, for: .normal)
+              button.layer.cornerRadius = 30
+              button.addTarget(self, action: #selector(answerSelected(sender:)), for: .touchUpInside)
+              buttonRow.addArrangedSubview(button)
+              answersButtons.append(button)
+           }
+           
+           view.addSubview(buttonRow)
+           buttonRow.translatesAutoresizingMaskIntoConstraints = false
+           NSLayoutConstraint.activate([
+              buttonRow.topAnchor.constraint(equalTo: questionLabel.bottomAnchor, constant: CGFloat(i * 100) + 60),
+              buttonRow.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+              buttonRow.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+              buttonRow.heightAnchor.constraint(equalToConstant: 60)
+           ])
+        }
+
+    }
+    
+    func displayQuestion() {
+        let currentQuestion = questions[currentQuestionIndex]
+        questionLabel.text = currentQuestion.questionText
+        
+        for i in 0..<currentQuestion.answers.count {
+            answersButtons[i].setTitle(currentQuestion.answers[i], for: .normal)
+            answersButtons[i].backgroundColor = buttonBackgroundColor
+            
+        }
+        
+    }
+    
+    @objc func answerSelected(sender: UIButton) {
+        let currentQuestion = questions[currentQuestionIndex]
+        if sender.currentTitle == currentQuestion.answers[currentQuestion.correctAnswerIndex] {
+            score = 1
+            score *= 2
+            sender.backgroundColor = correctAnswerColor
+            print(score)
+        } else {
+            sender.backgroundColor = wrongAnswerColor
+            //let gameOverController = GameOverController(score: score)
+            //UIApplication.shared.keyWindow?.rootViewController = gameOverController
+            return
+        }
+        // задержка перед показом следующего вопроса
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            if self.currentQuestionIndex < self.questions.count - 1 {
+                self.currentQuestionIndex += 1
+                self.displayQuestion()
+            } else {
+                //let resultController = ResultsViewController()
+                //UIApplication.shared.keyWindow?.rootViewController = resultController
+                self.displayQuestion()
+            }
+        }
+    }
+
+    
+    func customizeAllButtons() {
+        let allButtons: [UIButton] = [/* add all buttons you have here */]
+        for button in allButtons {
+            button.backgroundColor = buttonBackgroundColor
+            button.layer.cornerRadius = 10
+            button.titleLabel?.font = UIFont.systemFont(ofSize: 22)
+            button.setTitleColor(.black, for: .normal)
+        }
     }
 }
-
-struct Question {
-    var questionText: String
-    var answers: [String]
-    var correctAnswerIndex: Int
-}
-

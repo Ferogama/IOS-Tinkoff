@@ -43,12 +43,6 @@ extension FlowCoordinator: StartModuleOutput {
     }
 }
 extension FlowCoordinator: RegistrationModuleOutput {
-    
-//    func play() {
-//        let vc = GameViewController()
-//        navigationController?.pushViewController(vc, animated: false)
-//    }
-    
     func moveBack() {
         navigationController.popViewController(animated: true)
     }

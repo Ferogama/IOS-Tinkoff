@@ -11,6 +11,7 @@
 		4AEB88AD29D7359B0087BA49 /* RAWUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB88AC29D7359B0087BA49 /* RAWUser.swift */; };
 		4AEB88B129D736F30087BA49 /* StartModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB88B029D736F30087BA49 /* StartModulePresenter.swift */; };
 		4AEB88B329D737ED0087BA49 /* StartModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB88B229D737ED0087BA49 /* StartModuleIO.swift */; };
+		D256B4C62A07B618005A47A9 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = D256B4C52A07B618005A47A9 /* Question.swift */; };
 		D2684C6729DF124400B73ABF /* RegistrationModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2684C6629DF124400B73ABF /* RegistrationModulePresenter.swift */; };
 		D2684C6929DF125D00B73ABF /* RegistrationModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2684C6829DF125D00B73ABF /* RegistrationModuleIO.swift */; };
 		D26F175229D729E10018F74E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F175129D729E10018F74E /* UserService.swift */; };
@@ -58,6 +59,7 @@
 		4AEB88AC29D7359B0087BA49 /* RAWUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAWUser.swift; sourceTree = "<group>"; };
 		4AEB88B029D736F30087BA49 /* StartModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartModulePresenter.swift; sourceTree = "<group>"; };
 		4AEB88B229D737ED0087BA49 /* StartModuleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartModuleIO.swift; sourceTree = "<group>"; };
+		D256B4C52A07B618005A47A9 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		D2684C6629DF124400B73ABF /* RegistrationModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModulePresenter.swift; sourceTree = "<group>"; };
 		D2684C6829DF125D00B73ABF /* RegistrationModuleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModuleIO.swift; sourceTree = "<group>"; };
 		D26F175129D729E10018F74E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -171,6 +173,14 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		D256B4C42A07B5F9005A47A9 /* QuestionModel */ = {
+			isa = PBXGroup;
+			children = (
+				D256B4C52A07B618005A47A9 /* Question.swift */,
+			);
+			path = QuestionModel;
+			sourceTree = "<group>";
+		};
 		D2684C5F29DEF5BB00B73ABF /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +229,7 @@
 		D2964C0C29D7326B00F9DAC3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D256B4C42A07B5F9005A47A9 /* QuestionModel */,
 				4AEB88AB29D735910087BA49 /* RawModel */,
 				D2964C0D29D7326B00F9DAC3 /* CoreDataModels */,
 			);
@@ -473,6 +484,7 @@
 				D2A62B6129D1D7100068F3C2 /* RegistrationViewController.swift in Sources */,
 				D2A62B2629D1D39D0068F3C2 /* SceneDelegate.swift in Sources */,
 				4AEB88B129D736F30087BA49 /* StartModulePresenter.swift in Sources */,
+				D256B4C62A07B618005A47A9 /* Question.swift in Sources */,
 				D2964C0729D730F100F9DAC3 /* StartViewControllerIO.swift in Sources */,
 				D26F175229D729E10018F74E /* UserService.swift in Sources */,
 				4AEB88AA29D735570087BA49 /* StorageService.swift in Sources */,
