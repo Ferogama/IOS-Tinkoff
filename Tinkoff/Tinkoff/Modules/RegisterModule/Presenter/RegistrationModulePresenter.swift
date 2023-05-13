@@ -42,12 +42,12 @@ extension RegistrationModulePresenter: RegistrationViewControllerOutput {
         registrationModuleOutput?.moveBack()
     }
     
-    func didTapSave(userName: String, balanceString: Int) {
+    func didTapSave(userName: String, balanceString: Int, isAuth: Bool) {
         do {
-            try service.saveUser(name: userName, balanceString: "0")
+            try service.saveUser(name: userName, balanceString: "0", isAuth: true)
             users = try service.fetchUsers()
             view?.reloadNotes()
-            registrationModuleOutput?.registered(name: userName, balance: balanceString)
+            registrationModuleOutput?.registered(name: userName, balance: balanceString, isAuth: true)
             
         } catch {
             print("alba")

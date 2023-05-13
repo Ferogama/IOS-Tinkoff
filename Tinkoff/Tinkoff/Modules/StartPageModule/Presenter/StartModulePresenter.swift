@@ -18,6 +18,14 @@ final class StartModulePresenter {
 }
 
 extension StartModulePresenter: StartViewControllerOutput {
+    func startPlaying() {
+        view?.startMusic()
+        
+    }
+    func finishPlaying() {
+        view?.stopMusic()
+    }
+    
     func dappedPlayButton() {
         moduleOutput?.play()
     }
@@ -29,10 +37,11 @@ extension StartModulePresenter: StartViewControllerOutput {
 
     func viewDidLoad() {
         view?.showImage(image: UIImage(named: "logo"))
+        
     }
 }
 extension StartModulePresenter: StartModuleInput {
-    func registeredUser(name: String, balance:Int) {
-        view?.showName(name: name, balance: balance)
+    func registeredUser(name: String, balance: Int, isAuth: Bool) {
+        view?.showName(name: name, balance: balance, isAuth: isAuth)
     }
 }

@@ -33,18 +33,24 @@ extension FlowCoordinator: StartModuleOutput {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func registered(name: String, balance: Int) {
+    func registered(name: String, balance: Int, isAuth: Bool) {
         moveBack()
-        startModuleInput?.registeredUser(name: name, balance: balance)
+        startModuleInput?.registeredUser(name: name, balance: balance, isAuth: isAuth)
     }
     func play() {
-        let vc = GameViewController()
-        navigationController?.pushViewController(vc, animated: false)
+        let presenter = GameModulePresenter()
+        let vc = GameViewController(presenter: presenter)
+        presenter.view = vc
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 extension FlowCoordinator: RegistrationModuleOutput {
     func moveBack() {
         navigationController.popViewController(animated: true)
     }
-    
+}
+extension FlowCoordinator: GameModuleOutput {
+    func finishGame() {
+        navigationController.popViewController(animated: true)
+    }
 }

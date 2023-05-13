@@ -35,6 +35,8 @@
 		D2A62B5F29D1D6FE0068F3C2 /* RegistrationViewControllerIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B5E29D1D6FE0068F3C2 /* RegistrationViewControllerIO.swift */; };
 		D2A62B6129D1D7100068F3C2 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B6029D1D7100068F3C2 /* RegistrationViewController.swift */; };
 		D2A62B6329D1D71C0068F3C2 /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B6229D1D71C0068F3C2 /* FlowCoordinator.swift */; };
+		D2C2972E2A0E5F4200CB2648 /* game.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2C2972D2A0E5F4200CB2648 /* game.mp3 */; };
+		D2C297302A0E64CA00CB2648 /* mainPage.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2C2972F2A0E64CA00CB2648 /* mainPage.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		D2A62B5E29D1D6FE0068F3C2 /* RegistrationViewControllerIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewControllerIO.swift; sourceTree = "<group>"; };
 		D2A62B6029D1D7100068F3C2 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		D2A62B6229D1D71C0068F3C2 /* FlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
+		D2C2972D2A0E5F4200CB2648 /* game.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = game.mp3; path = ../../../../../game.mp3; sourceTree = "<group>"; };
+		D2C2972F2A0E64CA00CB2648 /* mainPage.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = mainPage.mp3; path = ../../../../../mainPage.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +272,7 @@
 		D2A62B2229D1D39D0068F3C2 /* Tinkoff */ = {
 			isa = PBXGroup;
 			children = (
+				D2C2972C2A0E5F2300CB2648 /* Music */,
 				4AEB88A729D7352B0087BA49 /* Services */,
 				D2964C0C29D7326B00F9DAC3 /* Models */,
 				D2A62B5629D1D6860068F3C2 /* Modules */,
@@ -334,6 +339,15 @@
 				4AEB88AE29D736D30087BA49 /* Presenter */,
 			);
 			path = StartPageModule;
+			sourceTree = "<group>";
+		};
+		D2C2972C2A0E5F2300CB2648 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				D2C2972F2A0E64CA00CB2648 /* mainPage.mp3 */,
+				D2C2972D2A0E5F4200CB2648 /* game.mp3 */,
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,8 +454,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2C297302A0E64CA00CB2648 /* mainPage.mp3 in Resources */,
 				D2A62B3329D1D39E0068F3C2 /* LaunchScreen.storyboard in Resources */,
 				D2A62B3029D1D39E0068F3C2 /* Assets.xcassets in Resources */,
+				D2C2972E2A0E5F4200CB2648 /* game.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

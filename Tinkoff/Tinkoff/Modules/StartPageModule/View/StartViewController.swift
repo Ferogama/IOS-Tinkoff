@@ -1,15 +1,20 @@
 import UIKit
+import AVFAudio
 
 class StartViewController: UIViewController {
     
     var presenter: StartViewControllerOutput?
-    
+    var audio = AVAudioPlayer()
     var nameLabel = UILabel()
     var balanceLabel = UILabel()
     let registerButton = UIButton()
+    let logoutButton = UIButton()
     let customBackgroundColor = UIColor(red: 72/255, green: 61/255, blue: 139/255, alpha: 1.0)
     var isRegistered:Bool = false
-    
+    let volumeButton = UIButton(type: .system)
+    private var isLoggedOut = false
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = customBackgroundColor
@@ -18,6 +23,7 @@ class StartViewController: UIViewController {
         addBalanceLabel()
         createOthersButtons()
         presenter?.viewDidLoad()
+        presenter?.startPlaying()
         
         
         
@@ -114,8 +120,9 @@ class StartViewController: UIViewController {
             likeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -320)
         ])
         
-        let volumeButton = UIButton(type: .system)
         volumeButton.setImage(UIImage(systemName: "speaker.wave.2"), for: .normal)
+        volumeButton.addTarget(self, action: #selector(volumeButtonTapped), for: .touchUpInside)
+
         volumeButton.tintColor = .white
         volumeButton.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         view.addSubview(volumeButton)
@@ -127,6 +134,7 @@ class StartViewController: UIViewController {
         ])
         
         let topButton = UIButton(type: .system)
+    
         topButton.setImage(UIImage(systemName: "trophy"), for: .normal)
         topButton.tintColor = .white
         topButton.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
@@ -138,16 +146,47 @@ class StartViewController: UIViewController {
             topButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -320)
         ])
     }
+    private func createLogoutButton() {
+        let logoutButton = UIButton(type: .system)
+        logoutButton.setImage(UIImage(systemName: "rectangle.portrait.and.arrow.right"), for: .normal)
+        logoutButton.tintColor = .white
+        logoutButton.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        view.addSubview(logoutButton)
+        logoutButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            logoutButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
+            //logoutButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            logoutButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
+        ])
+        
+        logoutButton.addTarget(self, action: #selector(logoutButtonTapped), for: .touchUpInside)
+    }
+
+    @objc private func logoutButtonTapped() {
+        isLoggedOut = true
+    }
+    
+    @objc func volumeButtonTapped() {
+        if volumeButton.currentImage == UIImage(systemName: "speaker.wave.2") {
+            volumeButton.setImage(UIImage(systemName: "volume"), for: .normal)
+            presenter?.finishPlaying()
+        } else {
+            volumeButton.setImage(UIImage(systemName: "speaker.wave.2"), for: .normal)
+            presenter?.startPlaying()
+        }
+    }
 }
 
 extension StartViewController: StartViewControllerInput {
-    func showName(name: String, balance: Int) {
-        nameLabel.text = "Ussername:" + "" +  name
-        balanceLabel.text = "Balance:" + "" + "\(balance)"
+    func showName(name: String, balance: Int, isAuth: Bool) {
+        guard !isAuth else { return }
+        nameLabel.text = "Username: " + name
+        balanceLabel.text = "Balance: \(balance)"
         createPlayButton()
         showRegisterButton()
-        
+        createLogoutButton()
     }
+
     
     func showImage(image: UIImage?) {
         let imageView = UIImageView()
@@ -162,5 +201,18 @@ extension StartViewController: StartViewControllerInput {
             imageView.widthAnchor.constraint(equalToConstant: 168),
             imageView.heightAnchor.constraint(equalToConstant: 168)
         ])
+    }
+    func startMusic() {
+        do {
+            audio = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "mainPage", ofType: "mp3")!))
+            audio.prepareToPlay()
+        } catch {
+            print("Cant load music")
+        }
+        audio.currentTime = 0
+        audio.play()
+    }
+    func stopMusic() {
+        audio.stop()
     }
 }
