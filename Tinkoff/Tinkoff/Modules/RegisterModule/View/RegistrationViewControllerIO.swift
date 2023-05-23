@@ -3,7 +3,7 @@ import CoreData
 
 protocol RegistrationViewControllerOutput: AnyObject {
     func didTapBackButton()
-    func didTapSave(userName: String, balanceString: Int, isAuth: Bool)
+    func didTapSave(userName: String, balanceString: Int)
     func viewDidLoad()
     
     func cellsCount() -> Int

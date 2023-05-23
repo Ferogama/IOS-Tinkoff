@@ -3,7 +3,7 @@ import CoreData
 
 protocol UserServiceProtocol  {
     
-    func saveUser(name: String, balanceString: String,isAuth: Bool) throws -> RAWUser
+    func saveUser(name: String, balanceString: String) throws -> RAWUser
     func fetchUsers() throws -> [RAWUser]
 }
 enum UserError: Error {
@@ -12,11 +12,10 @@ enum UserError: Error {
 }
 class UserService: UserServiceProtocol {
     
-    func saveUser(name: String, balanceString: String, isAuth:Bool) throws -> RAWUser {
+    func saveUser(name: String, balanceString: String) throws -> RAWUser {
         guard let balance = Int(balanceString) else {
             throw UserError.invalidBalance
         }
-        var isAuth: Bool
         let user: User?
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         do {

@@ -178,8 +178,8 @@ class StartViewController: UIViewController {
 }
 
 extension StartViewController: StartViewControllerInput {
-    func showName(name: String, balance: Int, isAuth: Bool) {
-        guard !isAuth else { return }
+    func showName(name: String, balance: Int) {
+       
         nameLabel.text = "Username: " + name
         balanceLabel.text = "Balance: \(balance)"
         createPlayButton()
