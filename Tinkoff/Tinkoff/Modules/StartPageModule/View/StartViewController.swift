@@ -73,7 +73,7 @@ class StartViewController: UIViewController {
     }
     
     @objc private func registerButtonDidTap(_ sender: UIButton) {
-        presenter?.didTapPlay()
+        presenter?.didTapRegister()
     }
     
     
@@ -155,7 +155,6 @@ class StartViewController: UIViewController {
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             logoutButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
-            //logoutButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             logoutButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
         ])
         

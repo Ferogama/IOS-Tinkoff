@@ -173,7 +173,6 @@ class GameViewController: UIViewController {
             print(score)
         } else {
             sender.backgroundColor = wrongAnswerColor
-            
             presenter.finishTheGame()
             print("UR score is:" + "\(score)")
             return
@@ -196,7 +195,7 @@ class GameViewController: UIViewController {
                 self.displayQuestion()
             } else {
                 //let resultController = ResultsViewController()
-                //UIApplication.shared.keyWindow?.rootViewController = resultController
+                //UIApplication.shared.keyWindow?.rootViewController = resultControlle
                 self.displayQuestion()
             }
         }
@@ -259,7 +258,6 @@ extension GameViewController: GameViewControllerInput {
         questions.append(Question(questionText: "Какая столица называется 'Городом ангелов'?", answers: ["Сидней", "Лос-Анджелес", "Стамбул", "Рио-де-Жанейро"], correctAnswerIndex: 1))
         questions.append(Question(questionText: "Какая река является самой длинной в мире?", answers: ["Амазонка", "Нил", "Янцзы", "Миссисипи"], correctAnswerIndex: 0))
 
-       
         questions.shuffle()
     }
     func playMusic() {

@@ -12,6 +12,9 @@
 		4AEB88B129D736F30087BA49 /* StartModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB88B029D736F30087BA49 /* StartModulePresenter.swift */; };
 		4AEB88B329D737ED0087BA49 /* StartModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB88B229D737ED0087BA49 /* StartModuleIO.swift */; };
 		D256B4C62A07B618005A47A9 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = D256B4C52A07B618005A47A9 /* Question.swift */; };
+		D25E871A2A201ADA00D7E8E3 /* GameOverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25E87192A201ADA00D7E8E3 /* GameOverController.swift */; };
+		D25E871F2A201D5200D7E8E3 /* GameOverControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25E871E2A201D5200D7E8E3 /* GameOverControllerPresenter.swift */; };
+		D25E87212A201D6D00D7E8E3 /* GameOverModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25E87202A201D6D00D7E8E3 /* GameOverModuleIO.swift */; };
 		D2684C6729DF124400B73ABF /* RegistrationModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2684C6629DF124400B73ABF /* RegistrationModulePresenter.swift */; };
 		D2684C6929DF125D00B73ABF /* RegistrationModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2684C6829DF125D00B73ABF /* RegistrationModuleIO.swift */; };
 		D26F175229D729E10018F74E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F175129D729E10018F74E /* UserService.swift */; };
@@ -62,6 +65,9 @@
 		4AEB88B029D736F30087BA49 /* StartModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartModulePresenter.swift; sourceTree = "<group>"; };
 		4AEB88B229D737ED0087BA49 /* StartModuleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartModuleIO.swift; sourceTree = "<group>"; };
 		D256B4C52A07B618005A47A9 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		D25E87192A201ADA00D7E8E3 /* GameOverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverController.swift; sourceTree = "<group>"; };
+		D25E871E2A201D5200D7E8E3 /* GameOverControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverControllerPresenter.swift; sourceTree = "<group>"; };
+		D25E87202A201D6D00D7E8E3 /* GameOverModuleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverModuleIO.swift; sourceTree = "<group>"; };
 		D2684C6629DF124400B73ABF /* RegistrationModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModulePresenter.swift; sourceTree = "<group>"; };
 		D2684C6829DF125D00B73ABF /* RegistrationModuleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModuleIO.swift; sourceTree = "<group>"; };
 		D26F175129D729E10018F74E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -152,13 +158,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		D232F2B229D60C1E004B23BC /* MVP */ = {
+		D232F2B229D60C1E004B23BC /* User */ = {
 			isa = PBXGroup;
 			children = (
 				D232F2B529D60EC6004B23BC /* Presenter */,
 				D232F2B329D60EB4004B23BC /* Model */,
 			);
-			path = MVP;
+			path = User;
 			sourceTree = "<group>";
 		};
 		D232F2B329D60EB4004B23BC /* Model */ = {
@@ -183,6 +189,32 @@
 				D256B4C52A07B618005A47A9 /* Question.swift */,
 			);
 			path = QuestionModel;
+			sourceTree = "<group>";
+		};
+		D25E871B2A201C0900D7E8E3 /* GameEndModule */ = {
+			isa = PBXGroup;
+			children = (
+				D25E871C2A201D2000D7E8E3 /* View */,
+				D25E871D2A201D3400D7E8E3 /* Presenter */,
+			);
+			path = GameEndModule;
+			sourceTree = "<group>";
+		};
+		D25E871C2A201D2000D7E8E3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D25E87192A201ADA00D7E8E3 /* GameOverController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D25E871D2A201D3400D7E8E3 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D25E871E2A201D5200D7E8E3 /* GameOverControllerPresenter.swift */,
+				D25E87202A201D6D00D7E8E3 /* GameOverModuleIO.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		D2684C5F29DEF5BB00B73ABF /* View */ = {
@@ -306,10 +338,11 @@
 		D2A62B5629D1D6860068F3C2 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				D232F2B229D60C1E004B23BC /* MVP */,
+				D232F2B229D60C1E004B23BC /* User */,
 				D2A62B5929D1D6B00068F3C2 /* StartPageModule */,
 				D2A62B5829D1D6A40068F3C2 /* RegisterModule */,
 				D27C7D4729EAF97F0043A364 /* GameModule */,
+				D25E871B2A201C0900D7E8E3 /* GameEndModule */,
 				D2A62B5729D1D69B0068F3C2 /* Coordinator */,
 			);
 			path = Modules;
@@ -491,14 +524,17 @@
 				D2964C1029D7326B00F9DAC3 /* User+CoreDataProperties.swift in Sources */,
 				D2964C1129D7326B00F9DAC3 /* User+CoreDataClass.swift in Sources */,
 				D2684C6729DF124400B73ABF /* RegistrationModulePresenter.swift in Sources */,
+				D25E871F2A201D5200D7E8E3 /* GameOverControllerPresenter.swift in Sources */,
 				D2A62B2E29D1D39D0068F3C2 /* Tinkoff.xcdatamodeld in Sources */,
 				D27C7D4B29EAFA410043A364 /* GameViewController.swift in Sources */,
 				D26F175429D72B710018F74E /* UserViewProtocol.swift in Sources */,
 				D27C7D5229EAFCE40043A364 /* GameModulePresenter.swift in Sources */,
+				D25E871A2A201ADA00D7E8E3 /* GameOverController.swift in Sources */,
 				D2A62B2429D1D39D0068F3C2 /* AppDelegate.swift in Sources */,
 				D2A62B6329D1D71C0068F3C2 /* FlowCoordinator.swift in Sources */,
 				D2A62B6129D1D7100068F3C2 /* RegistrationViewController.swift in Sources */,
 				D2A62B2629D1D39D0068F3C2 /* SceneDelegate.swift in Sources */,
+				D25E87212A201D6D00D7E8E3 /* GameOverModuleIO.swift in Sources */,
 				4AEB88B129D736F30087BA49 /* StartModulePresenter.swift in Sources */,
 				D256B4C62A07B618005A47A9 /* Question.swift in Sources */,
 				D2964C0729D730F100F9DAC3 /* StartViewControllerIO.swift in Sources */,

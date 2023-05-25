@@ -26,6 +26,7 @@ class FlowCoordinator: FlowCoordinatorProtocol {
 }
 
 extension FlowCoordinator: StartModuleOutput {
+ 
     func moveToSecondScreen() {
         let presenter = RegistrationModulePresenter(registrationModuleOutput: self, service: UserService())
         let vc = RegistrationViewController(presenter: presenter)
@@ -33,7 +34,6 @@ extension FlowCoordinator: StartModuleOutput {
         navigationController.pushViewController(vc, animated: true)
     }
     
-
     func play() {
         let presenter = GameModulePresenter()
         let vc = GameViewController(presenter: presenter)
@@ -53,6 +53,7 @@ extension FlowCoordinator: RegistrationModuleOutput {
 }
 extension FlowCoordinator: GameModuleOutput {
     func finishGame() {
-        navigationController.popViewController(animated: true)
+        let vc = GameOverController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

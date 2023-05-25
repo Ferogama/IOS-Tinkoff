@@ -50,7 +50,7 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         tableViewReloading()
         reloadNotes()
         presenter.viewDidLoad()
-    
+        
         
     }
     
@@ -87,14 +87,14 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         presenter.didTapBackButton()
     }
     // MARK: (← Button) ↑
-
+    
     
     // MARK: (RegisterButton) ↓
     @objc private func registerUser() {
         guard let name = userField.text, !name.isEmpty else {
             showAlert(title: "Ошибка", message: "Имя не должно быть пустым, пожалуйста зарегестрируйтесь")
             return
-
+            
         }
         nameLabel.text = name
         let balance:Int = 0
@@ -169,7 +169,7 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
     private func tableViewReloading() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.allowsSelection = false
+        //tableView.allowsSelection = false
         tableView.backgroundColor = customBackgroundColor
         view.addSubview(tableView)
         
@@ -196,7 +196,12 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        print(cell?.textLabel?.text ?? "Пустая ячейка")
+    }
 }
+
 
 extension RegistrationViewController: RegistrationViewControllerInput {
     func reloadNotes() {

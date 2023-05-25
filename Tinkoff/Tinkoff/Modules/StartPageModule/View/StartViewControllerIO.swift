@@ -2,7 +2,7 @@ import UIKit
 
 protocol StartViewControllerOutput: AnyObject {
     func viewDidLoad()
-    func didTapPlay()
+    func didTapRegister()
     func dappedPlayButton()
     func startPlaying()
     func finishPlaying()

@@ -28,10 +28,12 @@ extension StartModulePresenter: StartViewControllerOutput {
     
     func dappedPlayButton() {
         moduleOutput?.play()
+        
     }
     
+    
         
-    func didTapPlay() {
+    func didTapRegister() {
         moduleOutput?.moveToSecondScreen()
     }
 
