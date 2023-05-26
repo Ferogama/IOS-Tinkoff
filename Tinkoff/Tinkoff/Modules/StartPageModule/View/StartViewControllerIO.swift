@@ -6,6 +6,7 @@ protocol StartViewControllerOutput: AnyObject {
     func dappedPlayButton()
     func startPlaying()
     func finishPlaying()
+    func didTapLogoutButton()
     
 }
 
@@ -14,4 +15,5 @@ protocol StartViewControllerInput: AnyObject {
     func showName(name: String, balance: Int)
     func startMusic()
     func stopMusic()
+    func reloadAfterLogout()
 }

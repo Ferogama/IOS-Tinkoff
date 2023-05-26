@@ -20,6 +20,8 @@ class GameOverController: UIViewController {
         self.view.backgroundColor = UIColor.orange
 
         crateStartButton()
+        navigationController?.navigationItem.backBarButtonItem = nil
+       
     }
     @objc func startGame() {
         navigationController?.popViewController(animated: true)

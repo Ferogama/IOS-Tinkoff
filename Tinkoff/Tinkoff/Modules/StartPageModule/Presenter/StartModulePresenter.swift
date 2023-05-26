@@ -8,8 +8,8 @@ final class StartModulePresenter {
 
     init(
         view: StartViewControllerInput? = nil,
-        moduleOutput: StartModuleOutput,
-        output:StartModuleOutput
+        moduleOutput: StartModuleOutput
+     
     ) {
         self.view = view
         self.moduleOutput = moduleOutput
@@ -18,6 +18,10 @@ final class StartModulePresenter {
 }
 
 extension StartModulePresenter: StartViewControllerOutput {
+    func didTapLogoutButton() {
+        view?.reloadAfterLogout()
+    }
+    
     func startPlaying() {
         view?.startMusic()
         
@@ -30,9 +34,7 @@ extension StartModulePresenter: StartViewControllerOutput {
         moduleOutput?.play()
         
     }
-    
-    
-        
+  
     func didTapRegister() {
         moduleOutput?.moveToSecondScreen()
     }
@@ -43,6 +45,8 @@ extension StartModulePresenter: StartViewControllerOutput {
     }
 }
 extension StartModulePresenter: StartModuleInput {
+
+    
     func registeredUser(name: String, balance: Int) {
         view?.showName(name: name, balance: balance)
     }

@@ -26,6 +26,10 @@ final class RegistrationModulePresenter {
 }
 
 extension RegistrationModulePresenter: RegistrationViewControllerOutput {
+    func didTapCell(indexPath: Int) {
+        registrationModuleOutput?.registered(name: users[indexPath].name, balance: users[indexPath].balance)
+    }
+    
 
     
     func cellsCount() -> Int {
@@ -53,6 +57,7 @@ extension RegistrationModulePresenter: RegistrationViewControllerOutput {
             print("alba")
         }
     }
+    
     func viewDidLoad() {
         do {
             users = try service.fetchUsers()

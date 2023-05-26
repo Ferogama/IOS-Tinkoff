@@ -13,7 +13,7 @@
 		4AEB88B329D737ED0087BA49 /* StartModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEB88B229D737ED0087BA49 /* StartModuleIO.swift */; };
 		D256B4C62A07B618005A47A9 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = D256B4C52A07B618005A47A9 /* Question.swift */; };
 		D25E871A2A201ADA00D7E8E3 /* GameOverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25E87192A201ADA00D7E8E3 /* GameOverController.swift */; };
-		D25E871F2A201D5200D7E8E3 /* GameOverControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25E871E2A201D5200D7E8E3 /* GameOverControllerPresenter.swift */; };
+		D25E871F2A201D5200D7E8E3 /* GameOverPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25E871E2A201D5200D7E8E3 /* GameOverPresenter.swift */; };
 		D25E87212A201D6D00D7E8E3 /* GameOverModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25E87202A201D6D00D7E8E3 /* GameOverModuleIO.swift */; };
 		D2684C6729DF124400B73ABF /* RegistrationModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2684C6629DF124400B73ABF /* RegistrationModulePresenter.swift */; };
 		D2684C6929DF125D00B73ABF /* RegistrationModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2684C6829DF125D00B73ABF /* RegistrationModuleIO.swift */; };
@@ -40,6 +40,7 @@
 		D2A62B6329D1D71C0068F3C2 /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B6229D1D71C0068F3C2 /* FlowCoordinator.swift */; };
 		D2C2972E2A0E5F4200CB2648 /* game.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2C2972D2A0E5F4200CB2648 /* game.mp3 */; };
 		D2C297302A0E64CA00CB2648 /* mainPage.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2C2972F2A0E64CA00CB2648 /* mainPage.mp3 */; };
+		D2E7B2E62A20DA2600335D0E /* GameOverControllerIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7B2E52A20DA2600335D0E /* GameOverControllerIO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +67,7 @@
 		4AEB88B229D737ED0087BA49 /* StartModuleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartModuleIO.swift; sourceTree = "<group>"; };
 		D256B4C52A07B618005A47A9 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		D25E87192A201ADA00D7E8E3 /* GameOverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverController.swift; sourceTree = "<group>"; };
-		D25E871E2A201D5200D7E8E3 /* GameOverControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverControllerPresenter.swift; sourceTree = "<group>"; };
+		D25E871E2A201D5200D7E8E3 /* GameOverPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverPresenter.swift; sourceTree = "<group>"; };
 		D25E87202A201D6D00D7E8E3 /* GameOverModuleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverModuleIO.swift; sourceTree = "<group>"; };
 		D2684C6629DF124400B73ABF /* RegistrationModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModulePresenter.swift; sourceTree = "<group>"; };
 		D2684C6829DF125D00B73ABF /* RegistrationModuleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModuleIO.swift; sourceTree = "<group>"; };
@@ -97,6 +98,7 @@
 		D2A62B6229D1D71C0068F3C2 /* FlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
 		D2C2972D2A0E5F4200CB2648 /* game.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = game.mp3; path = ../../../../../game.mp3; sourceTree = "<group>"; };
 		D2C2972F2A0E64CA00CB2648 /* mainPage.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = mainPage.mp3; path = ../../../../../mainPage.mp3; sourceTree = "<group>"; };
+		D2E7B2E52A20DA2600335D0E /* GameOverControllerIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverControllerIO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				D25E87192A201ADA00D7E8E3 /* GameOverController.swift */,
+				D2E7B2E52A20DA2600335D0E /* GameOverControllerIO.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,7 +214,7 @@
 		D25E871D2A201D3400D7E8E3 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				D25E871E2A201D5200D7E8E3 /* GameOverControllerPresenter.swift */,
+				D25E871E2A201D5200D7E8E3 /* GameOverPresenter.swift */,
 				D25E87202A201D6D00D7E8E3 /* GameOverModuleIO.swift */,
 			);
 			path = Presenter;
@@ -524,7 +527,8 @@
 				D2964C1029D7326B00F9DAC3 /* User+CoreDataProperties.swift in Sources */,
 				D2964C1129D7326B00F9DAC3 /* User+CoreDataClass.swift in Sources */,
 				D2684C6729DF124400B73ABF /* RegistrationModulePresenter.swift in Sources */,
-				D25E871F2A201D5200D7E8E3 /* GameOverControllerPresenter.swift in Sources */,
+				D25E871F2A201D5200D7E8E3 /* GameOverPresenter.swift in Sources */,
+				D2E7B2E62A20DA2600335D0E /* GameOverControllerIO.swift in Sources */,
 				D2A62B2E29D1D39D0068F3C2 /* Tinkoff.xcdatamodeld in Sources */,
 				D27C7D4B29EAFA410043A364 /* GameViewController.swift in Sources */,
 				D26F175429D72B710018F74E /* UserViewProtocol.swift in Sources */,

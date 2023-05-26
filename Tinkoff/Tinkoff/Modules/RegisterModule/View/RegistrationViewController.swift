@@ -197,8 +197,7 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)
-        print(cell?.textLabel?.text ?? "Пустая ячейка")
+        presenter.didTapCell(indexPath: indexPath.row)
     }
 }
 

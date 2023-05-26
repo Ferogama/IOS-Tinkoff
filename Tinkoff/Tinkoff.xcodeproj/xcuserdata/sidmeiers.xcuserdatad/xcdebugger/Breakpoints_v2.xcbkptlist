@@ -284,8 +284,8 @@
             filePath = "Tinkoff/Modules/StartPageModule/View/StartViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
             landmarkName = "showName(name:balance:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -294,7 +294,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "8C83C066-9BB4-4012-99E2-8D792CD38D98"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tinkoff/Modules/GameModule/View/GameViewController.swift"
@@ -303,6 +303,70 @@
             startingLineNumber = "176"
             endingLineNumber = "176"
             landmarkName = "answerSelected(sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7F999F0C-22BF-46C8-B52D-2D8AAA2AFE35"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tinkoff/Modules/GameModule/View/GameViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
+            landmarkName = "answerSelected(sender:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7F999F0C-22BF-46C8-B52D-2D8AAA2AFE35 - b5d6018b9471ad56"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tinkoff.GameViewController.answerSelected(sender: __C.UIButton) -&gt; ()"
+                  moduleName = "Tinkoff"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sidmeiers/Desktop/Swift/IOS-Tinkoff/Tinkoff/Tinkoff/Modules/GameModule/View/GameViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "192"
+                  endingLineNumber = "192"
+                  offsetFromSymbolStart = "2312">
+               </Location>
+               <Location
+                  uuid = "7F999F0C-22BF-46C8-B52D-2D8AAA2AFE35 - 7c869b4bfd4bd439"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 @Swift.MainActor () -&gt; () in Tinkoff.GameViewController.answerSelected(sender: __C.UIButton) -&gt; ()"
+                  moduleName = "Tinkoff"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sidmeiers/Desktop/Swift/IOS-Tinkoff/Tinkoff/Tinkoff/Modules/GameModule/View/GameViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "193"
+                  endingLineNumber = "193"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8DA53AEA-3533-4AFF-8E5C-1F66AD1B7B63"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tinkoff/Modules/GameModule/Presenter/GameModulePresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "finishTheGame()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -8,12 +8,12 @@ class StartViewController: UIViewController {
     var nameLabel = UILabel()
     var balanceLabel = UILabel()
     let registerButton = UIButton()
-    let logoutButton = UIButton()
     let customBackgroundColor = UIColor(red: 72/255, green: 61/255, blue: 139/255, alpha: 1.0)
     var isRegistered:Bool = false
     let volumeButton = UIButton(type: .system)
     private var isLoggedOut = false
-
+    var logoutButton = UIButton(type: .system)
+    let playButton = UIButton(type: .system)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +31,7 @@ class StartViewController: UIViewController {
     
     //MARK: (Play Button) ↓
     private func addRegisterButton() {
+        
         registerButton.backgroundColor = .black
         registerButton.layer.borderColor = UIColor.white.cgColor
         registerButton.layer.cornerRadius = 15
@@ -48,7 +49,7 @@ class StartViewController: UIViewController {
     }
     
     func createPlayButton() {
-        let playButton = UIButton(type: .system)
+        playButton.isHidden = false
         playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
         playButton.tintColor = .white
         playButton.transform = CGAffineTransform(scaleX: 4, y: 4)
@@ -147,7 +148,7 @@ class StartViewController: UIViewController {
         ])
     }
     private func createLogoutButton() {
-        let logoutButton = UIButton(type: .system)
+        logoutButton.isHidden = false
         logoutButton.setImage(UIImage(systemName: "rectangle.portrait.and.arrow.right"), for: .normal)
         logoutButton.tintColor = .white
         logoutButton.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
@@ -162,7 +163,8 @@ class StartViewController: UIViewController {
     }
 
     @objc private func logoutButtonTapped() {
-        isLoggedOut = true
+        presenter?.didTapLogoutButton()
+        
     }
     
     @objc func volumeButtonTapped() {
@@ -177,6 +179,17 @@ class StartViewController: UIViewController {
 }
 
 extension StartViewController: StartViewControllerInput {
+    func reloadAfterLogout() {
+        nameLabel.text = nil
+        balanceLabel.text = nil
+        presenter?.viewDidLoad()
+        logoutButton.isHidden = true
+        playButton.isHidden = true
+        registerButton.isHidden = false
+        
+    }
+    
+    
     func showName(name: String, balance: Int) {
        
         nameLabel.text = "Username: " + name
