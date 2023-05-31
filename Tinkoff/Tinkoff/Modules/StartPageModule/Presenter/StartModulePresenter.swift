@@ -45,8 +45,7 @@ extension StartModulePresenter: StartViewControllerOutput {
     }
 }
 extension StartModulePresenter: StartModuleInput {
-
-    
+   
     func registeredUser(name: String, balance: Int) {
         view?.showName(name: name, balance: balance)
     }

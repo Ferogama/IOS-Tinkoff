@@ -19,6 +19,6 @@ final class GameOverModulePresenter {
 
 extension GameOverModulePresenter: GameOverViewControllerOutput {
     func startPlaying() {
-        moduleOutput?.startPlaying()
+        moduleOutput?.moveToStartPage()
     }
 }

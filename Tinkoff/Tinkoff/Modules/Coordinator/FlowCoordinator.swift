@@ -40,6 +40,7 @@ extension FlowCoordinator: StartModuleOutput {
         presenter.view = vc
         presenter.gameModuleOutput = self
         navigationController?.pushViewController(vc, animated: true)
+        
     }
 }
 extension FlowCoordinator: RegistrationModuleOutput {
@@ -54,16 +55,17 @@ extension FlowCoordinator: RegistrationModuleOutput {
 }
 extension FlowCoordinator: GameModuleOutput {
     func finishGame() {
-        
-        let vc = GameOverController()
-        
+        let presenter = GameOverModulePresenter(moduleOutput: self)
+        let vc = GameOverController(presenter: presenter)
+        presenter.moduleOutput = self
         navigationController?.pushViewController(vc, animated: true)
     }
 }
 extension FlowCoordinator: GameOverModuleOutput {
-    func startPlaying() {
-        //let vc = StartViewController()
-        
-        
+    func moveToStartPage() {
+        if let navController = self.navigationController {
+            navController.popToRootViewController(animated: true)
+        }
+
     }
 }

@@ -18,6 +18,8 @@ final class GameModulePresenter {
 extension GameModulePresenter: GameViewControllerOutput {
     func finishTheGame() {
         gameModuleOutput?.finishGame()
+          
+
     }
     
     func loadScreen() {

@@ -3,6 +3,6 @@
 import Foundation
 
 protocol GameOverModuleOutput: AnyObject {
-    func startPlaying()
+    func moveToStartPage()
     
 }

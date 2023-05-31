@@ -15,6 +15,7 @@ class GameViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     var currentQuestionIndex = 0
     var score = 100
     let customBackgroundColor = UIColor(red: 72/255, green: 61/255, blue: 139/255, alpha: 1.0)
@@ -37,7 +38,7 @@ class GameViewController: UIViewController {
         displayQuestion()
         createQuestionNumberLabel()
         createScoreLabel()
-        
+        self.navigationItem.backBarButtonItem = nil
     }
     
     private func createQuestions() {

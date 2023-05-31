@@ -16,4 +16,5 @@ protocol StartViewControllerInput: AnyObject {
     func startMusic()
     func stopMusic()
     func reloadAfterLogout()
+    
 }

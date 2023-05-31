@@ -9,5 +9,5 @@ protocol StartModuleOutput: AnyObject {
 
 protocol StartModuleInput: AnyObject {
     func registeredUser(name:String, balance: Int)
-
+    
 }
