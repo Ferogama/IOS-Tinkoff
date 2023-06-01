@@ -32,6 +32,7 @@ class RatingViewController: UIViewController, UITableViewDelegate, UITableViewDa
         setupBarItem()
         tableViewReloading()
         reloadNotes()
+        presenter.viewDidLoad()
     
     
     }

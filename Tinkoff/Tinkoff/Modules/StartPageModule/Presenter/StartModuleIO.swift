@@ -3,7 +3,7 @@ import Foundation
 
 protocol StartModuleOutput: AnyObject {
     func moveToSecondScreen()
-    func play()
+    func moveToGameScreen(name: String, balance: Int)
     func moveToRatingScreen()
 }
 

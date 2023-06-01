@@ -2,7 +2,8 @@
 import UIKit
 
 final class StartModulePresenter {
-
+    private var name: String?
+    private var balance: Int?
     weak var view: StartViewControllerInput?
     weak var moduleOutput: StartModuleOutput?
 
@@ -31,7 +32,8 @@ extension StartModulePresenter: StartViewControllerOutput {
     }
     
     func tappedPlayButton() {
-        moduleOutput?.play()
+        guard let name = name, let balance = balance else {return}
+        moduleOutput?.moveToGameScreen(name: name, balance: balance)
         
     }
     
@@ -52,5 +54,8 @@ extension StartModulePresenter: StartModuleInput {
    
     func registeredUser(name: String, balance: Int) {
         view?.showName(name: name, balance: balance)
+        self.name = name
+        self.balance = balance
     }
+    
 }

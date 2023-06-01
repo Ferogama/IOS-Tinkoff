@@ -8,6 +8,7 @@ final class RatingModulePresenter {
     
     var users:[RAWUser] = []
     
+    
     private let service: UserServiceProtocol
    
     weak var moduleOutput: RatingModuleOutput?
@@ -31,7 +32,17 @@ extension RatingModulePresenter: RatingViewControllerOutput {
     }
     
     func data(for index: Int) -> (String, String) {
-        //return (users[index].name, "\(users[index].balance)")
-        return("", "")
+    
+        return (users[index].name, "\(users[index].balance)")
+        
+    }
+    func viewDidLoad() {
+        do {
+            users = try service.fetchUsers()
+            view?.reloadNotes()
+        } catch {
+            print("some error")
+        }
     }
 }
+

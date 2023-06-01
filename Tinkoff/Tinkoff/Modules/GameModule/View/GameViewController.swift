@@ -4,11 +4,16 @@ import AVFoundation
 
 class GameViewController: UIViewController {
     var score = 1
+
+    var name: String
+    var balance: Int
+    
     var presenter: GameViewControllerOutput
     
-    init(presenter: GameViewControllerOutput) {
+    init(presenter: GameViewControllerOutput, name: String, balance: Int) {
         self.presenter = presenter
-    
+        self.name = name
+        self.balance = balance
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -153,16 +158,16 @@ class GameViewController: UIViewController {
     }
 
     private func displayQuestion() {
-        if currentQuestionIndex > 3 || currentQuestionIndex >= questions.count {
-            return
-        }
-        let currentQuestion = questions[currentQuestionIndex]
-        questionLabel.text = currentQuestion.questionText
-        
-        for i in 0..<currentQuestion.answers.count {
-            answersButtons[i].setTitle(currentQuestion.answers[i], for: .normal)
-            answersButtons[i].backgroundColor = buttonBackgroundColor
+        if currentQuestionIndex > 14 || currentQuestionIndex >= questions.count {
+            presenter.finishTheGame(userscore: score)
+        } else {
+            let currentQuestion = questions[currentQuestionIndex]
+            questionLabel.text = currentQuestion.questionText
             
+            for i in 0..<currentQuestion.answers.count {
+                answersButtons[i].setTitle(currentQuestion.answers[i], for: .normal)
+                answersButtons[i].backgroundColor = buttonBackgroundColor
+            }
         }
     }
     
@@ -174,6 +179,7 @@ class GameViewController: UIViewController {
             print(score)
         } else {
             sender.backgroundColor = wrongAnswerColor
+            
             presenter.finishTheGame(userscore: score)
             print("UR score is:" + "\(score)")
             return

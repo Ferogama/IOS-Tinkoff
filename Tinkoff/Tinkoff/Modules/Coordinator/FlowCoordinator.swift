@@ -42,9 +42,9 @@ extension FlowCoordinator: StartModuleOutput {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func play() {
+    func moveToGameScreen(name: String, balance: Int) {
         let presenter = GameModulePresenter()
-        let vc = GameViewController(presenter: presenter)
+        let vc = GameViewController(presenter: presenter, name: name, balance: balance)
         presenter.view = vc
         presenter.gameModuleOutput = self
         navigationController?.pushViewController(vc, animated: true)
