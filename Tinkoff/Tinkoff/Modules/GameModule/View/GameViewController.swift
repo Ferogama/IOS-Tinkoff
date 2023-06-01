@@ -158,8 +158,8 @@ class GameViewController: UIViewController {
     }
 
     private func displayQuestion() {
-        if currentQuestionIndex > 14 || currentQuestionIndex >= questions.count {
-            presenter.finishTheGame(userscore: score)
+        if currentQuestionIndex > 1 || currentQuestionIndex >= questions.count {
+            presenter.showResultController(userscore: score)
         } else {
             let currentQuestion = questions[currentQuestionIndex]
             questionLabel.text = currentQuestion.questionText

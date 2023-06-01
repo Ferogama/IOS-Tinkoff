@@ -23,6 +23,9 @@
 		D27C7D5029EAFC010043A364 /* GameViewControllerIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C7D4F29EAFC010043A364 /* GameViewControllerIO.swift */; };
 		D27C7D5229EAFCE40043A364 /* GameModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C7D5129EAFCE40043A364 /* GameModulePresenter.swift */; };
 		D27C7D5429EAFCF50043A364 /* GameModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C7D5329EAFCF50043A364 /* GameModuleIO.swift */; };
+		D2887CE82A2926260029ADAC /* ResultModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2887CE72A2926260029ADAC /* ResultModulePresenter.swift */; };
+		D2887CEA2A29265D0029ADAC /* ResultVIewControllerIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2887CE92A29265D0029ADAC /* ResultVIewControllerIO.swift */; };
+		D2887CEC2A2926CB0029ADAC /* ResultModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2887CEB2A2926CB0029ADAC /* ResultModuleIO.swift */; };
 		D288DC352A28BEBD0014D868 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D288DC342A28BEBD0014D868 /* ResultViewController.swift */; };
 		D288DC392A28C0010014D868 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D288DC382A28C0010014D868 /* RatingViewController.swift */; };
 		D288DC3B2A28C0360014D868 /* RatingModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D288DC3A2A28C0360014D868 /* RatingModulePresenter.swift */; };
@@ -82,6 +85,9 @@
 		D27C7D4F29EAFC010043A364 /* GameViewControllerIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewControllerIO.swift; sourceTree = "<group>"; };
 		D27C7D5129EAFCE40043A364 /* GameModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModulePresenter.swift; sourceTree = "<group>"; };
 		D27C7D5329EAFCF50043A364 /* GameModuleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModuleIO.swift; sourceTree = "<group>"; };
+		D2887CE72A2926260029ADAC /* ResultModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModulePresenter.swift; sourceTree = "<group>"; };
+		D2887CE92A29265D0029ADAC /* ResultVIewControllerIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultVIewControllerIO.swift; sourceTree = "<group>"; };
+		D2887CEB2A2926CB0029ADAC /* ResultModuleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModuleIO.swift; sourceTree = "<group>"; };
 		D288DC342A28BEBD0014D868 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		D288DC382A28C0010014D868 /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		D288DC3A2A28C0360014D868 /* RatingModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingModulePresenter.swift; sourceTree = "<group>"; };
@@ -217,7 +223,6 @@
 			children = (
 				D25E87192A201ADA00D7E8E3 /* GameOverController.swift */,
 				D2E7B2E52A20DA2600335D0E /* GameOverControllerIO.swift */,
-				D288DC342A28BEBD0014D868 /* ResultViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -272,6 +277,33 @@
 			children = (
 				D27C7D5129EAFCE40043A364 /* GameModulePresenter.swift */,
 				D27C7D5329EAFCF50043A364 /* GameModuleIO.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D2887CE42A2925D50029ADAC /* ResultModule */ = {
+			isa = PBXGroup;
+			children = (
+				D2887CE52A2925E90029ADAC /* View */,
+				D2887CE62A2925ED0029ADAC /* Presenter */,
+			);
+			path = ResultModule;
+			sourceTree = "<group>";
+		};
+		D2887CE52A2925E90029ADAC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D288DC342A28BEBD0014D868 /* ResultViewController.swift */,
+				D2887CE92A29265D0029ADAC /* ResultVIewControllerIO.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D2887CE62A2925ED0029ADAC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D2887CE72A2926260029ADAC /* ResultModulePresenter.swift */,
+				D2887CEB2A2926CB0029ADAC /* ResultModuleIO.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -384,6 +416,7 @@
 				D2A62B5829D1D6A40068F3C2 /* RegisterModule */,
 				D27C7D4729EAF97F0043A364 /* GameModule */,
 				D25E871B2A201C0900D7E8E3 /* GameEndModule */,
+				D2887CE42A2925D50029ADAC /* ResultModule */,
 				D288DC332A28BDD70014D868 /* RatingModule */,
 				D2A62B5729D1D69B0068F3C2 /* Coordinator */,
 			);
@@ -572,6 +605,7 @@
 				D2A62B2E29D1D39D0068F3C2 /* Tinkoff.xcdatamodeld in Sources */,
 				D27C7D4B29EAFA410043A364 /* GameViewController.swift in Sources */,
 				D26F175429D72B710018F74E /* UserViewProtocol.swift in Sources */,
+				D2887CE82A2926260029ADAC /* ResultModulePresenter.swift in Sources */,
 				D288DC3F2A28C4A60014D868 /* RatingModuleOutput.swift in Sources */,
 				D27C7D5229EAFCE40043A364 /* GameModulePresenter.swift in Sources */,
 				D25E871A2A201ADA00D7E8E3 /* GameOverController.swift in Sources */,
@@ -579,6 +613,7 @@
 				D2A62B6329D1D71C0068F3C2 /* FlowCoordinator.swift in Sources */,
 				D2A62B6129D1D7100068F3C2 /* RegistrationViewController.swift in Sources */,
 				D288DC392A28C0010014D868 /* RatingViewController.swift in Sources */,
+				D2887CEA2A29265D0029ADAC /* ResultVIewControllerIO.swift in Sources */,
 				D2A62B2629D1D39D0068F3C2 /* SceneDelegate.swift in Sources */,
 				D25E87212A201D6D00D7E8E3 /* GameOverModuleIO.swift in Sources */,
 				4AEB88B129D736F30087BA49 /* StartModulePresenter.swift in Sources */,
@@ -587,6 +622,7 @@
 				D2964C0729D730F100F9DAC3 /* StartViewControllerIO.swift in Sources */,
 				D26F175229D729E10018F74E /* UserService.swift in Sources */,
 				4AEB88AA29D735570087BA49 /* StorageService.swift in Sources */,
+				D2887CEC2A2926CB0029ADAC /* ResultModuleIO.swift in Sources */,
 				D288DC3D2A28C47A0014D868 /* RatingViewControllerIO.swift in Sources */,
 				4AEB88B329D737ED0087BA49 /* StartModuleIO.swift in Sources */,
 			);

@@ -252,8 +252,8 @@
             filePath = "Tinkoff/Modules/GameModule/Presenter/GameModulePresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "finishTheGame(userscore:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -319,38 +319,6 @@
             startingLineNumber = "31"
             endingLineNumber = "31"
             landmarkName = "didTapBackButton()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4D3E008F-78C3-457C-B1B7-66E7EB5AF2A5"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Tinkoff/Modules/Coordinator/FlowCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "moveToRootScreen()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4F9FA37C-31FA-442D-858C-CB1038FDC07A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Tinkoff/Modules/Coordinator/FlowCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "moveToRootScreen()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

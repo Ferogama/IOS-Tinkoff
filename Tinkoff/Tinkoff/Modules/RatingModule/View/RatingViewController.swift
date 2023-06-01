@@ -55,7 +55,7 @@ class RatingViewController: UIViewController, UITableViewDelegate, UITableViewDa
     private func tableViewReloading() {
         tableView.delegate = self
         tableView.dataSource = self
-        //tableView.allowsSelection = false
+        tableView.allowsSelection = false
         tableView.backgroundColor = customBackgroundColor
         view.addSubview(tableView)
         

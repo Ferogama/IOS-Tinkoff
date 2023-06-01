@@ -1,14 +1,15 @@
 
 
 import Foundation
+
 import UIKit
 
-class GameOverController: UIViewController {
+class ResultsViewController: UIViewController {
     var score: Int
     
-    var presenter: GameOverViewControllerOutput
+    var presenter: ResultViewControllerOutput
     
-    init(presenter: GameOverViewControllerOutput, score: Int) {
+    init(presenter: ResultViewControllerOutput, score: Int) {
         self.presenter = presenter
         self.score = score
         super.init(nibName: nil, bundle: nil)
@@ -22,7 +23,7 @@ class GameOverController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.red
+        self.view.backgroundColor = UIColor.green
         crateStartButton()
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             title: "",
@@ -32,12 +33,13 @@ class GameOverController: UIViewController {
     }
 
     @objc func startGame() {
-        presenter.startPlaying()
+        presenter.startAgain()
     }
     
     
     func crateStartButton() {
         let scoreLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
+        scoreLabel.center = view.center
         scoreLabel.text = "Ваш счет: \(score)"
         scoreLabel.textColor = UIColor.white
         scoreLabel.font = UIFont.systemFont(ofSize: 25)

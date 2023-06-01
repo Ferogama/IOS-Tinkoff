@@ -16,6 +16,10 @@ final class GameModulePresenter {
 }
 
 extension GameModulePresenter: GameViewControllerOutput {
+    func showResultController(userscore: Int) {
+        gameModuleOutput?.openResultController(score: userscore)
+    }
+    
     func finishTheGame(userscore: Int) {
         gameModuleOutput?.finishGame(score: userscore)
           
