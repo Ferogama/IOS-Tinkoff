@@ -3,6 +3,6 @@
 import Foundation
 
 protocol GameModuleOutput: AnyObject {
-    func finishGame()
+    func finishGame(score: Int)
 }
 

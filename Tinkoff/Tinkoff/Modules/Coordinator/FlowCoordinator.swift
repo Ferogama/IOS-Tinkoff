@@ -26,6 +26,14 @@ class FlowCoordinator: FlowCoordinatorProtocol {
 }
 
 extension FlowCoordinator: StartModuleOutput {
+    func moveToRatingScreen() {
+        
+        let presenter = RatingModulePresenter(moduleOutput: self, service: UserService())
+        let vc = RatingViewController(presenter: presenter)
+        presenter.view = vc
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
  
     func moveToSecondScreen() {
         let presenter = RegistrationModulePresenter(registrationModuleOutput: self, service: UserService())
@@ -54,9 +62,9 @@ extension FlowCoordinator: RegistrationModuleOutput {
     }
 }
 extension FlowCoordinator: GameModuleOutput {
-    func finishGame() {
+    func finishGame(score: Int) {
         let presenter = GameOverModulePresenter(moduleOutput: self)
-        let vc = GameOverController(presenter: presenter)
+        let vc = GameOverController(presenter: presenter, score: score)
         presenter.moduleOutput = self
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -67,5 +75,10 @@ extension FlowCoordinator: GameOverModuleOutput {
             navController.popToRootViewController(animated: true)
         }
 
+    }
+}
+extension FlowCoordinator: RatingModuleOutput {
+    func moveToRootScreen() {
+        navigationController.popViewController(animated: true)
     }
 }

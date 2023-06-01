@@ -3,10 +3,11 @@ import UIKit
 protocol StartViewControllerOutput: AnyObject {
     func viewDidLoad()
     func didTapRegister()
-    func dappedPlayButton()
+    func tappedPlayButton()
     func startPlaying()
     func finishPlaying()
     func didTapLogoutButton()
+    func didTapRatingButton()
     
 }
 

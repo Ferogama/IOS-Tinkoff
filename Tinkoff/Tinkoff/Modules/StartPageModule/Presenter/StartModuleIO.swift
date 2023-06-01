@@ -4,7 +4,7 @@ import Foundation
 protocol StartModuleOutput: AnyObject {
     func moveToSecondScreen()
     func play()
-   
+    func moveToRatingScreen()
 }
 
 protocol StartModuleInput: AnyObject {

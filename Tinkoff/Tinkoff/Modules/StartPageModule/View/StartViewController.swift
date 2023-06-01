@@ -69,7 +69,7 @@ class StartViewController: UIViewController {
     }
     
     @objc private func tappedPlay() {
-        presenter?.dappedPlayButton()
+        presenter?.tappedPlayButton()
        
     }
     
@@ -77,6 +77,9 @@ class StartViewController: UIViewController {
         presenter?.didTapRegister()
     }
     
+    @objc private func tappedTopButton() {
+        presenter?.didTapRatingButton()
+    }
     
     //MARK: (Play Button) ↑
     
@@ -139,6 +142,7 @@ class StartViewController: UIViewController {
         topButton.setImage(UIImage(systemName: "trophy"), for: .normal)
         topButton.tintColor = .white
         topButton.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        topButton.addTarget(self, action: #selector (tappedTopButton), for: .touchUpInside)
         view.addSubview(topButton)
         topButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

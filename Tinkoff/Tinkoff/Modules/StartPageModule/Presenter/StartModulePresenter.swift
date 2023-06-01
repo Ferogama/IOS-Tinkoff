@@ -30,9 +30,13 @@ extension StartModulePresenter: StartViewControllerOutput {
         view?.stopMusic()
     }
     
-    func dappedPlayButton() {
+    func tappedPlayButton() {
         moduleOutput?.play()
         
+    }
+    
+    func didTapRatingButton() {
+        moduleOutput?.moveToRatingScreen()
     }
   
     func didTapRegister() {

@@ -12,5 +12,5 @@ protocol GameViewControllerInput: AnyObject {
 
 protocol GameViewControllerOutput: AnyObject {
     func loadScreen()
-    func finishTheGame() 
+    func finishTheGame(userscore: Int)
 }

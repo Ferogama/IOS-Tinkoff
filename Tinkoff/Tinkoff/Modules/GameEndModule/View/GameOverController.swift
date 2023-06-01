@@ -4,18 +4,21 @@ import Foundation
 import UIKit
 
 class GameOverController: UIViewController {
-    var score: Int = 100
+    var score: Int
     
     var presenter: GameOverViewControllerOutput
     
-    init(presenter: GameOverViewControllerOutput) {
+    init(presenter: GameOverViewControllerOutput, score: Int) {
         self.presenter = presenter
+        self.score = score
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

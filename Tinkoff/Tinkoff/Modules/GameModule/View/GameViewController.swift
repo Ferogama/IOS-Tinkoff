@@ -3,11 +3,12 @@ import UIKit
 import AVFoundation
 
 class GameViewController: UIViewController {
-    
+    var score = 1
     var presenter: GameViewControllerOutput
     
     init(presenter: GameViewControllerOutput) {
         self.presenter = presenter
+    
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -17,7 +18,7 @@ class GameViewController: UIViewController {
     
     
     var currentQuestionIndex = 0
-    var score = 100
+    
     let customBackgroundColor = UIColor(red: 72/255, green: 61/255, blue: 139/255, alpha: 1.0)
     let buttonBackgroundColor = UIColor(red: 136/255, green: 204/255, blue: 213/255, alpha: 1.0)
     let correctAnswerColor = UIColor(red: 103/255, green: 236/255, blue: 139/255, alpha: 1.0)
@@ -38,11 +39,10 @@ class GameViewController: UIViewController {
         displayQuestion()
         createQuestionNumberLabel()
         createScoreLabel()
-        self.navigationItem.backBarButtonItem = nil
+       
     }
     
     private func createQuestions() {
-
         presenter.loadScreen()
     }
     
@@ -56,8 +56,8 @@ class GameViewController: UIViewController {
         questionNumberLabel.layer.borderWidth = 2
         questionNumberLabel.layer.cornerRadius = 15
         questionNumberLabel.text = "Question 1"
-        questionNumberLabel.adjustsFontSizeToFitWidth = true // добавляем свойство
-        questionNumberLabel.minimumScaleFactor = 0.5 // задаем минимальный масштаб
+        questionNumberLabel.adjustsFontSizeToFitWidth = true
+        questionNumberLabel.minimumScaleFactor = 0.5
         
         view.addSubview(questionNumberLabel)
         
@@ -153,7 +153,7 @@ class GameViewController: UIViewController {
     }
 
     private func displayQuestion() {
-        if currentQuestionIndex > 14 || currentQuestionIndex >= questions.count {
+        if currentQuestionIndex > 3 || currentQuestionIndex >= questions.count {
             return
         }
         let currentQuestion = questions[currentQuestionIndex]
@@ -174,7 +174,7 @@ class GameViewController: UIViewController {
             print(score)
         } else {
             sender.backgroundColor = wrongAnswerColor
-            presenter.finishTheGame()
+            presenter.finishTheGame(userscore: score)
             print("UR score is:" + "\(score)")
             return
         }
@@ -195,9 +195,8 @@ class GameViewController: UIViewController {
                 self.currentQuestionIndex += 1
                 self.displayQuestion()
             } else {
-                //let resultController = ResultsViewController()
-                //UIApplication.shared.keyWindow?.rootViewController = resultControlle
                 self.displayQuestion()
+                return
             }
         }
     }

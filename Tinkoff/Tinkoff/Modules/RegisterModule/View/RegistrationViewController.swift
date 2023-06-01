@@ -26,7 +26,7 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
     let nameText:String = "Username:"
     let balanceText:String = "Balance:"
     
-    var isRegistered:Bool = false
+    //var isRegistered:Bool = false
     
     let customBackgroundColor = UIColor(red: 72/255, green: 61/255, blue: 139/255, alpha: 1.0)
     
@@ -42,7 +42,7 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
+        setupBarItem()
         setupField()
         setupRegisterButton()
         addNameLabel()
@@ -72,7 +72,7 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
     
     
     // MARK: (← Button) ↓
-    private func setupViews() {
+    private func setupBarItem() {
         view.backgroundColor = customBackgroundColor
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             title: "←",
@@ -100,7 +100,7 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         let balance:Int = 0
         balanceLabel.text = "\(balance)"
         presenter.didTapSave(userName: name, balanceString: balance)
-        isRegistered = true
+        //isRegistered = true
     }
     
     private func setupRegisterButton() {
