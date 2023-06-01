@@ -1,10 +1,11 @@
 
 import UIKit
 import AVFoundation
+import CoreData
 
 class GameViewController: UIViewController {
     var score = 1
-
+    
     var name: String
     var balance: Int
     
@@ -44,7 +45,7 @@ class GameViewController: UIViewController {
         displayQuestion()
         createQuestionNumberLabel()
         createScoreLabel()
-       
+        
     }
     
     private func createQuestions() {
@@ -101,7 +102,7 @@ class GameViewController: UIViewController {
             scoreLabel.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
-
+    
     
     
     
@@ -156,10 +157,10 @@ class GameViewController: UIViewController {
         }
         
     }
-
+    
     private func displayQuestion() {
         if currentQuestionIndex > 13 || currentQuestionIndex >= questions.count {
-            balance = score
+            saveUserBalanceInCoreData(name: name, score: score)
             presenter.showResultController(userscore: score)
         } else {
             let currentQuestion = questions[currentQuestionIndex]
@@ -180,7 +181,7 @@ class GameViewController: UIViewController {
             print(score)
         } else {
             sender.backgroundColor = wrongAnswerColor
-            balance = score
+            saveUserBalanceInCoreData(name: name, score: score)
             presenter.finishTheGame(userscore: score)
             print("UR score is:" + "\(score)")
             return
@@ -215,6 +216,33 @@ class GameViewController: UIViewController {
             button.layer.cornerRadius = 10
             button.titleLabel?.font = UIFont.systemFont(ofSize: 22)
             button.setTitleColor(.black, for: .normal)
+        }
+    }
+    
+    func saveUserBalanceInCoreData(name: String, score: Int) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        // Ищем пользователя в CoreData
+        let request: NSFetchRequest<User> = User.fetchRequest()
+        request.predicate = NSPredicate(format: "name = %@", name)
+        var user: User?
+        do {
+            let results = try context.fetch(request)
+            if results.count > 0 {
+                user = results.first
+            }
+        } catch {
+            print("Error fetching User from CoreData: \(error.localizedDescription)")
+        }
+     
+        // Обновляем баланс пользователя
+        user?.balance += Int64(score)
+        
+        do {
+            try context.save()
+            print("User balance saved in CoreData.")
+        } catch {
+            print("Error saving User balance in CoreData: \(error.localizedDescription)")
         }
     }
 }
