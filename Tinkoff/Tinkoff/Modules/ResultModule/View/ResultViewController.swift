@@ -18,26 +18,44 @@ class ResultsViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
+    var infoLabel = UILabel()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.green
-        crateStartButton()
+        createStartButton()
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             title: "",
             style: .plain,
             target: self, action: nil
         )
+        createLabel()
     }
-
+    
     @objc func startGame() {
         presenter.startAgain()
     }
     
-    
-    func crateStartButton() {
+    func createLabel() {
+        infoLabel.center = view.center
+        infoLabel.text = "Ты выиграл!"
+        infoLabel.textColor = UIColor.white
+        infoLabel.font = UIFont.systemFont(ofSize: 35)
+        infoLabel.textAlignment = .center
+        
+        view.addSubview(infoLabel)
+        
+        infoLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            infoLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 300),
+            infoLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            infoLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
+        ])
+    }
+
+    func createStartButton() {
         let scoreLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
         scoreLabel.center = view.center
         scoreLabel.text = "Ваш счет: \(score)"
@@ -60,11 +78,9 @@ class ResultsViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150),
+            button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -350),
             button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100),
             button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100)
         ])
     }
 }
-
-

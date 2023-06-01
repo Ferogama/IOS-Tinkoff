@@ -26,6 +26,7 @@ class RatingViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }()
     
     let customBackgroundColor = UIColor(red: 72/255, green: 61/255, blue: 139/255, alpha: 1.0)
+    let topLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +34,26 @@ class RatingViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableViewReloading()
         reloadNotes()
         presenter.viewDidLoad()
+        createTopLabel()
     
     
+    }
+    private func createTopLabel() {
+       
+        topLabel.center = view.center
+        topLabel.text = "Топ 10 игроков:"
+        topLabel.textColor = UIColor.white
+        topLabel.font = UIFont.systemFont(ofSize: 35)
+        topLabel.textAlignment = .center
+        
+        view.addSubview(topLabel)
+        
+        topLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            topLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
+            topLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            topLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
+        ])
     }
     
     private func setupBarItem() {
@@ -61,10 +80,10 @@ class RatingViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -90),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 250),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 30),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -30),
-            tableView.heightAnchor.constraint(equalToConstant: 450)
+            tableView.heightAnchor.constraint(equalToConstant: 500)
         ])
     }
     

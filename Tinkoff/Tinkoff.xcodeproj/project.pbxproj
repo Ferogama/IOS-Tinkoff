@@ -209,13 +209,13 @@
 			path = QuestionModel;
 			sourceTree = "<group>";
 		};
-		D25E871B2A201C0900D7E8E3 /* GameEndModule */ = {
+		D25E871B2A201C0900D7E8E3 /* GameOverModule */ = {
 			isa = PBXGroup;
 			children = (
 				D25E871C2A201D2000D7E8E3 /* View */,
 				D25E871D2A201D3400D7E8E3 /* Presenter */,
 			);
-			path = GameEndModule;
+			path = GameOverModule;
 			sourceTree = "<group>";
 		};
 		D25E871C2A201D2000D7E8E3 /* View */ = {
@@ -415,7 +415,7 @@
 				D2A62B5929D1D6B00068F3C2 /* StartPageModule */,
 				D2A62B5829D1D6A40068F3C2 /* RegisterModule */,
 				D27C7D4729EAF97F0043A364 /* GameModule */,
-				D25E871B2A201C0900D7E8E3 /* GameEndModule */,
+				D25E871B2A201C0900D7E8E3 /* GameOverModule */,
 				D2887CE42A2925D50029ADAC /* ResultModule */,
 				D288DC332A28BDD70014D868 /* RatingModule */,
 				D2A62B5729D1D69B0068F3C2 /* Coordinator */,

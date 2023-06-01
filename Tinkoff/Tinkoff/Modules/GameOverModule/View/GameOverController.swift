@@ -5,7 +5,7 @@ import UIKit
 
 class GameOverController: UIViewController {
     var score: Int
-    
+    var infoLabel = UILabel()
     var presenter: GameOverViewControllerOutput
     
     init(presenter: GameOverViewControllerOutput, score: Int) {
@@ -17,7 +17,7 @@ class GameOverController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     
     
     override func viewDidLoad() {
@@ -29,8 +29,9 @@ class GameOverController: UIViewController {
             style: .plain,
             target: self, action: nil
         )
+        createLabel()
     }
-
+    
     @objc func startGame() {
         presenter.startPlaying()
     }
@@ -58,9 +59,26 @@ class GameOverController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150),
+            button.bottomAnchor.constraint(equalTo: scoreLabel.bottomAnchor, constant: 60),
             button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100),
             button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100)
+        ])
+    }
+    
+    func createLabel() {
+        infoLabel.center = view.center
+        infoLabel.text = "Ты проиграл!"
+        infoLabel.textColor = UIColor.white
+        infoLabel.font = UIFont.systemFont(ofSize: 35)
+        infoLabel.textAlignment = .center
+        
+        view.addSubview(infoLabel)
+        
+        infoLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            infoLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 300),
+            infoLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            infoLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
         ])
     }
 }
