@@ -158,7 +158,8 @@ class GameViewController: UIViewController {
     }
 
     private func displayQuestion() {
-        if currentQuestionIndex > 1 || currentQuestionIndex >= questions.count {
+        if currentQuestionIndex > 13 || currentQuestionIndex >= questions.count {
+            balance = score
             presenter.showResultController(userscore: score)
         } else {
             let currentQuestion = questions[currentQuestionIndex]
@@ -179,7 +180,7 @@ class GameViewController: UIViewController {
             print(score)
         } else {
             sender.backgroundColor = wrongAnswerColor
-            
+            balance = score
             presenter.finishTheGame(userscore: score)
             print("UR score is:" + "\(score)")
             return
