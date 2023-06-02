@@ -178,7 +178,6 @@ class GameViewController: UIViewController {
         if sender.currentTitle == currentQuestion.answers[currentQuestion.correctAnswerIndex] {
             score *= 2
             sender.backgroundColor = correctAnswerColor
-            print(score)
         } else {
             sender.backgroundColor = wrongAnswerColor
             saveUserBalanceInCoreData(name: name, score: score)

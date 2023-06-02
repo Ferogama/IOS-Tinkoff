@@ -6,4 +6,3 @@ protocol RegistrationModuleOutput: AnyObject {
     func registered(name: String, balance: Int)
     
 }
-
