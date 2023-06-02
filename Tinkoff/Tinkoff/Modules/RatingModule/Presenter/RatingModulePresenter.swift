@@ -38,7 +38,10 @@ extension RatingModulePresenter: RatingViewControllerOutput {
     }
     func viewDidLoad() {
         do {
-            users = try service.fetchUsers()
+            var fetchedUsers = try service.fetchUsers()
+            users = fetchedUsers.sorted(by: { left, right in
+                left.balance > right.balance
+            })
             view?.reloadNotes()
         } catch {
             print("some error")
