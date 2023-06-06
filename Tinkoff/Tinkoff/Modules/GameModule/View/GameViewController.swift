@@ -5,10 +5,8 @@ import CoreData
 
 class GameViewController: UIViewController {
     var score = 1
-    
     var name: String
     var balance: Int
-    
     var presenter: GameViewControllerOutput
     
     init(presenter: GameViewControllerOutput, name: String, balance: Int) {
@@ -21,7 +19,6 @@ class GameViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     var currentQuestionIndex = 0
     
@@ -52,7 +49,6 @@ class GameViewController: UIViewController {
         presenter.loadScreen()
     }
     
-    
     private func createQuestionNumberLabel() {
         questionNumberLabel.textAlignment = .center
         questionNumberLabel.font = UIFont.systemFont(ofSize: 20)
@@ -66,7 +62,6 @@ class GameViewController: UIViewController {
         questionNumberLabel.minimumScaleFactor = 0.5
         
         view.addSubview(questionNumberLabel)
-        
         questionNumberLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             questionNumberLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 70),
@@ -76,14 +71,11 @@ class GameViewController: UIViewController {
         ])
     }
     
-    
-    
     private func createScoreLabel() {
         scoreLabel.textAlignment = .center
         scoreLabel.numberOfLines = 0
         scoreLabel.font = UIFont.systemFont(ofSize: 20)
         scoreLabel.textColor = .white
-        
         scoreLabel.backgroundColor = customBackgroundColor
         scoreLabel.layer.borderColor = UIColor.white.cgColor
         scoreLabel.layer.borderWidth = 2
@@ -93,7 +85,6 @@ class GameViewController: UIViewController {
         scoreLabel.minimumScaleFactor = 0.5
         
         view.addSubview(scoreLabel)
-        
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             scoreLabel.topAnchor.constraint(equalTo: questionNumberLabel.bottomAnchor, constant: 20),
@@ -102,9 +93,6 @@ class GameViewController: UIViewController {
             scoreLabel.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
-    
-    
-    
     
     private func customizeQuestions() {
         questionLabel.textAlignment = .center
@@ -134,10 +122,9 @@ class GameViewController: UIViewController {
             for _ in 0..<2 {
                 let button = UIButton()
                 button.titleLabel?.numberOfLines = 0
-                button.titleLabel?.minimumScaleFactor = 0.5 // уменьшаем размер текста не менее чем в два раза
-                button.titleLabel?.adjustsFontSizeToFitWidth = true // автоматически уменьшаем размер текста, чтобы он помещался внутри кнопки
-                button.titleLabel?.font = UIFont.systemFont(ofSize: 22, weight: .semibold) // устанавливаем начальный размер шрифта
-                
+                button.titleLabel?.minimumScaleFactor = 0.5
+                button.titleLabel?.adjustsFontSizeToFitWidth = true
+                button.titleLabel?.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
                 button.titleLabel?.font = UIFont.systemFont(ofSize: 22)
                 button.setTitleColor(.black, for: .normal)
                 button.layer.cornerRadius = 30
@@ -145,7 +132,6 @@ class GameViewController: UIViewController {
                 buttonRow.addArrangedSubview(button)
                 answersButtons.append(button)
             }
-            
             view.addSubview(buttonRow)
             buttonRow.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
@@ -155,17 +141,15 @@ class GameViewController: UIViewController {
                 buttonRow.heightAnchor.constraint(equalToConstant: 60)
             ])
         }
-        
     }
     
     private func displayQuestion() {
         if currentQuestionIndex > 13 || currentQuestionIndex >= questions.count {
-            saveUserBalanceInCoreData(name: name, score: score)
+            presenter.saveUserBalanceInCoreData(name: name, score: score)
             presenter.showResultController(userscore: score)
         } else {
             let currentQuestion = questions[currentQuestionIndex]
             questionLabel.text = currentQuestion.questionText
-            
             for i in 0..<currentQuestion.answers.count {
                 answersButtons[i].setTitle(currentQuestion.answers[i], for: .normal)
                 answersButtons[i].backgroundColor = buttonBackgroundColor
@@ -180,23 +164,20 @@ class GameViewController: UIViewController {
             sender.backgroundColor = correctAnswerColor
         } else {
             sender.backgroundColor = wrongAnswerColor
-            saveUserBalanceInCoreData(name: name, score: score)
+            presenter.saveUserBalanceInCoreData(name: name, score: score)
             presenter.finishTheGame(userscore: score)
             print("UR score is:" + "\(score)")
             return
         }
         
-        // Update question number label and score label
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [self] in
             let nextQuestionIndex = self.currentQuestionIndex + 1
             let questionNumberText = "Question \(nextQuestionIndex)"
             let scoreText = "Score: \(self.score)"
-            
             self.questionNumberLabel.text = questionNumberText
             scoreLabel.text = scoreText
         }
         
-        // задержка перед показом следующего вопроса
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             if self.currentQuestionIndex < self.questions.count - 1 {
                 self.currentQuestionIndex += 1
@@ -209,39 +190,12 @@ class GameViewController: UIViewController {
     }
     
     private func customizeAllButtons() {
-        let allButtons: [UIButton] = [/* add all buttons you have here */]
+        let allButtons: [UIButton] = []
         for button in allButtons {
             button.backgroundColor = buttonBackgroundColor
             button.layer.cornerRadius = 10
             button.titleLabel?.font = UIFont.systemFont(ofSize: 22)
             button.setTitleColor(.black, for: .normal)
-        }
-    }
-    
-    func saveUserBalanceInCoreData(name: String, score: Int) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
-        // Ищем пользователя в CoreData
-        let request: NSFetchRequest<User> = User.fetchRequest()
-        request.predicate = NSPredicate(format: "name = %@", name)
-        var user: User?
-        do {
-            let results = try context.fetch(request)
-            if results.count > 0 {
-                user = results.first
-            }
-        } catch {
-            print("Error fetching User from CoreData: \(error.localizedDescription)")
-        }
-     
-        // Обновляем баланс пользователя
-        user?.balance += Int64(score)
-        
-        do {
-            try context.save()
-            print("User balance saved in CoreData.")
-        } catch {
-            print("Error saving User balance in CoreData: \(error.localizedDescription)")
         }
     }
 }
@@ -263,7 +217,6 @@ extension GameViewController: GameViewControllerInput {
     }
         
     func showQuestions() {
-
         questions.append(Question(questionText: "Какую фамилию носил главный герой поэмы А. Твардовского?", answers: ["Тёркин", "Мишустин", "Путин", "Балайкин"], correctAnswerIndex: 0))
         questions.append(Question(questionText: "Как часто называют человека, который не реагируют на чужие переживания?", answers: ["Лепеша", "Галета", "Пряник", "Сухарь"], correctAnswerIndex: 3))
         questions.append(Question(questionText: "Кого согласно поговорке, берут за рога, смело приступая к делу?", answers: ["Барана", "Быка", "Мужа", "Лося"], correctAnswerIndex: 1))
@@ -291,18 +244,6 @@ extension GameViewController: GameViewControllerInput {
         questions.append(Question(questionText: "Какая самая часто используемая клавиша на клавиатуре компьютера?", answers: ["Пробел", "Enter", "Tab", "Shift"], correctAnswerIndex: 0))
         questions.append(Question(questionText: "Какая столица называется 'Городом ангелов'?", answers: ["Сидней", "Лос-Анджелес", "Стамбул", "Рио-де-Жанейро"], correctAnswerIndex: 1))
         questions.append(Question(questionText: "Какая река является самой длинной в мире?", answers: ["Амазонка", "Нил", "Янцзы", "Миссисипи"], correctAnswerIndex: 0))
-
         questions.shuffle()
     }
-    func playMusic() {
-        do {
-            audio = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "game", ofType: "mp3")!))
-            audio.prepareToPlay()
-        } catch {
-            print("Cant load music")
-        }
-        audio.currentTime = 0
-        audio.play()
-    }
 }
-

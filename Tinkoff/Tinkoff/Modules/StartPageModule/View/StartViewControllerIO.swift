@@ -8,7 +8,6 @@ protocol StartViewControllerOutput: AnyObject {
     func finishPlaying()
     func didTapLogoutButton()
     func didTapRatingButton()
-    
 }
 
 protocol StartViewControllerInput: AnyObject {
@@ -17,5 +16,4 @@ protocol StartViewControllerInput: AnyObject {
     func startMusic()
     func stopMusic()
     func reloadAfterLogout()
-    
 }

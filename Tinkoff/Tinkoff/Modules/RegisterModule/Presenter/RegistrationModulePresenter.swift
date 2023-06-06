@@ -3,18 +3,12 @@
 import UIKit
 
 final class RegistrationModulePresenter {
-
     weak var view: RegistrationViewControllerInput?
-    
     var users:[RAWUser] = []
-    
     private let service: UserServiceProtocol
-   
     weak var registrationModuleOutput: RegistrationModuleOutput?
     
-
     init(
-        
         view: RegistrationViewControllerInput? = nil,
         registrationModuleOutput: RegistrationModuleOutput,
         service: UserServiceProtocol
@@ -30,8 +24,6 @@ extension RegistrationModulePresenter: RegistrationViewControllerOutput {
         registrationModuleOutput?.registered(name: users[indexPath].name, balance: users[indexPath].balance)
     }
     
-
-    
     func cellsCount() -> Int {
         users.count
     }
@@ -39,8 +31,6 @@ extension RegistrationModulePresenter: RegistrationViewControllerOutput {
     func data(for index: Int) -> (String, String) {
         return (users[index].name, "\(users[index].balance)")
     }
-    
-    
     
     func didTapBackButton() {
         registrationModuleOutput?.moveBack()

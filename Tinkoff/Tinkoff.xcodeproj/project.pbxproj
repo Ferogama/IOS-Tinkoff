@@ -46,7 +46,6 @@
 		D2A62B5F29D1D6FE0068F3C2 /* RegistrationViewControllerIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B5E29D1D6FE0068F3C2 /* RegistrationViewControllerIO.swift */; };
 		D2A62B6129D1D7100068F3C2 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B6029D1D7100068F3C2 /* RegistrationViewController.swift */; };
 		D2A62B6329D1D71C0068F3C2 /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A62B6229D1D71C0068F3C2 /* FlowCoordinator.swift */; };
-		D2C2972E2A0E5F4200CB2648 /* game.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2C2972D2A0E5F4200CB2648 /* game.mp3 */; };
 		D2C297302A0E64CA00CB2648 /* mainPage.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2C2972F2A0E64CA00CB2648 /* mainPage.mp3 */; };
 		D2E7B2E62A20DA2600335D0E /* GameOverControllerIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7B2E52A20DA2600335D0E /* GameOverControllerIO.swift */; };
 /* End PBXBuildFile section */
@@ -112,7 +111,6 @@
 		D2A62B5E29D1D6FE0068F3C2 /* RegistrationViewControllerIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewControllerIO.swift; sourceTree = "<group>"; };
 		D2A62B6029D1D7100068F3C2 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		D2A62B6229D1D71C0068F3C2 /* FlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
-		D2C2972D2A0E5F4200CB2648 /* game.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = game.mp3; path = ../../../../../game.mp3; sourceTree = "<group>"; };
 		D2C2972F2A0E64CA00CB2648 /* mainPage.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = mainPage.mp3; path = ../../../../../mainPage.mp3; sourceTree = "<group>"; };
 		D2E7B2E52A20DA2600335D0E /* GameOverControllerIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverControllerIO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -453,7 +451,6 @@
 			isa = PBXGroup;
 			children = (
 				D2C2972F2A0E64CA00CB2648 /* mainPage.mp3 */,
-				D2C2972D2A0E5F4200CB2648 /* game.mp3 */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -565,7 +562,6 @@
 				D2C297302A0E64CA00CB2648 /* mainPage.mp3 in Resources */,
 				D2A62B3329D1D39E0068F3C2 /* LaunchScreen.storyboard in Resources */,
 				D2A62B3029D1D39E0068F3C2 /* Assets.xcassets in Resources */,
-				D2C2972E2A0E5F4200CB2648 /* game.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

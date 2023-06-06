@@ -14,7 +14,7 @@ class StartViewController: UIViewController {
     private var isLoggedOut = false
     var logoutButton = UIButton(type: .system)
     let playButton = UIButton(type: .system)
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = customBackgroundColor
@@ -25,22 +25,17 @@ class StartViewController: UIViewController {
         presenter?.viewDidLoad()
         presenter?.startPlaying()
         
-        
-        
     }
     
-    //MARK: (Play Button) ↓
     private func addRegisterButton() {
-        
         registerButton.backgroundColor = .black
         registerButton.layer.borderColor = UIColor.white.cgColor
         registerButton.layer.cornerRadius = 15
         registerButton.setTitle("Register", for: .normal)
         registerButton.addTarget(self, action: #selector(registerButtonDidTap), for: .touchUpInside)
+        
         view.addSubview(registerButton)
-        
         registerButton.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             registerButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -300),
             registerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 250),
@@ -70,7 +65,7 @@ class StartViewController: UIViewController {
     
     @objc private func tappedPlay() {
         presenter?.tappedPlayButton()
-       
+        
     }
     
     @objc private func registerButtonDidTap(_ sender: UIButton) {
@@ -80,14 +75,11 @@ class StartViewController: UIViewController {
     @objc private func tappedTopButton() {
         presenter?.didTapRatingButton()
     }
-    
-    //MARK: (Play Button) ↑
-    
-    
-    //MARK: (LABELS) ↓
+
     func addNameLabel() {
         nameLabel.textColor = .white
         nameLabel.textAlignment = .left
+        
         view.addSubview(nameLabel)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -100,6 +92,7 @@ class StartViewController: UIViewController {
     func addBalanceLabel() {
         balanceLabel.textColor = .white
         balanceLabel.textAlignment = .left
+        
         view.addSubview(balanceLabel)
         balanceLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -108,14 +101,13 @@ class StartViewController: UIViewController {
             balanceLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
         ])
     }
-    //MARK: (LABELS) ↑
     
     private func createOthersButtons() {
-        
         let likeButton = UIButton(type: .system)
         likeButton.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
         likeButton.tintColor = .white
         likeButton.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        
         view.addSubview(likeButton)
         likeButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -126,9 +118,10 @@ class StartViewController: UIViewController {
         
         volumeButton.setImage(UIImage(systemName: "speaker.wave.2"), for: .normal)
         volumeButton.addTarget(self, action: #selector(volumeButtonTapped), for: .touchUpInside)
-
+        
         volumeButton.tintColor = .white
         volumeButton.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        
         view.addSubview(volumeButton)
         volumeButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -138,11 +131,11 @@ class StartViewController: UIViewController {
         ])
         
         let topButton = UIButton(type: .system)
-    
         topButton.setImage(UIImage(systemName: "trophy"), for: .normal)
         topButton.tintColor = .white
         topButton.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         topButton.addTarget(self, action: #selector (tappedTopButton), for: .touchUpInside)
+        
         view.addSubview(topButton)
         topButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -151,11 +144,13 @@ class StartViewController: UIViewController {
             topButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -320)
         ])
     }
+    
     private func createLogoutButton() {
         logoutButton.isHidden = false
         logoutButton.setImage(UIImage(systemName: "rectangle.portrait.and.arrow.right"), for: .normal)
         logoutButton.tintColor = .white
         logoutButton.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        
         view.addSubview(logoutButton)
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -165,7 +160,7 @@ class StartViewController: UIViewController {
         
         logoutButton.addTarget(self, action: #selector(logoutButtonTapped), for: .touchUpInside)
     }
-
+    
     @objc private func logoutButtonTapped() {
         presenter?.didTapLogoutButton()
         
@@ -193,23 +188,20 @@ extension StartViewController: StartViewControllerInput {
         
     }
     
-    
     func showName(name: String, balance: Int) {
-       
         nameLabel.text = "Username: " + name
         balanceLabel.text = "Balance: \(balance)"
         createPlayButton()
         showRegisterButton()
         createLogoutButton()
     }
-
     
     func showImage(image: UIImage?) {
         let imageView = UIImageView()
         imageView.image = image
         imageView.contentMode = .scaleAspectFit
-        view.addSubview(imageView)
         
+        view.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 16),
@@ -218,6 +210,7 @@ extension StartViewController: StartViewControllerInput {
             imageView.heightAnchor.constraint(equalToConstant: 168)
         ])
     }
+    
     func startMusic() {
         do {
             audio = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "mainPage", ofType: "mp3")!))
@@ -228,6 +221,7 @@ extension StartViewController: StartViewControllerInput {
         audio.currentTime = 0
         audio.play()
     }
+    
     func stopMusic() {
         audio.stop()
     }

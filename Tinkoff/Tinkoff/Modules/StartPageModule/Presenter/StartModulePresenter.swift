@@ -10,11 +10,9 @@ final class StartModulePresenter {
     init(
         view: StartViewControllerInput? = nil,
         moduleOutput: StartModuleOutput
-     
     ) {
         self.view = view
         self.moduleOutput = moduleOutput
-    
     }
 }
 
@@ -27,6 +25,7 @@ extension StartModulePresenter: StartViewControllerOutput {
         view?.startMusic()
         
     }
+    
     func finishPlaying() {
         view?.stopMusic()
     }
@@ -34,7 +33,6 @@ extension StartModulePresenter: StartViewControllerOutput {
     func tappedPlayButton() {
         guard let name = name, let balance = balance else {return}
         moduleOutput?.moveToGameScreen(name: name, balance: balance)
-        
     }
     
     func didTapRatingButton() {
@@ -47,15 +45,12 @@ extension StartModulePresenter: StartViewControllerOutput {
 
     func viewDidLoad() {
         view?.showImage(image: UIImage(named: "logo"))
-        
     }
 }
 extension StartModulePresenter: StartModuleInput {
-   
     func registeredUser(name: String, balance: Int) {
         view?.showName(name: name, balance: balance)
         self.name = name
         self.balance = balance
     }
-    
 }

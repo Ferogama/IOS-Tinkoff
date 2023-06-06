@@ -229,22 +229,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1E6644CB-A6FC-4C05-92D6-310691B3841E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Tinkoff/Modules/StartPageModule/View/StartViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "198"
-            endingLineNumber = "198"
-            landmarkName = "showName(name:balance:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "8DA53AEA-3533-4AFF-8E5C-1F66AD1B7B63"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -252,8 +236,8 @@
             filePath = "Tinkoff/Modules/GameModule/Presenter/GameModulePresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "finishTheGame(userscore:)"
             landmarkType = "7">
          </BreakpointContent>
