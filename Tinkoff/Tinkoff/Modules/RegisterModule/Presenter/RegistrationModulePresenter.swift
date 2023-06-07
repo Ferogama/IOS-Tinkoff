@@ -44,7 +44,7 @@ extension RegistrationModulePresenter: RegistrationViewControllerOutput {
             registrationModuleOutput?.registered(name: userName, balance: balanceString)
             
         } catch {
-            print("alba")
+            print("Couldnt save user")
         }
     }
     

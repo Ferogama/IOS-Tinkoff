@@ -68,7 +68,7 @@ class StartViewController: UIViewController {
         
     }
     
-    @objc private func registerButtonDidTap(_ sender: UIButton) {
+    @objc private func registerButtonDidTap() {
         presenter?.didTapRegister()
     }
     
