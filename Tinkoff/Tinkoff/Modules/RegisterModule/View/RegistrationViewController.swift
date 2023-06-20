@@ -140,8 +140,6 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
     private func tableViewReloading() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = customBackgroundColor
-        
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

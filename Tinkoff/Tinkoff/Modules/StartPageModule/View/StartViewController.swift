@@ -8,7 +8,8 @@ class StartViewController: UIViewController {
     var nameLabel = UILabel()
     var balanceLabel = UILabel()
     let registerButton = UIButton()
-    let customBackgroundColor = UIColor(red: 72/255, green: 61/255, blue: 139/255, alpha: 1.0)
+    let customLightBackgroundColor = UIColor(red: 72/255, green: 61/255, blue: 139/255, alpha: 1.0)
+    let customBlackBackgroundColor = UIColor(red: 42/255, green: 0/255, blue: 47/255, alpha: 1.0)
     var isRegistered:Bool = false
     let volumeButton = UIButton(type: .system)
     private var isLoggedOut = false
@@ -17,7 +18,8 @@ class StartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = customBackgroundColor
+        self.view.backgroundColor = customLightBackgroundColor
+        //setThemes()
         addRegisterButton()
         addNameLabel()
         addBalanceLabel()
@@ -25,6 +27,18 @@ class StartViewController: UIViewController {
         presenter?.viewDidLoad()
         presenter?.startPlaying()
         
+    }
+    private func setThemes() {
+        self.view.backgroundColor = UIColor {traitCollection in
+            UIColor { traitCollection in
+                switch traitCollection.userInterfaceStyle {
+                case .dark:
+                    return self.customBlackBackgroundColor
+                default:
+                    return self.customLightBackgroundColor
+                }
+            }
+        }
     }
     
     private func addRegisterButton() {
