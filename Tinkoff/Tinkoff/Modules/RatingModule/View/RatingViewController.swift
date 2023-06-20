@@ -75,7 +75,12 @@ class RatingViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsSelection = false
+        tableView.isScrollEnabled = false
+        tableView.layer.cornerRadius = 10
+        tableView.layer.masksToBounds = true
+        tableView.separatorStyle = .none
         tableView.backgroundColor = customBackgroundColor
+        
         view.addSubview(tableView)
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
