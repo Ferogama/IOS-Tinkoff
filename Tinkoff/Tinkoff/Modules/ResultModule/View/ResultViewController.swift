@@ -46,7 +46,6 @@ class ResultsViewController: UIViewController {
         infoLabel.textAlignment = .center
         
         view.addSubview(infoLabel)
-        
         infoLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             infoLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 300),
@@ -56,31 +55,34 @@ class ResultsViewController: UIViewController {
     }
 
     func createStartButton() {
-        let scoreLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
-        scoreLabel.center = view.center
+        let scoreLabel = UILabel()
         scoreLabel.text = "Ваш счет: \(score)"
         scoreLabel.textColor = UIColor.white
         scoreLabel.font = UIFont.systemFont(ofSize: 25)
         scoreLabel.textAlignment = .center
         scoreLabel.center = view.center
         view.addSubview(scoreLabel)
-        
-        let button = UIButton(type: .system)
-        button.setTitle("Начать заново", for: .normal)
-        button.backgroundColor = .white
-        button.setTitleColor(UIColor .black, for: .normal)
-        button.layer.cornerRadius = 15
-        button.layer.borderWidth = 2.0
-        button.layer.borderColor = UIColor.black.cgColor
-        
-        button.addTarget(self, action: #selector(startGame), for: .touchUpInside)
-        view.addSubview(button)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
+        scoreLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -350),
-            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100),
-            button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100)
+            scoreLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            scoreLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        
+        let startAgainButton = UIButton(type: .system)
+        startAgainButton.setTitle("Начать заново", for: .normal)
+        startAgainButton.backgroundColor = .white
+        startAgainButton.setTitleColor(UIColor .black, for: .normal)
+        startAgainButton.layer.cornerRadius = 15
+        startAgainButton.layer.borderWidth = 2.0
+        startAgainButton.layer.borderColor = UIColor.black.cgColor
+        startAgainButton.addTarget(self, action: #selector(startGame), for: .touchUpInside)
+        
+        view.addSubview(startAgainButton)
+        startAgainButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            startAgainButton.bottomAnchor.constraint(equalTo: scoreLabel.bottomAnchor, constant: 60),
+            startAgainButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100),
+            startAgainButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100)
         ])
     }
 }
