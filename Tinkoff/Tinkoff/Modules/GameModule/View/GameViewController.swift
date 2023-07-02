@@ -215,7 +215,8 @@ extension GameViewController: GameViewControllerInput {
             imageView.heightAnchor.constraint(equalToConstant: 168)
         ])
     }
-        
+    
+    //создаем вопросы
     func showQuestions() {
         questions.append(Question(questionText: "Какую фамилию носил главный герой поэмы А. Твардовского?", answers: ["Тёркин", "Мишустин", "Путин", "Балайкин"], correctAnswerIndex: 0))
         questions.append(Question(questionText: "Как часто называют человека, который не реагируют на чужие переживания?", answers: ["Лепеша", "Галета", "Пряник", "Сухарь"], correctAnswerIndex: 3))
