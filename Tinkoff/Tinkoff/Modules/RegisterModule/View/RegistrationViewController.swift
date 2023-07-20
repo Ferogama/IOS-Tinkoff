@@ -32,6 +32,7 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupThemes()
         setupBarItem()
         setupField()
         setupRegisterButton()
@@ -41,7 +42,11 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         reloadNotes()
         presenter.viewDidLoad()
     }
-  
+    
+    private func setupThemes() {
+        view.backgroundColor = UIColor(named: "backgroundColor")
+    }
+    
     private func setupField() {
         userField.placeholder = "Enter your name"
         userField.borderStyle = .roundedRect
@@ -57,7 +62,6 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
     }
     
     private func setupBarItem() {
-        view.backgroundColor = customBackgroundColor
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             title: "←",
             style: .plain,
@@ -110,11 +114,6 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
         present(alert, animated: true, completion: nil)
     }
     
-    func showUserData(name: String, balance: Int) {
-        let message = "Name: \(name)\nBalance: \(balance)"
-        showAlert(title: "Userdata", message: message)
-    }
-
     private func addNameLabel() {
         view.addSubview(nameLabel)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -127,7 +126,6 @@ class RegistrationViewController: UIViewController, UserViewProtocol, UITableVie
     
     private func addBalanceLabel() {
         balanceLabel.text = ""
-        
         view.addSubview(balanceLabel)
         balanceLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

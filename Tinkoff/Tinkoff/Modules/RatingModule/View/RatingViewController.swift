@@ -30,14 +30,18 @@ class RatingViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupThemes()
         setupBarItem()
         tableViewReloading()
         reloadNotes()
         presenter.viewDidLoad()
         createTopLabel()
-    
-    
     }
+    
+    private func setupThemes() {
+        view.backgroundColor = UIColor(named: "backgroundColor")
+    }
+    
     private func createTopLabel() {
        
         topLabel.center = view.center
@@ -57,7 +61,6 @@ class RatingViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     private func setupBarItem() {
-        view.backgroundColor = customBackgroundColor
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             title: "←",
             style: .plain,
@@ -79,7 +82,7 @@ class RatingViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.layer.cornerRadius = 10
         tableView.layer.masksToBounds = true
         tableView.separatorStyle = .none
-        tableView.backgroundColor = customBackgroundColor
+        tableView.backgroundColor = UIColor(named: "backgroundColor")
         
         view.addSubview(tableView)
         
@@ -103,12 +106,9 @@ class RatingViewController: UIViewController, UITableViewDelegate, UITableViewDa
         configuration.text = data.0
         configuration.secondaryText = "\(data.1)"
         cell.contentConfiguration = configuration
-        
         return cell
     }
-   
 }
-
 
 extension RatingViewController: RatingViewControllerInput {
     func reloadNotes() {

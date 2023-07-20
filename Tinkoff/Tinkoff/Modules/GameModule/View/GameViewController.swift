@@ -35,7 +35,7 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = customBackgroundColor
+        setupThemes()
         createQuestions()
         customizeAllButtons()
         customizeQuestions()
@@ -43,6 +43,10 @@ class GameViewController: UIViewController {
         createQuestionNumberLabel()
         createScoreLabel()
         
+    }
+    
+    private func setupThemes() {
+        view.backgroundColor = UIColor(named: "backgroundColor")
     }
     
     private func createQuestions() {
@@ -53,7 +57,7 @@ class GameViewController: UIViewController {
         questionNumberLabel.textAlignment = .center
         questionNumberLabel.font = UIFont.systemFont(ofSize: 20)
         questionNumberLabel.textColor = .white
-        questionNumberLabel.backgroundColor = customBackgroundColor
+        questionNumberLabel.backgroundColor = UIColor(named: "backgroundColor")
         questionNumberLabel.layer.borderColor = UIColor.white.cgColor
         questionNumberLabel.layer.borderWidth = 2
         questionNumberLabel.layer.cornerRadius = 15
@@ -76,7 +80,7 @@ class GameViewController: UIViewController {
         scoreLabel.numberOfLines = 0
         scoreLabel.font = UIFont.systemFont(ofSize: 20)
         scoreLabel.textColor = .white
-        scoreLabel.backgroundColor = customBackgroundColor
+        scoreLabel.backgroundColor = UIColor(named: "backgroundColor")
         scoreLabel.layer.borderColor = UIColor.white.cgColor
         scoreLabel.layer.borderWidth = 2
         scoreLabel.layer.cornerRadius = 15
@@ -98,7 +102,7 @@ class GameViewController: UIViewController {
         questionLabel.textAlignment = .center
         questionLabel.font = UIFont.systemFont(ofSize: 25)
         questionLabel.numberOfLines = 0
-        questionLabel.backgroundColor = customBackgroundColor
+        questionLabel.backgroundColor = UIColor(named: "backgroundColor")
         questionLabel.layer.borderColor = UIColor.white.cgColor
         questionLabel.layer.borderWidth = 2
         questionLabel.layer.cornerRadius = 30
@@ -216,7 +220,7 @@ extension GameViewController: GameViewControllerInput {
         ])
     }
     
-    //создаем вопросы
+    //создаем вопросый
     func showQuestions() {
         questions.append(Question(questionText: "Какую фамилию носил главный герой поэмы А. Твардовского?", answers: ["Тёркин", "Мишустин", "Путин", "Балайкин"], correctAnswerIndex: 0))
         questions.append(Question(questionText: "Как часто называют человека, который не реагируют на чужие переживания?", answers: ["Лепеша", "Галета", "Пряник", "Сухарь"], correctAnswerIndex: 3))

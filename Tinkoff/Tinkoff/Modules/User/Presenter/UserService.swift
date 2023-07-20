@@ -2,7 +2,6 @@ import UIKit
 import CoreData
 
 protocol UserServiceProtocol  {
-    
     func saveUser(name: String, balanceString: String) throws -> RAWUser
     func fetchUsers() throws -> [RAWUser]
 }
@@ -11,7 +10,6 @@ enum UserError: Error {
     case invalidUsername
 }
 class UserService: UserServiceProtocol {
-    
     func saveUser(name: String, balanceString: String) throws -> RAWUser {
         guard let balance = Int(balanceString) else {
             throw UserError.invalidBalance

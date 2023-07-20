@@ -19,7 +19,7 @@ class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = customLightBackgroundColor
-        //setThemes()
+        setThemes()
         addRegisterButton()
         addNameLabel()
         addBalanceLabel()
@@ -29,22 +29,25 @@ class StartViewController: UIViewController {
         
     }
     private func setThemes() {
-        self.view.backgroundColor = UIColor {traitCollection in
-            UIColor { traitCollection in
-                switch traitCollection.userInterfaceStyle {
-                case .dark:
-                    return self.customBlackBackgroundColor
-                default:
-                    return self.customLightBackgroundColor
-                }
-            }
-        }
+//        self.view.backgroundColor = UIColor {traitCollection in
+//            UIColor { traitCollection in
+//                switch traitCollection.userInterfaceStyle {
+//                case .dark:
+//                    return self.customBlackBackgroundColor
+//                default:
+//                    return self.customLightBackgroundColor
+//                }
+//            }
+//        }
+        view.backgroundColor = UIColor(named: "backgroundColor")
     }
     
     private func addRegisterButton() {
-        registerButton.backgroundColor = .black
-        registerButton.layer.borderColor = UIColor.white.cgColor
+        registerButton.backgroundColor = UIColor(named: "backgroundColor")
         registerButton.layer.cornerRadius = 15
+        registerButton.layer.borderWidth = 2.0
+        registerButton.layer.borderColor = UIColor.white.cgColor
+        registerButton.setTitleColor(UIColor .white, for: .normal)
         registerButton.setTitle("Register", for: .normal)
         registerButton.addTarget(self, action: #selector(registerButtonDidTap), for: .touchUpInside)
         
