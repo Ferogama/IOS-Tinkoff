@@ -23,7 +23,7 @@ class GameViewController: UIViewController {
     var currentQuestionIndex = 0
     
     let customBackgroundColor = UIColor(red: 72/255, green: 61/255, blue: 139/255, alpha: 1.0)
-    //let buttonBackgroundColor = UIColor(red: 136/255, green: 204/255, blue: 213/255, alpha: 1.0)
+    //let answerButtonBackgroundColor = UIColor(red: 136/255, green: 204/255, blue: 213/255, alpha: 1.0)
     let answerButtonBackgroundColor = UIColor(red: 40/255, green: 237/255, blue: 231/255, alpha: 1.0)
     let correctAnswerColor = UIColor(red: 0/255, green: 255/255, blue: 0/255, alpha: 1.0)
     let wrongAnswerColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1.0)
@@ -223,7 +223,7 @@ extension GameViewController: GameViewControllerInput {
         ])
     }
     
-    //создаем вопросый
+    //создаем вопросы
     func showQuestions() {
         questions.append(Question(questionText: "Какую фамилию носил главный герой поэмы А. Твардовского?", answers: ["Тёркин", "Мишустин", "Путин", "Балайкин"], correctAnswerIndex: 0))
         questions.append(Question(questionText: "Как часто называют человека, который не реагируют на чужие переживания?", answers: ["Лепеша", "Галета", "Пряник", "Сухарь"], correctAnswerIndex: 3))
