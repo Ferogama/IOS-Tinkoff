@@ -23,9 +23,10 @@ class GameViewController: UIViewController {
     var currentQuestionIndex = 0
     
     let customBackgroundColor = UIColor(red: 72/255, green: 61/255, blue: 139/255, alpha: 1.0)
-    let buttonBackgroundColor = UIColor(red: 136/255, green: 204/255, blue: 213/255, alpha: 1.0)
-    let correctAnswerColor = UIColor(red: 103/255, green: 236/255, blue: 139/255, alpha: 1.0)
-    let wrongAnswerColor = UIColor(red: 236/255, green: 103/255, blue: 103/255, alpha: 1.0)
+    //let buttonBackgroundColor = UIColor(red: 136/255, green: 204/255, blue: 213/255, alpha: 1.0)
+    let answerButtonBackgroundColor = UIColor(red: 40/255, green: 237/255, blue: 231/255, alpha: 1.0)
+    let correctAnswerColor = UIColor(red: 0/255, green: 255/255, blue: 0/255, alpha: 1.0)
+    let wrongAnswerColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1.0)
     let questionNumberLabel = UILabel()
     var questionLabel = UILabel()
     let scoreLabel = UILabel()
@@ -156,7 +157,7 @@ class GameViewController: UIViewController {
             questionLabel.text = currentQuestion.questionText
             for i in 0..<currentQuestion.answers.count {
                 answersButtons[i].setTitle(currentQuestion.answers[i], for: .normal)
-                answersButtons[i].backgroundColor = buttonBackgroundColor
+                answersButtons[i].backgroundColor = answerButtonBackgroundColor
             }
         }
     }
@@ -168,10 +169,12 @@ class GameViewController: UIViewController {
             sender.backgroundColor = correctAnswerColor
         } else {
             sender.backgroundColor = wrongAnswerColor
-            presenter.saveUserBalanceInCoreData(name: name, score: score)
-            presenter.finishTheGame(userscore: score)
-            print("UR score is:" + "\(score)")
-            return
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { [self] in
+                presenter.saveUserBalanceInCoreData(name: name, score: score)
+                presenter.finishTheGame(userscore: score)
+                print("UR score is:" + "\(score)")
+                return
+            }
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [self] in
@@ -196,7 +199,7 @@ class GameViewController: UIViewController {
     private func customizeAllButtons() {
         let allButtons: [UIButton] = []
         for button in allButtons {
-            button.backgroundColor = buttonBackgroundColor
+            button.backgroundColor = answerButtonBackgroundColor
             button.layer.cornerRadius = 10
             button.titleLabel?.font = UIFont.systemFont(ofSize: 22)
             button.setTitleColor(.black, for: .normal)

@@ -7,7 +7,6 @@ import CoreData
 
 class RatingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
     var presenter: RatingViewControllerOutput
     
     init(presenter: RatingViewControllerOutput) {
